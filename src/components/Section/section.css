@@ -1,0 +1,45 @@
+
+.container--text {
+  width: min(45em, 100%);
+}
+
+
+main section:first-child {
+  padding-top: 5rem;
+}
+
+  section .container {
+    width: min( 100%);
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    padding-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 45em) {
+   main section:first-child {
+      padding-top: 25rem;
+    }
+
+    section .container {
+      width: min( 100%);
+     }
+  }
+
+
+  @media screen and (min-width: 100em) {
+    main section:first-child {
+       padding-top: 35rem;
+     }
+
+     section .container {
+      width: min(100%);
+     }
+   }
+   
+ 
+ 

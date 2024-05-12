@@ -1,0 +1,159 @@
+:root{
+   
+    --black-box-shadow: 0 0 0.5rem #0002;
+
+       /* Heights */
+       --banner-base-height: 50vh;
+       --banner-large-height: 75vh;
+   
+   
+       /* Verticle align */
+       --banner-vertical-align: center;
+   
+   
+       /* Horizontal align */
+       --banner-hor-align: flex-start;
+     
+   
+       /* Text align */
+       --text-align: left;
+
+       /* small photo */
+       --small-img-size: 35vh;
+}
+
+
+
+  
+  .banner{
+    background-size: cover; 
+    background-position: bottom;
+    min-height: var(--banner-base-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: var(--text-align);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: absolute;
+    z-index: 1;
+   
+  }
+  
+  .banner__content{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: min(55em, 100%);
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: var( --text-align);
+   
+  }
+  
+  
+  .banner__header{
+    color: #F0E6D2;
+    text-shadow: 0.2em 0.3rem 0.5rem rgba(0, 0, 0, 0.9);
+    font-size: 1.2rem;
+    animation: HeadFadeIn 0.8s ease-in-out forwards;
+    padding-top: 2rem;
+  }
+
+
+  /* .banner__img {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards ;
+    width: 22rem;
+  
+    } */
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        0% {
+            opacity: 0;
+        }
+    }
+
+
+
+    @keyframes HeadFadeIn {
+        0% {
+            
+            opacity: 0;
+            transform: translateX(-10rem);
+
+        }
+        100% {
+            
+            opacity: 1;
+            transform: translateX(0rem);
+        }
+
+    }
+
+    .banner__content .btn {
+        animation: HeadFadeIn 1.2s ease-in-out forwards;
+    }
+
+    .banner__content .btn:hover {
+          background-color: #fad6a9;
+    }
+
+    
+
+  
+  .banner__para{
+    color:white;
+    font-size: 0.7rem;
+    line-height: 1.1rem ;
+    animation: HeadFadeIn 1s ease-in-out forwards;
+  }
+  
+  .banner--top{
+    --banner-vertical-align: flex-start;
+  } 
+  
+  .banner--bottom{
+    --banner-vertical-align: flex-end;
+  }
+  
+  .banner--center{ 
+    --banner-vertical-align: center;
+    --banner-hor-align: center;
+    --text-align: center;
+  } 
+  
+  .banner--large{
+    min-height: var(--banner-large-height);
+  } 
+  
+  .banner--right{
+    --banner-hor-align: flex-end;
+    --text-align: right;
+    
+  }
+
+
+  /* banner media queries */
+  
+  @media only screen and (min-width: 45em){
+    .banner__content{
+      
+      margin: 0rem;
+    }
+
+    .banner__para{
+       font-size: 1rem;
+    }
+
+    .banner__header{
+      font-size: 1.8rem;
+    }
+  }

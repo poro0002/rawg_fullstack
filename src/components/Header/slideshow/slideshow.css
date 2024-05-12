@@ -1,0 +1,128 @@
+.slide-header {
+    display: grid;
+    place-items:center;
+    grid-template-columns: 1fr ;
+    gap: 2rem;
+    padding-top: 1rem;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    
+   
+}
+
+
+.slideshow-img{
+    width: 40rem;
+    border: 0.125rem solid white;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin: 2rem;
+   
+  
+}
+
+.browse-title{
+    padding-top: 2rem;
+}
+
+.card__title{
+    font-size: 1rem;
+}
+
+.card__rating{
+  font-size: 0.6rem;
+}
+
+.card__updated{
+  font-size: 0.5rem;
+}
+
+.card__title,
+.card__rating,
+.card__updated{
+    text-shadow: 0 0 0.5rem #0002;
+    margin: 0.5rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 1));
+    height: 20rem; 
+    width: 30rem;
+    box-shadow:  0 0 .5rem #ffffff;
+}
+
+.card__video,
+.card__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 1rem;
+    z-index: -1;
+    
+}
+.card-info__cont{
+    padding-top: 1.5rem;
+    
+}
+
+.card__btn{
+    background-color: transparent;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    transition:  0.4s;
+   
+    
+}
+
+.card__btn:hover,
+.card__btn:focus{
+   color: orange;
+   cursor: pointer;
+   transform: scale(1.1);
+   filter: drop-shadow(0 0 0.8rem #0002);
+   
+}
+
+/* .slide-header .container{
+    display: grid;
+    place-items:center;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+} */
+
+
+
+.slide-img-cont{
+  /* flex:1; */
+    /* display: grid;
+    grid-template-rows: 1fr 1fr; */
+}
+
+@media only screen and (min-width: 45em){
+    .slide-header {
+       
+        grid-template-columns: 1fr 1fr;
+     
+       
+    }
+}
+
+@media only screen and (min-width: 120em){
+    .slide-header {
+       
+        grid-template-columns: 1fr 1fr 1fr;
+      
+       
+    }
+}
