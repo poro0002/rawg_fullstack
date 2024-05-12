@@ -1,0 +1,131 @@
+/* <----- NAVBAR -------------------------------> */
+
+
+/* mobile first*/
+
+.navbar{
+   
+    flex-direction: column;
+    justify-content:  center;
+    /* background: linear-gradient(to bottom, var(--shade-four), var(--shade-one) ) ; */
+    overflow: hidden;
+    /* box-shadow: var(--white-box-shadow); */
+  }
+  
+   .navbar .container{
+    padding: 0;
+    gap: 1.5rem; 
+   
+  }
+  
+  
+  .nav-list{
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    padding: 0
+  }
+
+   /* nav li hover animation----------------------------- */
+
+  .nav-list li {
+    position: relative;
+  }
+  
+
+  
+    /* nav li hover animation ----------------------------- */
+  
+
+  .logo-head{
+    margin: 1.5rem;
+  }
+  
+  
+  /* things that dont have to be changed with query */
+  
+  .nav-list li{
+    list-style:  none;
+    color: white;
+    padding: 0 1rem;
+    transition: background-color 0.3s; 
+   
+  }
+  
+  .nav-list li .link {
+    text-decoration: none;
+    display: block;
+    padding: 1.5rem;
+    cursor: pointer; 
+   
+  }
+  
+  .nav-list li:hover,
+  .nav-list li:focus,
+  .nav-logo:hover,
+  .nav-logo:focus{
+    transform: scale(1.1);
+    transition: transform 0.3s;
+     
+  }
+  
+  
+  .logo-head-div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0rem;
+  }
+  
+  .link:hover,
+  .link:focus{
+    color: white;
+  }
+  
+  
+  
+  .nav-logo{
+     width: 5em;
+  }
+  
+  /* Web Media Queries */   
+
+
+  @media only screen and (min-width: 45em){
+    .navbar{
+    
+        display: flex;
+        flex-direction: row;
+      
+       
+    }
+    
+    .navbar .link{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      
+      align-items: center;  
+
+    }
+    
+    .link{
+      text-decoration: none;
+      color: white; 
+    }
+    
+
+    
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        margin: 0 ;  
+    }
+
+    .nav-list li::after {
+        top: 75%;
+        left: 26%;
+        width: 50%;
+      }
+    
+  }

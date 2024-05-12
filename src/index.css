@@ -1,0 +1,150 @@
+/* Root Variables */
+:root{
+  
+  /* colors */
+    --primary-color: #da7531;
+    --secondary-color: #FE9E67;
+    --secondary-light: #fad6a9;
+    --darkest-color: #da6931;
+   
+    --extra-grey: #C6BEB8;
+    --shade-one: #0005; 
+    --shade-two: #5550;
+    --shade-three: #101010;
+    --shade-four: #333333;
+    --article-bkgd-color: #C2C2C2;
+    --font-stack: "Open Sans", sans-serif;
+
+/* find banner classes in BANNER component */
+
+        /* font scales major third*/
+        --scale-xl: 2.441rem;
+        --scale-large: 1.953rem;
+        --scale-med: 1.563rem;
+        --scale-small: 1.235rem;
+
+            /* PC headings use --lg
+          mobile headings use --sm */
+          /* extra font sizes */
+          --mobile-para: 0.5rem;
+          --xsm: 0.7rem;
+          --sm: 0.9rem;
+          --md: 1.1rem;
+          --lg: 1.5rem;
+          --xlg: 1.9rem;
+          --xxlg: 2.2rem;
+
+}
+
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core root defaults */
+html {
+  line-height: 1.5;
+  font-family: var(--font-stack);
+  font-size: 1.2rem;
+  
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  background: linear-gradient(to right, #A09B8C, #5B5A56, #3C3C41, #1E2328, #1E282D, #010A13);
+  
+  
+  
+}
+
+/* Update default margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+ul,
+ol,
+dl,
+dd {
+  margin: 0 0 1.5rem;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color: white;
+}
+
+a:hover,
+a:focus-visible {
+  /* color: #D96666; */
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Containers ---------- */
+
+div{
+  color: white;
+}
+
+

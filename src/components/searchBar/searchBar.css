@@ -1,0 +1,111 @@
+.searchResultsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
+    align-items: center;
+   
+}
+
+.search-result-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 1rem;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    width: auto;
+    height: 40rem;
+    
+}
+
+/* ::before pseudo-element  this just creates a layer overtop of your existing element */
+.search-result-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 1));
+    z-index: 1; /* Ensure the gradient layer is above the background image */
+    border-radius: 1rem; 
+}
+/* here you can select the background image that was set with css inline style from the api */
+.search-result-card img {   
+    width: 100%; 
+    height: auto;
+    z-index: 0; /* Ensure the background image is behind the gradient layer */
+    border-radius: 1rem; 
+}
+
+.search-result-card .search-result__header {
+    position: relative; /* turns on z-index */
+    z-index: 1; /* puts header above the gradient layer */
+}
+
+.search-results__screenshots{
+    position: absolute;
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   grid-template-columns: 1fr;
+   place-items: center;
+   top: 80%;
+  
+   gap: 2rem;
+   
+}
+
+.search-results__screenshots img{
+    box-shadow: 0 0.1rem 0.4rem 0.6rem #0002;
+    background-size: cover;
+    aspect-ratio: 16/9;
+
+}
+
+
+
+
+.search-bar__form{
+    padding-top: 1rem;
+}
+
+
+@media only screen and (min-width: 45em){
+    .searchResultsContainer{
+       
+    }
+
+    .search-results__screenshots{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-result-card{
+        width: 100rem;
+        height: 40rem;
+    }
+
+
+   
+    
+}
+
+
+@media screen and (min-width: 120em){
+    .searchResultsContainer{
+       
+    }
+
+    .search-result-card{
+        width: 120rem;
+        
+    }
+
+    .search-results__screenshots{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+
+}

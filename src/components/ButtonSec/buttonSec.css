@@ -1,0 +1,21 @@
+.banner-btn-1{
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to left, rgba(0, 90, 130, 0.2), rgba(10, 200, 185, 0.2));
+    font-size: 0.8rem;
+    backdrop-filter: blur(5px);
+    border-top: 0.125rem solid;
+    border-image: linear-gradient(to right, #785A28, #C89B3C) 1;
+    margin: 0.5rem;
+    color: white;
+}
+
+
+
+
+
+@media screen and (min-width: 45em){
+    .banner-btn-1{
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+}

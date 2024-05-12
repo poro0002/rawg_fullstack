@@ -1,0 +1,99 @@
+/* mobile first */
+
+.contact-me{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to top, var(--shade-three), var(--shade-one) );
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.contact__wrap{
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3rem);
+    color: white;
+    border-radius: 1.5rem;
+    box-shadow:var(--white-box-shadow);
+    overflow: hidden;
+}
+
+.form-grid{
+    padding: 3rem 2.5rem;
+    display: grid;
+    --cols: 1;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    gap: 1.5rem;
+}
+
+.contact__title{
+    margin-bottom: 0;
+    font-size: 2.5rem;
+}
+
+input, select, textarea {
+    color: black;
+    background-color: white;
+    font-weight: 200;
+}
+
+
+.checkbox{
+    width: 1rem;
+    height: 1rem;
+
+}
+
+
+
+#email-radio, #tel-radio{
+    width: 1rem;
+    height: 1rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.email-radio, .phone-radio{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.email-radio {
+  margin-right: 2rem;
+}
+
+
+
+.form-unit__row{
+    display: inline-flex;
+    justify-content: center;
+}
+
+
+input, select, textarea, .form-btn{
+    display: block;
+    width: 100%;
+    padding: .25rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: .25rem;
+
+}
+
+#message::placeholder {
+  color: black; 
+}
+
+.terms-link{
+    color: var(--secondary-light);
+}
+
+
+.full-width-label{
+    display: block;
+    width: 100%;
+    font-size: .875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
