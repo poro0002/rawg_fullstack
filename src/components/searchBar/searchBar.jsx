@@ -4,31 +4,50 @@ import Section from '../Section/section'
 
 
 
-function SearchBar(props){
+function SearchBar({setResults, setSearchVal, searchVal, setIfSearched }){
 
+    const isSearchPage = window.location.pathname === '/search';
+
+
+
+  
 let apiKey2 = 'e8cc02aadccc4a1ebbbf7e8aa5df1002'
 
-const [searchVal, setSearchVal] = useState('')
-const [searchResults, setResults] = useState([]);
+let baseUrl = 'http://localhost:3500/';
+let apiUrl = baseUrl + '/api/games';
+
+
+const queryParams = new URLSearchParams();
+queryParams.append('type', 'searchBar');
+const queryString = queryParams.toString();
+
 
     let apiKey = "29c74353cb064147baadabe161a31ef5"
+    
     const myHeaders = new Headers({'Content-Type': 'image/jpeg'});
-    const mainRequest = new Request(`https://api.rawg.io/api/games?key=${apiKey2}&search=${encodeURIComponent(searchVal)}&page_size=1`, {
+    const mainRequest = new Request(`${baseUrl}api/games?key=${apiKey2}&search=${encodeURIComponent(searchVal)}&page_size=1&${queryString}`, {
         method: 'GET',
         mode: 'cors',
         headers: myHeaders,
-      });
+    });
      
 
     function handleChange(e){
-        setSearchVal(e.target.value)
+
+        setSearchVal(e.target.value);
+      
     }
 
 
 
 function handleSubmit(e){
     e.preventDefault();
+    // window.location.href = '/search';
 
+    setIfSearched(true)
+    localStorage.removeItem('searchResults');
+  
+       
         fetch(mainRequest)
          .then(res => {
              if (!res.ok) {
@@ -38,12 +57,21 @@ function handleSubmit(e){
          })
          .then(data => {
              console.log(data.results)
-             setResults(data.results);
+             setResults(data.results)
+             localStorage.setItem('searchResults', JSON.stringify(data.results));
+             
          })
          .catch(err => {
              console.log({ message: err });
          });
-         
+
+        setTimeout(() => {
+            window.location.href = '/search';
+           
+        }, 500);
+
+        
+        
     }
 
 
@@ -57,27 +85,10 @@ function handleSubmit(e){
                     <button type="submit">Search</button>
                 </form>
         
-                {searchResults.length > 0 ? (
-                   <Section >
-                        <div className="search-result-card" style={{ backgroundImage: `url(${searchResults[0].background_image})` }}>
-                            <header className='search-result__header'>
-                                <h1 className='search-title'>{searchResults[0].name}</h1>
-                                <p className='search-result__info'>{searchResults[0].released}</p>
-                                <p className='search-result__rating'>Rating: {searchResults[0].rating}</p>
-                            </header>
-                        </div>
-                        <div className="search-results__screenshots">
-                            {searchResults[0].short_screenshots.map((img, index) => (
-                                <img key={index} src={img.image} alt={img.id} />
-                            ))}
-                        </div>
-                    </Section>
-                ) : (
-                    <h1>No search results found</h1>
-                )}
             </div>
     </>
    )
 }
+
 
 export default SearchBar

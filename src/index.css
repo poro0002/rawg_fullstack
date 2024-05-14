@@ -1,11 +1,12 @@
 /* Root Variables */
 :root{
   
-  /* colors */
-    --primary-color: #da7531;
-    --secondary-color: #FE9E67;
-    --secondary-light: #fad6a9;
-    --darkest-color: #da6931;
+  /* colors pick you color schemes  */
+
+    --primary-color: #5c6bc0;
+    --secondary-color: #9FA8DA;
+    --secondary-light: #C5CAE9;
+    --darkest-color: #303F9F;
    
     --extra-grey: #C6BEB8;
     --shade-one: #0005; 
@@ -23,8 +24,9 @@
         --scale-med: 1.563rem;
         --scale-small: 1.235rem;
 
-            /* PC headings use --lg
-          mobile headings use --sm */
+      /* PC headings use --lg
+          mobile headings use --xsm */
+
           /* extra font sizes */
           --mobile-para: 0.5rem;
           --xsm: 0.7rem;
@@ -33,6 +35,10 @@
           --lg: 1.5rem;
           --xlg: 1.9rem;
           --xxlg: 2.2rem;
+
+            /* box shadow preset*/
+        --white-box-shadow: 0 0 .5rem #ffffff;
+        --black-box-shadow: 0 0 0.5rem #0002;
 
 }
 
@@ -62,11 +68,18 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   margin: 0;
-  background: linear-gradient(to right, #A09B8C, #5B5A56, #3C3C41, #1E2328, #1E282D, #010A13);
+  background: linear-gradient(to right,  var(--shade-four), var(--shade-three), #010A13);
   
   
   
 }
+
+/* #root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
 
 /* Update default margin */
 h1,

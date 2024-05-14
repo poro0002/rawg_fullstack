@@ -9,21 +9,22 @@ import {
 
 //Page Tabs
 import BrowsePage from '../Tabs/browse/browse'
-import GamesPage from '../Tabs/games/games'
+import DesignPage from '../Tabs/design/design'
 import HomePage from '../Tabs/home/home'
 import SearchPage from '../Tabs/search/search'
 
+{/* <Route path='/search'Component={SearchPage}/> */}
 
-
-function AppRouter() {
+function AppRouter({searchResults}) {
     return (
 
 <Router>
     <Routes>
         <Route path='/home' Component={HomePage}  exact/>
-        <Route path='/games'Component={GamesPage}/>
-        <Route path='/search'Component={SearchPage}/>
+        <Route path='/design'Component={DesignPage}/>
         <Route path='/browse'Component={BrowsePage}/>
+        <Route path="/search" element={ <SearchPage searchResults={searchResults} /> } />
+      
     </Routes>
 </Router>  
 

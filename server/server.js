@@ -38,7 +38,14 @@ mongoose.connect(uri)
 // ----------------------------< Proxy API Request >---------------------------------------
 
 // Define a route that acts as a proxy to the API server
+
+// handel the search bar request 
+
 app.get('/api/games', async (req, res) => {
+
+   const type = req.query.type;
+
+   if(type === 'slideshowHeader'){
    try {
      // Make a request to the API server
      const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=20`);
@@ -63,6 +70,29 @@ app.get('/api/games', async (req, res) => {
       console.error('Error fetching data:', error);
       return res.status(500).json({ error: 'An error occurred while fetching data from the API' });
     }
+
+   }
+
+   else if(type === 'searchBar'){
+      try {
+         const searchQuery = req.query.search;
+
+         const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=1&search=${searchQuery}`)
+
+         if (!response.ok) {
+            throw new Error('Failed to fetch data from API');
+          }
+
+          const data = await response.json();
+
+          return res.json(data);
+
+
+      } catch(error) {
+         console.error('Error fetching data:', error);
+         return res.status(500).json({ error: 'An error occurred while fetching data from the API' });
+      }
+   }
  });
 
 

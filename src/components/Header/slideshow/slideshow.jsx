@@ -24,12 +24,16 @@ import { useState, useEffect } from 'react';
         const [favorites, setFavorites] = useState([]);
     
         let baseURL = 'http://localhost:3500';
+
+        const queryParams = new URLSearchParams();
+        queryParams.append('type', 'slideshowHeader');
+        const queryString = queryParams.toString();
     
         useEffect(() => {
             const fetchData = () => {
                 if (navigator.onLine) {
                     // If online, fetch data from the server
-                    fetch(baseURL + '/api/games')
+                    fetch(`${baseURL}/api/games?${queryString}`)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Error with response');
@@ -113,7 +117,7 @@ import { useState, useEffect } from 'react';
             })
 
         
-                 // ===========>>>>>>> fix this so that it works with the service worker and server side code. it does not need to be cached     
+              
            
                const response = await fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=${apiKey2}`);
                if (!response.ok) {
