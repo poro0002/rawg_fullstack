@@ -8,6 +8,7 @@ import AppRouter from "../AppRouter/appRouter"
 import RegisterLogForm from '../Form/register/register'
 import UserProfile from '../UserProfile/userProfile'
 import SlideshowHeader from '../Header/slideshow/slideshow'
+import SearchPage from '../Tabs/search/search'
 
 
 
@@ -16,9 +17,11 @@ import SlideshowHeader from '../Header/slideshow/slideshow'
 
 function App() {
   const [count, setCount] = useState(0)
+
   const isHomePage = location.pathname === '/home';
   const isBrowsePage = location.pathname === '/browse'
   const isAccountPage = location.pathname === '/register' || location.pathname === '/login'  ;
+  const isSearchPage = location.pathname === '/search';
 
    // Manage login state in the parent component
    // if isLoggedIn is true it stores it in local storage
@@ -45,7 +48,7 @@ function App() {
    // Function to handle successful login and when is ran during login 
    // & has access to the returned user data
 const handleLogin = async (userData) => {
-  alert('login successful')
+   alert('login successful')
    setIsLoggedIn(true);
    localStorage.setItem('isLoggedIn', 'true');
 
@@ -263,10 +266,28 @@ const handleFav = async (gameData) => {
 
   };
 
+
+
+
+// ----------------------------< Handle Search >---------------------------- 
+
+const [searchVal, setSearchVal] = useState(''); 
+const [searchResults, setResults] = useState([]);
+const [ifSearched, setIfSearched] = useState(false);
+ 
+// if(ifSearched){
+//   window.location.href = '/search'
+// }
+// localStorage.removeItem('searchResults');
+
   return (
     <>
-      <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
-      <AppRouter/> 
+      <NavBar setIfSearched={setIfSearched}  searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
+         
+      {/* <SearchPage searchResults={searchResults} /> */}
+        
+        <AppRouter ifSearched={ifSearched} searchResults={searchResults}/>
+     
       {isBrowsePage && <SlideshowHeader handleFav={handleFav} />}
       
       {isLoggedIn && isAccountPage ? (
@@ -275,7 +296,7 @@ const handleFav = async (gameData) => {
           !isLoggedIn && isAccountPage && <RegisterLogForm handleLogin={handleLogin} />
         )}
 
-    
+  
     </>
   )
 }

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import './navbar.css'
 import Link from "../Link/link"
 
-function NavBar({ handleLogout }) {
+import SearchBar from '../searchBar/searchBar'
+
+function NavBar({ handleLogout, setResults, setSearchVal, setIfSearched, searchVal, }) {
    
     // Initialize isLoggedIn state from local storage
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -27,20 +29,25 @@ function NavBar({ handleLogout }) {
         };
     }, []);
 
+    // do a conditional render for the searchbar or page that is in the navbar
+
     return (
         <nav className="navbar">
             <ul className="nav-list">
-                <Link to='/home'>Home</Link>
-                <Link to='/games'>Games</Link>
-                <Link to='/search'>Search</Link>
-                <Link to='/browse'>Browse</Link>
+                <li className="nav-item">
+                    <Link to='/home'><img className="nav-logo" src="src/Content/rawg.png" alt="" /></Link>
+                </li>
+                <li className="nav-item"><Link to='/home'>HOME</Link></li>
+                <li className="nav-item"><Link to='/design'>DESIGN</Link></li>
+                <li className="nav-item"><Link to='/browse'>BROWSE</Link></li>
+                <i className="material-icons search-icon">search</i><SearchBar className='searchBar' setSearchVal={setSearchVal} setIfSearched={setIfSearched} searchVal={searchVal}  setResults={setResults} />
                 {isLoggedIn ? (
                     <>
                         <li><a href="/login">{user.username}</a></li>
                         <li><button onClick={handleLogout}>Logout</button></li>
                     </>
                 ) : (
-                    <li><a href="/login">Login</a></li>
+                    <li><a href="/login">LOGIN</a></li>
                 )}
             </ul>
         </nav>
