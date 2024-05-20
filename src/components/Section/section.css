@@ -4,8 +4,25 @@
 }
 
 
-main section:first-child {
+main section {
   padding-top: 5rem;
+}
+
+
+.section__div{
+  position: relative;
+  margin-bottom: 4rem; 
+}
+
+.section__div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 1));
+  z-index: 1; /* make sure  the gradient layer is behind the content */
 }
 
   section .container {
@@ -20,10 +37,75 @@ main section:first-child {
     justify-content: center;
   }
 
+  .section__video,  .section__img{
+
+     position: relative;
+     z-index: 0; 
+
+     
+  }
+
+
+  .section__video{
+    width: 100%;
+    aspect-ratio: 21/9;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .section__img{
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .section-info__cont {
+    position: absolute;
+    z-index: 2; /* make sure the content is above the gradient layer */
+    bottom: 15%;
+    display: flex;
+    
+    flex-direction: column;
+  }
+
+  .even {
+    right: 10%;
+    align-items: flex-end;
+}
+
+  .odd {
+      left: 10%;
+      align-items: flex-start;
+  }
+
+
+
+  .section__title{
+    
+  }
+
+  .section__rating{
+
+  }
+
+  .section__updated{
+
+  }
+
+
+  .section__btn{
+
+  }
+
+
+
+
+
+
+  /*  desktop */
+
   @media screen and (min-width: 45em) {
-   main section:first-child {
-      padding-top: 25rem;
-    }
+ 
 
     section .container {
       width: min( 100%);
@@ -32,9 +114,7 @@ main section:first-child {
 
 
   @media screen and (min-width: 100em) {
-    main section:first-child {
-       padding-top: 35rem;
-     }
+
 
      section .container {
       width: min(100%);

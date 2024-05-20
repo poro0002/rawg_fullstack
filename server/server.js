@@ -48,7 +48,7 @@ app.get('/api/games', async (req, res) => {
    if(type === 'slideshowHeader'){
    try {
      // Make a request to the API server
-     const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=20`);
+     const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=100`);
    
      if (!response.ok) {
        throw new Error('Failed to fetch data from API');
@@ -88,10 +88,32 @@ app.get('/api/games', async (req, res) => {
           return res.json(data);
 
 
-      } catch(error) {
+      } 
+      catch(error) {
          console.error('Error fetching data:', error);
          return res.status(500).json({ error: 'An error occurred while fetching data from the API' });
       }
+   }  else if(type === 'sectionHeader'){
+         try {
+
+            const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=4`)
+   
+            if (!response.ok) {
+               throw new Error('Failed to fetch data from API');
+             }
+   
+             const data = await response.json();
+            //  const gamesWithTrailers = data.results.filter(game => game.results[0].data.max > 0);
+        
+             return res.json(data);
+             
+
+   
+         }
+         catch(error) {
+            console.error('Error fetching data:', error);
+            return res.status(500).json({ error: 'An error occurred while fetching data from the API' });
+         }
    }
  });
 

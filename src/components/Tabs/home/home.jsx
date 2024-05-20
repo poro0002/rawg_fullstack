@@ -10,12 +10,15 @@ import Footer from '../../Footer/footer'
 
 
 
-function HomePage(){
+function HomePage({seeGame}){
 
 
    return(
      <>
-      <div className="container"> HOME PAGE CONTENT HERE</div>
+      <div className="container">
+         <Section seeGame={seeGame} ></Section>
+
+      </div>
 
       <Footer></Footer>
      </>

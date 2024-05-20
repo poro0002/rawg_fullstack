@@ -9,6 +9,9 @@ import RegisterLogForm from '../Form/register/register'
 import UserProfile from '../UserProfile/userProfile'
 import SlideshowHeader from '../Header/slideshow/slideshow'
 import SearchPage from '../Tabs/search/search'
+import HomePage from '../Tabs/home/home'
+import Section from '../Section/section'
+
 
 
 
@@ -267,6 +270,16 @@ const handleFav = async (gameData) => {
   };
 
 
+  // ----------------------------< See Game Section Function >---------------------------- 
+
+const seeGame = (section) => {
+   // write functionality to redirect page to the search page for the clicked game 
+
+
+}
+
+
+
 
 
 // ----------------------------< Handle Search >---------------------------- 
@@ -274,20 +287,15 @@ const handleFav = async (gameData) => {
 const [searchVal, setSearchVal] = useState(''); 
 const [searchResults, setResults] = useState([]);
 const [ifSearched, setIfSearched] = useState(false);
- 
-// if(ifSearched){
-//   window.location.href = '/search'
-// }
-// localStorage.removeItem('searchResults');
+
+
 
   return (
     <>
       <NavBar setIfSearched={setIfSearched}  searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
-         
-      {/* <SearchPage searchResults={searchResults} /> */}
-        
-        <AppRouter ifSearched={ifSearched} searchResults={searchResults}/>
      
+        <AppRouter ifSearched={ifSearched} searchResults={searchResults}/>
+
       {isBrowsePage && <SlideshowHeader handleFav={handleFav} />}
       
       {isLoggedIn && isAccountPage ? (
