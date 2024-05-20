@@ -38,6 +38,12 @@ const queryString = queryParams.toString();
       
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+          handleSubmit(e);
+        }
+      };
+
 
 
 function handleSubmit(e){
@@ -45,7 +51,7 @@ function handleSubmit(e){
     // window.location.href = '/search';
 
     setIfSearched(true)
-    localStorage.removeItem('searchResults');
+    
   
        
         fetch(mainRequest)
@@ -59,33 +65,23 @@ function handleSubmit(e){
              console.log(data.results)
              setResults(data.results)
              localStorage.setItem('searchResults', JSON.stringify(data.results));
-             
+             window.location.href = '/search'; 
          })
          .catch(err => {
              console.log({ message: err });
          });
-
-        setTimeout(() => {
-            window.location.href = '/search';
-           
-        }, 500);
-
-        
+ 
         
     }
 
 
    return(
         <>
-            <div className="searchResultsContainer">
-                <form className='search-bar__form' onSubmit={handleSubmit}>
+    
                     <label htmlFor="input">
-                        <input className="searchInput" type="text" onChange={handleChange} />
+                        <input className="searchInput" type="text" onKeyDown={handleKeyDown}  onChange={handleChange} />
                     </label>
-                    <button type="submit">Search</button>
-                </form>
-        
-            </div>
+    
     </>
    )
 }

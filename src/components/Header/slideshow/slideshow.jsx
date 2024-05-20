@@ -5,17 +5,7 @@ import { useState, useEffect } from 'react';
    let apiKey = "29c74353cb064147baadabe161a31ef5"
    let apiKey2 = 'e8cc02aadccc4a1ebbbf7e8aa5df1002'
    let count = 3;
-//    let searchVal = "Valorant"
-   
-    // const myHeaders = new Headers({'Content-Type': 'image/jpeg'});
-    // const mainRequest = new Request(`https://api.rawg.io/api/games?key=${apiKey}&&page_size=50`, {
-    //     method: 'GET',
-    //     mode: 'cors',
-    //     headers: myHeaders,
-    //   });
 
-     
-      
 
     function SlideshowHeader({handleFav}){
         // console.log('handleFav prop:', handleFav);
@@ -104,21 +94,11 @@ import { useState, useEffect } from 'react';
         
     
         const fetchTrailer = async (gameId) => {
-            
-            const trailerHeaders = new Headers({'Content-Type': 'application/json'})
+        
 
             let baseUrl = 'http://localhost:3500/';
             let apiUrl = baseUrl + '/api/games';
 
-            const trailerRequest = new Request(`https://api.rawg.io/api/games/${gameId}/movies?key=${apiKey2}`, {
-              method: 'GET',
-              mode: 'cors',
-              headers: trailerHeaders,
-            })
-
-        
-              
-           
                const response = await fetch(`https://api.rawg.io/api/games/${gameId}/movies?key=${apiKey2}`);
                if (!response.ok) {
                    throw new Error('Error with response');
@@ -127,7 +107,6 @@ import { useState, useEffect } from 'react';
                // Assuming that the first movie in the list is the trailer
                return data.results.length > 0 ? data.results[0].data.max : ''; // Assuming 'preview' contains the trailer URL
             } 
-            
     
         return (
            //  we then, map through the objects that are in that cards variable after the promises are done and build a template with the data for each one then export 
