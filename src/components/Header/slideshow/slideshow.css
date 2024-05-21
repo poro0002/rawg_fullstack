@@ -3,7 +3,7 @@
     place-items:center;
     grid-template-columns: 1fr ;
     gap: 2rem;
-    padding-top: 1rem;
+    padding-top: 5rem;
     justify-content: center; /* Center horizontally */
     align-items: center;
     
@@ -55,6 +55,7 @@
     height: 20rem; 
     width: 30rem;
     box-shadow: var(--white-box-shadow);
+    border: 0.125rem solid var(--secondary-color);
 }
 
 .card__video,

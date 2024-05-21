@@ -4,14 +4,25 @@
 }
 
 
-main section {
-  padding-top: 5rem;
+section {
+  /* padding-top: 2rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
 }
 
 
 .section__div{
   position: relative;
-  margin-bottom: 4rem; 
+  margin-bottom: 0.2rem; 
+  width: 25rem;
+
+
+  
+  
 }
 
 .section__div::before {
@@ -50,7 +61,9 @@ main section {
     width: 100%;
     aspect-ratio: 21/9;
     object-fit: cover;
-    border-radius: 1rem;
+
+    border: 0.125rem solid var(--secondary-color);
+   
   }
 
   .section__img{
@@ -81,21 +94,41 @@ main section {
 
 
   .section__title{
-    
+    font-size: var(--sm);
+    text-shadow: var(--black-text-shadow);
   }
 
-  .section__rating{
-
+  .section__rating,
+  .section__updated,
+  .section__released,
+.section__metacritic{
+      font-size: var(--sm);
+      text-shadow: var(--black-text-shadow);
   }
 
-  .section__updated{
-
+  .section-info__value{
+    color: blanchedalmond;
   }
-
 
   .section__btn{
+    background: transparent;
+    backdrop-filter: blur(5px);
+    color: var(--secondary-light);
+    padding: 0.5rem 3rem;
+    cursor: pointer;
+    font-size: var(--xsm);
+    text-shadow: var(--black-text-shadow);
+    border: 0.125rem solid white;
+
+    box-shadow: var(--black-box-shadow);
 
   }
+
+
+  .section__btn:hover, 
+  .section__btn:focus { 
+     
+}
 
 
 
@@ -110,15 +143,57 @@ main section {
     section .container {
       width: min( 100%);
      }
+
+     .section__div{
+      width: 60rem;
+     }
+
+     .section__btn{
+      font-size: var(--lg);
+     }
+
+     .section__title{
+      font-size: var(--xlg);
+    }
+
+    .section__rating,
+    .section__updated,
+    .section__released,
+   .section__metacritic{
+        font-size: var(--sm);
+        
+    }
+  
   }
 
 
   @media screen and (min-width: 100em) {
 
-
-     section .container {
+    section .container {
       width: min(100%);
      }
+
+    .section__div{
+      width: 90rem;
+     }
+
+     .section__btn{
+      font-size: var(--lg);
+     }
+
+
+    .section__title{
+      font-size: var(--xlg);
+    }
+
+    .section__rating,
+    .section__updated,
+    .section__released,
+   .section__metacritic{
+        font-size: var(--sm);
+    }
+
+   
    }
    
  

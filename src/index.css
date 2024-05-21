@@ -40,6 +40,9 @@
         --white-box-shadow: 0 0 .5rem #ffffff;
         --black-box-shadow: 0 0 0.5rem #0002;
 
+        /* text shadow */
+        --black-text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.4);
+
 }
 
 
