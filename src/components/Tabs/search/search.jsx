@@ -4,9 +4,6 @@ import Section from '../../Section/section'
 import Footer from '../../Footer/footer'
 import "./search.css"
 
-
-const storedResults = JSON.parse(localStorage.getItem('searchResults')) || [];
-
 // look for games with trailers
 
 // let apiKey2 = 'e8cc02aadccc4a1ebbbf7e8aa5df1002';
@@ -40,7 +37,10 @@ const storedResults = JSON.parse(localStorage.getItem('searchResults')) || [];
 //        fetchTrailerTest();
 
 
-function SearchPage({searchResults}){
+const storedResults = JSON.parse(localStorage.getItem('searchResults')) || [];
+
+
+function SearchPage({handleFav}){
    return(
         
          <div className="page-container">
@@ -51,6 +51,7 @@ function SearchPage({searchResults}){
                             <h1 className='search-title'>{storedResults[0].name}</h1>
                             <p className='search-result__info'>{storedResults[0].released}</p>
                             <p className='search-result__rating'>Rating: {storedResults[0].rating}</p>
+                            <button onClick={() => handleFav(storedResults)} className="card__btn" ><i className='material-icons'>favorite</i></button>
                         </header>
                     </div>
                     <div className="search-results__screenshots">
@@ -63,8 +64,6 @@ function SearchPage({searchResults}){
            <Footer></Footer>
         </div>
 
-           
-   
    )
 }
 

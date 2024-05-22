@@ -35,7 +35,8 @@ function App() {
    const [username, setUsername] = useState("");
    const [fullName, setFullName] = useState("");
    const [email, setEmail] = useState("");
-   
+
+
 
    // also set favorites so you can see all of them on your user profile page
    // this favorites state needs to be passed to the browse page where the favorite button will be located 
@@ -273,8 +274,9 @@ const handleFav = async (gameData) => {
   // ----------------------------< See Game Section Function >---------------------------- 
 
 const seeGame = (section) => {
-   // write functionality to redirect page to the search page for the clicked game 
-
+   // write functionality to redirect page to the search page for the clicked game
+   localStorage.setItem('searchResults', JSON.stringify(section));
+   window.location.href = '/search'; 
 
 }
 
@@ -294,7 +296,7 @@ const [ifSearched, setIfSearched] = useState(false);
     <>
       <NavBar setIfSearched={setIfSearched}  searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
      
-        <AppRouter ifSearched={ifSearched} searchResults={searchResults}/>
+      <AppRouter ifSearched={ifSearched} searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
       {isBrowsePage && <SlideshowHeader handleFav={handleFav} />}
       

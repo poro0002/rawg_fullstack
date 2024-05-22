@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import './section.css'
 
 
+// handle these fetches on the backend ? 
 
+// see game brings you to the search page for that specific game so you can fav it
+// see photo opens a new browser window with the img.url src
 
 function Section({seeGame}){
 
@@ -47,6 +50,10 @@ function Section({seeGame}){
                 throw new Error('Error with response');
             }
             const data = await response.json();
+
+            const screenshots = await fetchScreenshots(gameId);
+
+            console.log(data)
             return {
                 id: gameId,
                 name: data.name,
@@ -54,11 +61,27 @@ function Section({seeGame}){
                 rating: data.rating,
                 released: data.released,
                 metacritic: data.metacritic,
-                short_screenshots: data.short_screenshots
+                short_screenshots: screenshots
             };
         } catch (error) {
             console.error(`Error fetching game details for game ID ${gameId}:`, error);
             return { id: gameId, name: '', background_image: '', rating: '', released: '', metacritic: '', short_screenshots: [] };
+        }
+    };
+
+       // Fetch screenshots {short_screenshots property was not present in data fetched up top}
+       // so i had to do a separate fetch to a different endpoint
+       const fetchScreenshots = async (gameId) => {
+        try {
+            const response = await fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${apiKey2}`);
+            if (!response.ok) {
+                throw new Error('Error with response');
+            }
+            const data = await response.json();
+            return data.results;
+        } catch (error) {
+            console.error(`Error fetching screenshots for game ID ${gameId}:`, error);
+            return [];
         }
     };
 
@@ -79,6 +102,11 @@ function Section({seeGame}){
 
 console.log(sections)
 
+
+const seePhoto = (src) => {
+    window.open(src, '_blank');
+    console.log(src);
+};
 
    return(
 <> 
@@ -112,9 +140,12 @@ console.log(sections)
                         </div>
 
                         <div className="section-info-screenshot__cont">
-                            {section.short_screenshots?.map((img, index) => (
-                                    <img key={index} src={img.image} alt={img.id} />
+                           <h4 className="section-info-screenshot__title">Screenshots</h4>
+                           <div className="section-info-screenshot__imgs">
+                                {section.short_screenshots?.map((img, index) => (
+                                    <img onClick={() => seePhoto(img.image)} className="section-info-screenshot__img" key={index} src={img.image} alt={img.id} />
                                 ))}
+                            </div>
                         </div>
                     </div>
                
