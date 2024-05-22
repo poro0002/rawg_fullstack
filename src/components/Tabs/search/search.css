@@ -1,2 +1,23 @@
 
 
+
+
+
+.card__btn{
+    background-color: transparent;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    transition:  0.4s;
+   
+    
+}
+
+.card__btn:hover,
+.card__btn:focus{
+   color: orange;
+   cursor: pointer;
+   transform: scale(1.1);
+   filter: drop-shadow(0 0 0.8rem #0002);
+   
+}
