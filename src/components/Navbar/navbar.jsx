@@ -5,6 +5,15 @@ import Link from "../Link/link"
 import SearchBar from '../searchBar/searchBar'
 
 function NavBar({ handleLogout, setResults, setSearchVal, setIfSearched, searchVal, }) {
+
+    // State variable to track the active link
+    const [activeLink, setActiveLink] = useState('home');
+
+    // Function to handle click on navbar links
+    const handleClick = (link) => {
+        setActiveLink(link);
+    };
+
    
     // Initialize isLoggedIn state from local storage
     const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -37,9 +46,15 @@ function NavBar({ handleLogout, setResults, setSearchVal, setIfSearched, searchV
                 <li className="nav-item">
                     <Link to='/home'><img className="nav-logo" src="src/Content/rawg.png" alt="" /></Link>
                 </li>
-                <li className="nav-item"><Link to='/home'>HOME</Link></li>
-                <li className="nav-item"><Link to='/design'>DESIGN</Link></li>
-                <li className="nav-item"><Link to='/browse'>BROWSE</Link></li>
+                <li className="nav-item">
+                    <Link to='/home' onClick={() => handleClick('home')} className={activeLink === 'home' ? 'active' : ''}>HOME</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to='/design' onClick={() => handleClick('design')} className={activeLink === 'design' ? 'active' : ''}>DESIGN</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to='/browse' onClick={() => handleClick('browse')} className={activeLink === 'browse' ? 'active' : ''}>BROWSE</Link>
+                </li>
                 <i className="material-icons search-icon">search</i><SearchBar className='searchBar' setSearchVal={setSearchVal} setIfSearched={setIfSearched} searchVal={searchVal}  setResults={setResults} />
                 {isLoggedIn ? (
                     <>

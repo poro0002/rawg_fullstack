@@ -37,31 +37,37 @@ import "./search.css"
 //        fetchTrailerTest();
 
 
-const storedResults = JSON.parse(localStorage.getItem('searchResults')) || [];
+const storedResults = JSON.parse(localStorage.getItem('searchResults')) || null;
 
 
 function SearchPage({handleFav}){
+
+
    return(
         
-         <div className="page-container">
-            {storedResults.length > 0 && (
+         <div className="search-result-container">
+            {storedResults &&  (
                 <section className="search-result">
-                    <div className="search-result-card" style={{ backgroundImage: `url(${storedResults[0].background_image})` }}>
+                    
+                    <div className="search-result-card" style={{ backgroundImage: `url(${storedResults.background_image})` }}>
                         <header className='search-result__header'>
-                            <h1 className='search-title'>{storedResults[0].name}</h1>
-                            <p className='search-result__info'>{storedResults[0].released}</p>
-                            <p className='search-result__rating'>Rating: {storedResults[0].rating}</p>
-                            <button onClick={() => handleFav(storedResults)} className="card__btn" ><i className='material-icons'>favorite</i></button>
+                            <h1 className='search-title'>{storedResults.name}</h1>
+                            <p className='search-result__info'>{storedResults.released}</p>
+                            <p className='search-result__rating'>Rating: {storedResults.rating}</p>
+                            <button onClick={() => handleFav(storedResults)} className="search-result__btn" ><i className='material-icons'>favorite</i></button>
                         </header>
                     </div>
                     <div className="search-results__screenshots">
-                        {storedResults[0].short_screenshots.map((img, index) => (
-                            <img key={index} src={img.image} alt={`screenshot-${index}`} />
+                        {storedResults.short_screenshots.map((img, index) => (
+                            <img className="search-results-screenshots__img" key={index} src={img.image} alt={`screenshot-${index}`} />
                         ))}
                     </div>
+                    
                 </section>
+               
             )}
-           <Footer></Footer>
+            <Footer></Footer>
+            
         </div>
 
    )
