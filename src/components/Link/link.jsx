@@ -7,9 +7,9 @@ function Link({ to, children }){
 
 
    return(
-   <li>
+  
       <a href={to}>{children}</a>
-   </li>
+   
    
    )
 }

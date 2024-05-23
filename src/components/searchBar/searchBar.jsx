@@ -64,7 +64,7 @@ function handleSubmit(e){
          .then(data => {
              console.log(data.results)
              setResults(data.results)
-             localStorage.setItem('searchResults', JSON.stringify(data.results));
+             localStorage.setItem('searchResults', JSON.stringify(data.results[0]));
              window.location.href = '/search'; 
          })
          .catch(err => {

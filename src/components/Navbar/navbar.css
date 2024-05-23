@@ -1,6 +1,11 @@
 /* <----- NAVBAR -------------------------------> */
 
 
+.navbar ul li.active a {
+  text-decoration: underline;
+}
+
+
 /* mobile first*/
 
 .navbar {
@@ -54,7 +59,7 @@
   .nav-list li{
     list-style:  none;
     color: white;
-    padding: 0 1rem;
+    padding: 0 1.7rem;
     transition: background-color 0.3s; 
    
   }
@@ -71,7 +76,7 @@
   .nav-list li:focus,
   .nav-logo:hover,
   .nav-logo:focus{
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.3s;
      
   }

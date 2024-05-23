@@ -1,9 +1,24 @@
 
 
+.search-result-container{
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 2rem;
+    
+}
+
+.search-result{
+  
+}
+
+.search-result-card{
+ 
+  
+}
 
 
-
-.card__btn{
+.search-result__btn{
     background-color: transparent;
     border: none;
     border-radius: 1rem;
@@ -20,4 +35,12 @@
    transform: scale(1.1);
    filter: drop-shadow(0 0 0.8rem #0002);
    
+}
+
+.search-results__screenshots{
+  
+}
+
+.search-results__img{
+  
 }
