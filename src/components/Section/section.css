@@ -60,6 +60,7 @@ section {
 
   .section__video{
     width: 100%;
+    height: 50rem;
     aspect-ratio: 21/9;
     object-fit: cover;
 
@@ -76,7 +77,8 @@ section {
   .section-info__cont {
     position: absolute;
     z-index: 2; /* make sure the content is above the gradient layer */
-    bottom: 40%;
+    left: 10%;
+    bottom: 5%;
     display: flex;
     
     flex-direction: column;
@@ -138,6 +140,24 @@ section {
 }
 
 
+.section-info-screenshot__description{
+    margin-top: 1.5rem;
+    padding: 1rem 3rem;
+}
+
+.section-info-screenshot-description__title{
+     font-size: var(--md);
+}
+
+.section-info-screenshot-description__subText{
+  font-size: var(--sm);
+}
+
+.section-info-screenshot-description__desc{
+  font-size: var(--xsm);
+}
+
+
 
 
 
@@ -156,7 +176,7 @@ section {
      }
 
      .section-info-screenshot__cont{
-         position: relative;
+        position: relative;
       
         padding-top: 1rem;
         padding-bottom: 2rem;
