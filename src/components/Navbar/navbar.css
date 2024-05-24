@@ -1,12 +1,25 @@
 /* <----- NAVBAR -------------------------------> */
 
+/* toggle class for seeing which link is currently active */
 
 .navbar ul li.active a {
   text-decoration: underline;
+  
 }
 
+/* pseudo 
 
-/* mobile first*/
+.navbar ul li.active a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1rem;
+  width: 100%;
+  height: 1rem;
+
+} */
+
+/* mobile first */
 
 .navbar {
   position: fixed;
