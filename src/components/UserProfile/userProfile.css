@@ -17,12 +17,10 @@
     place-items:center;
     grid-template-columns: 1fr ;
     gap: 2rem;
-  }
-
-
-  .fav-card{
     
   }
+
+
 
 
   .fav-card-delete__btn{
@@ -58,7 +56,7 @@
 
     z-index: -1;
     border: 0.125rem solid white;
-    margin: 2rem;
+    
    
   
 }

@@ -8,28 +8,52 @@ import Link from "../Link/link"
 function Footer() {
     return (
         <footer>
+             <nav className="footer__nav">
             <a className="footer__logo" href="/">
                 <img src="src/Content/rawg.png" alt="signature logo" className="footer__icon" />
             </a>
 
-            <nav className="footer__nav">
-                <ul className="footer__list">
-                    <Link></Link>
-                    <Link></Link>
-                    <Link></Link>
-                </ul>
             </nav>
 
             <div className="footer-small-links">
-                <small className="footer__copyright">
-                    &copy; 2024 | Website Created By Kieran Poropat
-                </small>
-                <div className="footer__copyright2">
-                    <small><a target="_blank" href="https://github.com/Kiirynn?tab=repositories"><img className="small-media-logo" src="src/Content/logos/github-white48.png" alt="github logo" /></a></small>
-                    <small><a target="_blank" href="https://github.com/poro0002?tab=repositories"><img className="small-media-logo" src="src/Content/logos/github-white48.png" alt="github logo" /></a></small>
-                    <small><a target="_blank" href="https://www.linkedin.com/in/kieran-poropat/"><img className="small-media-logo" src="src/Content/logos/In-White-48.png" alt="linkedin logo" /></a></small>
-                    <small><a target="_blank" href="https://dribbble.com/Kiirynn"><img className="small-media-logo" src="src/Content/logos/dribbble-white-logo.png" alt="dribble logo" /></a></small>
+              
+                <div className="footer-ratings">
+                    <img src="src/Content/ESRB_Privacy_Certified.png" alt="" className="footer-ratings__img" />
+                    <img src="src/Content/k_A.png" alt="" className="footer-ratings__img footer-ratings__img2" />
+                    <div className="footer-ratings__details">
+                        <ul>
+                            <li>Suggestive Themes</li>
+                            <li>Sexual Content</li>
+                            <li>Blood & Gore</li>
+                            <li>Violence</li>
+                            <li>Mild Language</li>
+                            <li>Use Of Alcohol</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <small className="footer__copyright">
+                    &copy; 2024 | Fullstack Website Created By Kieran Poropat
+                    <p>All trademarks referenced herein are the properties of their respective owners.</p>
+                </small>
+
+                <div className="footer__copyright2">
+                
+                    <div className="footer__list">
+                        <small><a target="_blank" href="https://github.com/Kiirynn?tab=repositories"><img className="small-media-logo" src="src/Content/logos/github-white48.png" alt="github logo" /></a></small>
+                        <small><a target="_blank" href="https://github.com/poro0002?tab=repositories"><img className="small-media-logo" src="src/Content/logos/github-white48.png" alt="github logo" /></a></small>
+                        <small><a target="_blank" href="https://www.linkedin.com/in/kieran-poropat/"><img className="small-media-logo" src="src/Content/logos/In-White-48.png" alt="linkedin logo" /></a></small>
+                        <small><a target="_blank" href="https://dribbble.com/Kiirynn"><img className="small-media-logo" src="src/Content/logos/dribbble-white-logo.png" alt="dribble logo" /></a></small>
+                    </div>
+
+                    <ul className="footer__list">
+                            <li><a class="footer__link" href="https://rawg.io/">RAWG</a></li>
+                            <li><a class="footer__link" href="https://rawg.io/apidocs">API</a></li>
+                            <li><a class="footer__link" href="https://poro0002.github.io/mad9013-project-portfolio/">My Portfolio</a></li>
+                    </ul>
+
+                </div>
+
             </div>
         </footer>
     );

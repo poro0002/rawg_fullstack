@@ -1,5 +1,6 @@
 import '../slideshow/slideshow.css'
 import { useState, useEffect } from 'react';
+import Footer from '../../Footer/footer'
 
 
    let apiKey = "29c74353cb064147baadabe161a31ef5"
@@ -141,6 +142,7 @@ import { useState, useEffect } from 'react';
                             </div>
                         ))}
                     </header>
+                <Footer></Footer>
             </>
         );
     }

@@ -4,6 +4,7 @@
     grid-template-columns: 1fr ;
     gap: 2rem;
     padding-top: 5rem;
+  
     justify-content: center; /* Center horizontally */
     align-items: center;
     
