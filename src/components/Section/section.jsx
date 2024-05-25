@@ -176,14 +176,14 @@ const sectionDescriptions = [
                             <button onClick={() => seeGame(section)} className="section__btn" >View</button>
 
                      <div className="section-info-screenshot__cont">
-                        <div className={`section-info-screenshot__description `} >
+                        <div className={`section-info-screenshot__description ${index % 2 === 0 ? 'even' : 'odd'}`} >
                                
                                 <h4 className="section-info-screenshot-description__subText">{sectionDescriptions[index].subtext}</h4>
                                 <h3 className="section-info-screenshot-description__title">{sectionDescriptions[index].title}</h3>
                                 <p className="section-info-screenshot-description__desc">{sectionDescriptions[index].description}</p>
                          </div>
 
-                            {/* <h4 className="section-info-screenshot__title">Screenshots</h4> */}
+                            <a className="section-info-screenshot__title" href="#">view all</a>
                                 <div className="section-info-screenshot__imgs">
                                         {section.short_screenshots?.map((img, index) => (
                                             <img onClick={() => seePhoto(img.image)} className="section-info-screenshot__img" key={index} src={img.image} alt={img.id} />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './userProfile.css'
-
+import Footer from '../Footer/footer'
 // create some javascript functionality to loop through the users favorites and display them on this page with their data
 
 
@@ -17,7 +17,7 @@ function UserProfile({favorites, deleteFavorite}){
    return(
     
      <div className="container">
-         <div className="container-text">
+         
               <h3 className="userName">{user.username}</h3>
               <h3 className="fullName">{user.fullName}</h3>
               <h3 className="email">{user.email}</h3>
@@ -38,7 +38,8 @@ function UserProfile({favorites, deleteFavorite}){
                  })}
             </div>
 
-         </div>
+        
+         <Footer></Footer>
     </div>
   
 

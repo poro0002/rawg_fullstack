@@ -60,7 +60,7 @@ section {
 
   .section__video{
     width: 100%;
-    height: 50rem;
+    height:55rem;
     aspect-ratio: 21/9;
     object-fit: cover;
 
@@ -84,12 +84,12 @@ section {
     flex-direction: column;
   }
 
-  .even {
+  .section-info__cont.even {
     right: 10%;
     align-items: flex-end;
 }
 
-  .odd {
+.section-info__cont.odd {
       left: 10%;
       align-items: flex-start;
   }
@@ -99,12 +99,16 @@ section {
   .section__title{
     font-size: var(--sm);
     text-shadow: var(--black-text-shadow);
+    color: white;
+    letter-spacing: 0.5rem;
+    text-shadow: 0 0 3px white; 
+    padding-bottom: 1.5rem;
   }
 
   .section__rating,
   .section__updated,
   .section__released,
-.section__metacritic{
+  .section__metacritic{
       font-size: var(--sm);
       text-shadow: var(--black-text-shadow);
   }
@@ -127,9 +131,39 @@ section {
     transition: transform 0.3s ease-in-out; 
 
   }
+  .section-info-screenshot__description{
+    margin-bottom: 2rem;
+   
+  }
+
+  .section-info-screenshot__title{
+   
+    font-size: var(--sm);
+    color: blanchedalmond;
+  }
+
+
+  .section-info-screenshot__description.odd{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+  
+  }
+
+  .section-info-screenshot__description.even{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+
+  }
 
   .section-info-screenshot__img{
     transition: transform 0.3s ease-in-out; 
+    margin-top: 1rem;
   }
 
 
@@ -143,10 +177,12 @@ section {
 .section-info-screenshot__description{
     margin-top: 1.5rem;
     padding: 1rem 3rem;
+    
 }
 
 .section-info-screenshot-description__title{
-     font-size: var(--md);
+     font-size: var(--lg);
+     color: blanchedalmond;
 }
 
 .section-info-screenshot-description__subText{
