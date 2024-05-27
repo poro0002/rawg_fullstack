@@ -21,7 +21,7 @@ section {
   margin-bottom: 3rem; 
   width: 25rem;
   box-shadow: var(--black-box-shadow);
-
+  
   
   
 }
@@ -60,7 +60,7 @@ section {
 
   .section__video{
     width: 100%;
-    height:55rem;
+    height: 55rem;
     aspect-ratio: 21/9;
     object-fit: cover;
 
@@ -74,23 +74,40 @@ section {
     border-radius: 1rem;
   }
 
+  .section-div__title{
+      display: flex;
+      flex-direction: column;
+     
+  }
+
+  .section-div__title.even{
+    align-items: flex-end;
+  }
+
+  .section-div__title.odd{
+    align-items: flex-start;
+  }
+
+ 
+
   .section-info__cont {
     position: absolute;
     z-index: 2; /* make sure the content is above the gradient layer */
-    left: 10%;
     bottom: 5%;
     display: flex;
     
     flex-direction: column;
+    padding-left: 6rem;
+    padding-right: 6rem;
   }
 
   .section-info__cont.even {
-    right: 10%;
+    right: 0%;
     align-items: flex-end;
 }
 
 .section-info__cont.odd {
-      left: 10%;
+      left: 0%;
       align-items: flex-start;
   }
 
@@ -117,20 +134,43 @@ section {
     color: blanchedalmond;
   }
 
-  .section__btn{
+  .section-totop__btn{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section__btn, .section__href{
     background: transparent;
     backdrop-filter: blur(5px);
-    color: var(--secondary-light);
+    background: rgba(0, 0, 0, 0.7);
     padding: 0.5rem 3rem;
     cursor: pointer;
     font-size: var(--xsm);
     text-shadow: var(--black-text-shadow);
-    border: 0.125rem solid blanchedalmond;
+    
 
     box-shadow: var(--black-box-shadow);
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.07s ease-in-out; 
 
   }
+
+  .section__btn{
+    color: blanchedalmond;
+    border: 0.125rem solid blanchedalmond;
+    
+  }
+
+  .section__href{
+    color: var(--secondary-light);
+    text-decoration: none;
+    border: 0.125rem solid white;
+  }
+
+
+
   .section-info-screenshot__description{
     margin-bottom: 2rem;
    
@@ -149,7 +189,7 @@ section {
     justify-content: flex-end;
     align-items: flex-end;
     text-align: right;
-  
+    padding: 0;
   }
 
   .section-info-screenshot__description.even{
@@ -158,7 +198,7 @@ section {
     justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
-
+    padding: 0;
   }
 
   .section-info-screenshot__img{
@@ -177,6 +217,7 @@ section {
 .section-info-screenshot__description{
     margin-top: 1.5rem;
     padding: 1rem 3rem;
+
     
 }
 
@@ -213,7 +254,7 @@ section {
 
      .section-info-screenshot__cont{
         position: relative;
-      
+        left: 0;
         padding-top: 1rem;
         padding-bottom: 2rem;
         z-index: 5;
@@ -243,15 +284,25 @@ section {
     }
 
      .section__btn:hover, 
-     .section__btn:focus { 
-       transform: scale(1.1);
+     .section__btn:focus,
+     .section__href:hover, 
+     .section__href:focus { 
+       transform: scale(1.07);
        cursor: pointer;
+       box-shadow: var(--white-box-shadow);
+       color: white;
    }
+
+
 
     
 
-     .section__btn{
+     .section__btn, .section__href{
       font-size: var(--md);
+     }
+
+     .section__btn{
+       margin-bottom: 1rem;
      }
 
      .section__title{
@@ -287,7 +338,7 @@ section {
 
      }
 
-     .section__btn{
+     .section__btn, .section__href{
       font-size: var(--lg);
      }
 
@@ -299,7 +350,7 @@ section {
     .section__rating,
     .section__updated,
     .section__released,
-   .section__metacritic{
+    .section__metacritic{
         font-size: var(--sm);
     }
 
