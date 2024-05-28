@@ -74,21 +74,43 @@ section {
     border-radius: 1rem;
   }
 
-  .section-div__title{
-      display: flex;
-      flex-direction: column;
-     
+  .section-div__title {
+    display: flex;
+    flex-direction: column; /* Change to 'row' if you want them side by side */
+}
+
+.odd .section-title-logo__cont {
+    order: 2; 
+}
+
+.even .section-title-logo__cont {
+    order: 1; 
+}
+
+/* switches the render order according to odd or even class */
+
+.odd .section-title-info__cont {
+    order: 1; 
+}
+
+.even .section-title-info__cont {
+    order: 2; 
+}
+
+
+
+  .section-title-info__cont{
+    
   }
 
-  .section-div__title.even{
+  .section-title-info__cont.even{
     align-items: flex-end;
   }
 
-  .section-div__title.odd{
+  .section-title-info__cont.odd{
     align-items: flex-start;
   }
 
- 
 
   .section-info__cont {
     position: absolute;
@@ -252,6 +274,27 @@ section {
       width: 60rem;
      }
 
+     .section-div__title{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+     }
+
+
+
+     .section-title-info__cont{
+      display: flex;
+      flex-direction: column;
+     
+      
+     }
+
+     .section-title__logo{
+      width: 12rem;
+      filter: drop-shadow(var(--white-box-shadow));
+      padding-bottom: 3rem;
+     }
+
      .section-info-screenshot__cont{
         position: relative;
         left: 0;
@@ -330,6 +373,11 @@ section {
       width: 110rem;
      }
 
+     .section-title__logo{
+      width: 15rem;
+     
+     }
+
      .section-info-screenshot__cont{
 
      }
@@ -339,7 +387,7 @@ section {
      }
 
      .section__btn, .section__href{
-      font-size: var(--lg);
+      font-size: var(--md);
      }
 
 
