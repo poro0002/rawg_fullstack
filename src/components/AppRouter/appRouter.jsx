@@ -23,7 +23,7 @@ function AppRouter({searchResults, seeGame, handleFav }) {
         <Route path='/home' element={ <HomePage seeGame={seeGame} /> }  exact/>
         <Route path='/design'Component={DesignPage}/>
         <Route path='/browse'Component={BrowsePage}/>
-        <Route path="/search" element={ <SearchPage handleFav={handleFav}/> } />
+        <Route path="/search" element={ <SearchPage handleFav={handleFav} /> } />
       
     </Routes>
 </Router>  

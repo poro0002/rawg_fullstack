@@ -8,11 +8,19 @@ import Footer from '../../Footer/footer'
    let count = 3;
 
 
-    function SlideshowHeader({handleFav}){
+    function SlideshowHeader({handleFav, deleteFavorite, seeGame}){
         // console.log('handleFav prop:', handleFav);
         
         const [cards, setCards] = useState([]);
-        const [favorites, setFavorites] = useState([]);
+        const [favorites, setFavorites] = useState(() => {
+            const storedFavorites = localStorage.getItem('favorites');
+            return storedFavorites ? JSON.parse(storedFavorites) : [];
+          });
+
+          useEffect(() => {
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+          }, [favorites]);
+
     
         let baseURL = 'http://localhost:3500';
 
@@ -108,13 +116,19 @@ import Footer from '../../Footer/footer'
                // Assuming that the first movie in the list is the trailer
                return data.results.length > 0 ? data.results[0].data.max : ''; // Assuming 'preview' contains the trailer URL
             } 
-    
+
+         
+            
+         const isFavorite = (cardId) => {
+             return favorites.some(favorite => favorite.id === cardId);
+            };
+            
         return (
            //  we then, map through the objects that are in that cards variable after the promises are done and build a template with the data for each one then export 
             <>
                     <header className='slide-header'>
                         {cards.map(card => (
-                            <div className="card" key={card.id}>
+                            <a className="card" onClick={() => seeGame(card)} key={card.id}>
                                 {card.trailerUrl ? (
                                     <video
                                     className='card__video'
@@ -135,13 +149,23 @@ import Footer from '../../Footer/footer'
                                 <div className="card-info__cont">
                                         <h1 className='card__title'>{card.name}</h1>
                                         <p className="card__rating">Rating: {card.rating}</p>
-                                        <p className="card__updated">Version: {card.version}</p>
-                                        <button onClick={() => handleFav(card)} className="card__btn" ><i className='material-icons'>favorite</i></button>
+                                        <p className="card__updated">Version: {card.version}</p> 
+                                        {isFavorite(card.id) ? (
+                                            <button onClick={(event) => { event.stopPropagation(); deleteFavorite(card); }} className="card-btn__close">
+                                            <i className='material-icons'>close</i>
+                                            </button>
+                                         ) : (
+                                            <button onClick={(event) => { event.stopPropagation(); handleFav(card); }} className="card-btn__like">
+                                             <i className='material-icons'>favorite</i>
+                                         </button>
+                                         )}
 
                                 </div>
-                            </div>
+                            </a>
+                           
                         ))}
                     </header>
+                    <a className="section-totop__btn" href="#"><i className="material-icons">keyboard_arrow_up</i>To Top</a>
                 <Footer></Footer>
             </>
         );
