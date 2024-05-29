@@ -57,6 +57,13 @@
     width: 30rem;
     box-shadow: var(--white-box-shadow);
     border: 0.125rem solid var(--secondary-color);
+    transition: 0.1s ease-in;
+}
+
+.card:hover,
+.card:focus {
+   transform: scale(1.05);
+   cursor: pointer;
 }
 
 .card__video,
@@ -77,7 +84,32 @@
     
 }
 
-.card__btn{
+.card-btn__close{
+    background-color: transparent;
+    width: 5rem;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    transition:  0.4s;
+   
+    
+}
+
+.card-btn__close .material-icons{
+    font-size: 2rem;
+    filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.2)); 
+}
+
+.card-btn__close:hover,
+.card-btn__close:focus{
+   color: red;
+   cursor: pointer;
+   transform: scale(1.1);
+  
+   
+}
+
+.card-btn__like{
     background-color: transparent;
     border: none;
     border-radius: 1rem;
@@ -87,12 +119,17 @@
     
 }
 
-.card__btn:hover,
-.card__btn:focus{
+.card-btn__like .material-icons{
+    filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 0.2)); 
+}
+
+.card-btn__like:hover,
+.card-btn__like:focus{
    color: orange;
    cursor: pointer;
    transform: scale(1.1);
-   filter: drop-shadow(0 0 0.8rem #0002);
+   
+  
    
 }
 

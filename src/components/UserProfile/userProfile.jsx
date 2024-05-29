@@ -23,6 +23,7 @@ function UserProfile({favorites, deleteFavorite}){
               <h3 className="email">{user.email}</h3>
 
             <div className="favorites-container container">
+                <h4 className="favorites-container__title" >Favorites</h4>
                  {favorites.map((favorite) =>{
                     return (
                       <div className="fav-card" key={favorite.id} >

@@ -20,6 +20,10 @@
     
   }
 
+  .favorites-container__title{
+    font-size: var(--lg);
+  }
+
 
 
 

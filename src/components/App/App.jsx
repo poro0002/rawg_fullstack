@@ -15,9 +15,6 @@ import Section from '../Section/section'
 
 
 
-
-
-
 function App() {
   const [count, setCount] = useState(0)
 
@@ -35,6 +32,7 @@ function App() {
    const [username, setUsername] = useState("");
    const [fullName, setFullName] = useState("");
    const [email, setEmail] = useState("");
+   const [buttonState, setButtonState] = useState(false); // <-------- browse card btn state ?
 
 
 
@@ -47,11 +45,13 @@ function App() {
   });
 
 
-// ----------------------------< Handle Login >---------------------------- 
+// ----------------------------< Handle Login >-------------------------------------- 
 
    // Function to handle successful login and when is ran during login 
    // & has access to the returned user data
+
 const handleLogin = async (userData) => {
+
    alert('login successful')
    setIsLoggedIn(true);
    localStorage.setItem('isLoggedIn', 'true');
@@ -113,16 +113,19 @@ const handleLogin = async (userData) => {
    window.location.reload();
 };
 
-// ----------------------------< Handle Logout >---------------------------- 
+// ----------------------------< Handle Logout >--------------------------------------
    
 const handleLogout = () => {
+  
   setIsLoggedIn(false);
   localStorage.clear();
   window.location.reload();
   console.log('logout clicked');
+  
 };
 
-// ----------------------------< Handle Favorites >---------------------------- 
+
+// ----------------------------< Handle Favorites >----------------------------------- 
 
 // React says "this is not a function" 
 // gameData is Card data
@@ -179,7 +182,7 @@ const handleFav = async (gameData) => {
         
         console.log(data) // we need the data back from the 'type === favorites' if else in the server
 
-        // alert(data.message) // did it store it correctly or not 
+        alert(data.message) // did it store it correctly or not 
 
         // Assuming you want to update the local state after successfully updating favorites on the server
         // Update favorites state
@@ -190,6 +193,7 @@ const handleFav = async (gameData) => {
   
       // set newFavorites in localStorage
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      
     } else{
       alert('you need to be logged in the save favorites')
     }
@@ -199,6 +203,8 @@ const handleFav = async (gameData) => {
       }
 
 };
+
+// ----------------------------< Delete Favorite >--------------------------------------
 
 // write functionality to delete the favorite from the database & local storage
 
@@ -255,6 +261,7 @@ const handleFav = async (gameData) => {
         if (data.message === 'Successfully deleted favorite') {
           const updatedFavorites = favorites.filter(fav => fav.id !== favorite.id);
           setFavorites(updatedFavorites);
+          setButtonState(isFavorite(favorite.id));  // <-------- browse card btn state ?
 
           // Update local storage
           localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
@@ -281,9 +288,6 @@ const seeGame = (section) => {
 }
 
 
-
-
-
 // ----------------------------< Handle Search >---------------------------- 
 
 const [searchVal, setSearchVal] = useState(''); 
@@ -298,7 +302,7 @@ const [ifSearched, setIfSearched] = useState(false);
      
       <AppRouter ifSearched={ifSearched} searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
-      {isBrowsePage && <SlideshowHeader handleFav={handleFav} />}
+      {isBrowsePage && <SlideshowHeader handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} />}
       
       {isLoggedIn && isAccountPage ? (
           <UserProfile handleLogin={handleLogin} deleteFavorite={deleteFavorite} favorites={favorites.filter(favorite => favorite.id)} username={username} fullName={fullName} email={email}/>

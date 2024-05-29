@@ -4,6 +4,7 @@
 
 .navbar ul li.active a {
   text-decoration: underline;
+  color: var(--secondary-light);
   
 }
 

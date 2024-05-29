@@ -9,7 +9,7 @@ function Footer() {
     return (
         <footer>
              <nav className="footer__nav">
-            <a className="footer__logo" href="/">
+            <a className="footer__logo" href="/home">
                 <img src="src/Content/rawg.png" alt="signature logo" className="footer__icon" />
             </a>
 

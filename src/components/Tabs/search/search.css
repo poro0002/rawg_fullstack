@@ -28,8 +28,8 @@
     
 }
 
-.card__btn:hover,
-.card__btn:focus{
+.search-result__btn,
+.search-result__btn{
    color: orange;
    cursor: pointer;
    transform: scale(1.1);
