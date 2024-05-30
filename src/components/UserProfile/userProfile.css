@@ -39,7 +39,7 @@
 
 .fav-card-delete__btn:hover,
 .fav-card-delete__btn:focus{
-   color: orange;
+   color: red;
    cursor: pointer;
    transform: scale(1.1);
    filter: drop-shadow(0 0 0.8rem #0002);

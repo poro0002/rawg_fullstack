@@ -8,18 +8,19 @@ import Footer from '../../Footer/footer'
    let count = 3;
 
 
-    function SlideshowHeader({handleFav, deleteFavorite, seeGame}){
+    function SlideshowHeader({handleFav, deleteFavorite, seeGame, favorites, setFavorites}){
         // console.log('handleFav prop:', handleFav);
         
+        
         const [cards, setCards] = useState([]);
-        const [favorites, setFavorites] = useState(() => {
-            const storedFavorites = localStorage.getItem('favorites');
-            return storedFavorites ? JSON.parse(storedFavorites) : [];
-          });
+        // const [favorites, setFavorites] = useState(() => {
+        //     const storedFavorites = localStorage.getItem('favorites');
+        //     return storedFavorites ? JSON.parse(storedFavorites) : [];
+        //   });
 
-          useEffect(() => {
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-          }, [favorites]);
+        //   useEffect(() => {
+        //     localStorage.setItem('favorites', JSON.stringify(favorites));
+        //   }, [favorites]);
 
     
         let baseURL = 'http://localhost:3500';
@@ -151,8 +152,8 @@ import Footer from '../../Footer/footer'
                                         <p className="card__rating">Rating: {card.rating}</p>
                                         <p className="card__updated">Version: {card.version}</p> 
                                         {isFavorite(card.id) ? (
-                                            <button onClick={(event) => { event.stopPropagation(); deleteFavorite(card); }} className="card-btn__close">
-                                            <i className='material-icons'>close</i>
+                                            <button onClick={(event) => { event.stopPropagation(); deleteFavorite(card);  }} className="card-btn__close">
+                                            <i className='material-icons'>delete</i>
                                             </button>
                                          ) : (
                                             <button onClick={(event) => { event.stopPropagation(); handleFav(card); }} className="card-btn__like">
@@ -162,6 +163,7 @@ import Footer from '../../Footer/footer'
 
                                 </div>
                             </a>
+                            
                            
                         ))}
                     </header>
