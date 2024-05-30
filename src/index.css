@@ -2,19 +2,38 @@
 :root{
   
   /* colors pick you color schemes  */
-
+  
+  /* Primary */
     --primary-color: #5c6bc0;
+    --primary-color-light-2: #a4afe4;
+    --primary-color-dark-1: #48569b;
+    --primary-color-dark-2: #37447b;
+    --darkest-color: #303F9F;
+
+
+    /* Secondary */
     --secondary-color: #9FA8DA;
     --secondary-light: #C5CAE9;
-    --darkest-color: #303F9F;
-   
+    --secondary-dark: #7986cb;
+    --secondary-accent-1: #b3bce8;
+    --secondary-accent-2: #d1d5f0;
+
+    /* Alternate */
+   --almond: blanchedalmond;
+   --eggshell: #f0ead6;
+   --off-white: #f5f5f5;
+  
+
+    /* Shades */
     --extra-grey: #C6BEB8;
     --shade-one: #0005; 
     --shade-two: #5550;
     --shade-three: #101010;
     --shade-four: #333333;
     --article-bkgd-color: #C2C2C2;
-    --font-stack: "Open Sans", sans-serif;
+
+    /* Font */
+    --font-stack: "Roboto", "Open Sans", sans-serif;
 
 /* find banner classes in BANNER component */
 

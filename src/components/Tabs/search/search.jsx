@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import SearchBar from '../../searchBar/searchBar'
 import Section from '../../Section/section'
 import Footer from '../../Footer/footer'
+import Container from '../../Container/container'
 import "./search.css"
 
 // look for games with trailers
@@ -44,7 +45,7 @@ function SearchPage({handleFav}){
 
 
    return(
-        
+       
          <div className="search-result-container">
             {storedResults &&  (
                 <section className="search-result">
@@ -69,6 +70,7 @@ function SearchPage({handleFav}){
             <Footer></Footer>
             
         </div>
+  
 
    )
 }

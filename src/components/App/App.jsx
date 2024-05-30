@@ -131,6 +131,8 @@ const handleLogout = () => {
 // gameData is Card data
 const handleFav = async (gameData) => {
 
+  console.log(buttonState)
+
    // Endpoint URL
    const reqURL = 'http://localhost:3500/updateFavorites';
 
@@ -182,7 +184,7 @@ const handleFav = async (gameData) => {
         
         console.log(data) // we need the data back from the 'type === favorites' if else in the server
 
-        alert(data.message) // did it store it correctly or not 
+        // alert(data.message) // did it store it correctly or not 
 
         // Assuming you want to update the local state after successfully updating favorites on the server
         // Update favorites state
@@ -190,6 +192,7 @@ const handleFav = async (gameData) => {
 
       const newFavorites = [...favorites, gameData];
       setFavorites(newFavorites);
+      
   
       // set newFavorites in localStorage
       localStorage.setItem('favorites', JSON.stringify(newFavorites));
@@ -209,6 +212,8 @@ const handleFav = async (gameData) => {
 // write functionality to delete the favorite from the database & local storage
 
   const deleteFavorite = async (favorite) => {
+
+    console.log(buttonState)
 
     const reqURL = 'http://localhost:3500/updateFavorites';
     
@@ -261,7 +266,7 @@ const handleFav = async (gameData) => {
         if (data.message === 'Successfully deleted favorite') {
           const updatedFavorites = favorites.filter(fav => fav.id !== favorite.id);
           setFavorites(updatedFavorites);
-          setButtonState(isFavorite(favorite.id));  // <-------- browse card btn state ?
+          // setButtonState(isFavorite(favorite.id));  // <-------- browse card btn state ?
 
           // Update local storage
           localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
@@ -302,7 +307,7 @@ const [ifSearched, setIfSearched] = useState(false);
      
       <AppRouter ifSearched={ifSearched} searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
-      {isBrowsePage && <SlideshowHeader handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} />}
+      {isBrowsePage && <SlideshowHeader handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} favorites={favorites} setFavorites={setFavorites} />}
       
       {isLoggedIn && isAccountPage ? (
           <UserProfile handleLogin={handleLogin} deleteFavorite={deleteFavorite} favorites={favorites.filter(favorite => favorite.id)} username={username} fullName={fullName} email={email}/>

@@ -1,0 +1,134 @@
+.color-container{
+    width: min(100%);
+    margin-top: 5rem;
+}
+
+
+
+.colors-cont{
+    display: grid;
+    grid-template-columns: 1fr ;
+    place-items: center;
+    
+}
+
+.color-box {
+   width: 15rem;
+   height: 3rem;
+   margin-bottom: 1rem;
+}
+
+.color-box__info{
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+}
+
+.color-sub{
+    margin: 0;
+    padding: 0;
+}
+
+.color-sub_info{
+    font-size: var(--sm);
+}
+
+.color-box__tag{
+    font-size: var(--xsm);
+    color: var(--off-white);
+    margin-bottom: 0.2rem;
+}
+
+.color-box__hex{
+    /* padding-right: 5rem; */
+}
+
+.color-box__hex, .color-box__rgb {
+    font-size: var(--xsm);
+    color: var(--almond);
+    margin: 0;
+}
+
+.color-box__cont{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start; 
+   align-items: flex-start;
+   margin-bottom: 3rem; 
+}
+
+
+.primary{
+  box-shadow: var(--black-box-shadow);
+}
+ 
+
+.secondary{
+ box-shadow: var(--black-box-shadow);
+ 
+
+}
+
+.shade{
+    box-shadow: var(--white-box-shadow);
+}
+
+/* Primary colors */
+.primary-color { background-color: var(--primary-color); }
+.primary-color-light-2 { background-color: var(--primary-color-light-2); }
+.primary-color-dark-1 { background-color: var(--primary-color-dark-1); }
+.primary-color-dark-2 { background-color: var(--primary-color-dark-2); }
+.darkest-color { background-color: var(--darkest-color); }
+
+/* Secondary colors */
+.secondary-color { background-color: var(--secondary-color); }
+.secondary-light { background-color: var(--secondary-light); }
+.secondary-dark { background-color: var(--secondary-dark); }
+.secondary-accent-1 { background-color: var(--secondary-accent-1); }
+.secondary-accent-2 { background-color: var(--secondary-accent-2); }
+
+/* Shades */
+.extra-grey { background-color: var(--extra-grey); }
+.shade-one { background-color: var(--shade-one); }
+.shade-two { background-color: var(--shade-two); }
+.shade-three { background-color: var(--shade-three); }
+.shade-four { background-color: var(--shade-four); }
+.article-bkgd-color { background-color: var(--article-bkgd-color); }
+
+.color-box__tag {
+    font-size: 0.9em;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+@media screen and (min-width: 45em) {
+    .colors-cont{
+        grid-template-columns: 1fr 1fr ;
+    }
+    .color-box {
+        width: 20rem;
+        height: 5rem;
+    }
+    
+
+}
+
+
+
+@media screen and (min-width: 100em) {
+    .colors-cont{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .color-box {
+
+    }
+    
+
+}
