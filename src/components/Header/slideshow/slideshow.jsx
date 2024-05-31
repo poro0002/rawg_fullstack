@@ -127,6 +127,11 @@ import Footer from '../../Footer/footer'
         return (
            //  we then, map through the objects that are in that cards variable after the promises are done and build a template with the data for each one then export 
             <>
+              <video autoPlay loop muted className="background-video">
+               <source src="src/Content/smoke1.mov" type="video/mp4" />
+          
+            </video>
+        
                     <header className='slide-header'>
                         {cards.map(card => (
                             <a className="card" onClick={() => seeGame(card)} key={card.id}>

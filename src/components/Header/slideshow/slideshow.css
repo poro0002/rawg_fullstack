@@ -1,4 +1,22 @@
+
+.background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+
+
 .slide-header {
+
+    position: relative;
+    z-index: 1;
     display: grid;
     place-items:center;
     grid-template-columns: 1fr ;
