@@ -1,15 +1,73 @@
+
+
+
+  .background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+
+
+  /* --------------------------------< COLOR >---------------------------------------- */
+
 .color-container{
     width: min(100%);
     margin-top: 5rem;
+    position: relative;
+    z-index: 1;
+    
 }
 
+
+.design__title{
+    letter-spacing: 0.2rem;
+    font-size: var(--xlg);
+}
 
 
 .colors-cont{
     display: grid;
     grid-template-columns: 1fr ;
     place-items: center;
+    margin-top: 3rem;
     
+}
+
+.color-gradient__cont{
+
+}
+
+.color__sub{
+    margin-bottom: 1.5rem;
+    color: var(--off-white);
+    font-size: var(--md);
+    letter-spacing: 0.3rem;
+    grid-column: 1 / -1; 
+}
+
+
+.color__title{
+    grid-column: 1 / -1;  
+    margin: 0;
+    color: var(--almond);
+    font-size: var(--sm);
+    
+}
+
+.color-sub_info{
+    grid-column: 1 / -1; 
+    text-align: center; 
+    margin-bottom: 5rem;
+    width: min(45em, 100%);
+    color: var(--eggshell);
+    font-style: italic;
 }
 
 .color-box {
@@ -18,19 +76,24 @@
    margin-bottom: 1rem;
 }
 
+.color-box-gradient{
+    width: 22em;
+    height: 3rem;
+    margin-bottom: 1rem;
+    
+}
+
 .color-box__info{
     display: flex;
     justify-content: space-between;
     width: 100%; 
 }
 
-.color-sub{
-    margin: 0;
-    padding: 0;
-}
+
 
 .color-sub_info{
     font-size: var(--sm);
+    
 }
 
 .color-box__tag{
@@ -73,6 +136,10 @@
     box-shadow: var(--white-box-shadow);
 }
 
+.gradient{
+  
+}
+
 /* Primary colors */
 .primary-color { background-color: var(--primary-color); }
 .primary-color-light-2 { background-color: var(--primary-color-light-2); }
@@ -95,24 +162,46 @@
 .shade-four { background-color: var(--shade-four); }
 .article-bkgd-color { background-color: var(--article-bkgd-color); }
 
+/* Gradients */
+.primary-gradient {
+    background: linear-gradient(to right, rgb(92, 107, 192), rgb(72, 86, 155), rgb(48, 63, 159));
+    box-shadow: var(--black-box-shadow);
+}
+
+.secondary-gradient {
+    background: linear-gradient(to right, rgb(121, 134, 203), rgb(159, 168, 218), rgb(209, 213, 240));
+    box-shadow: var(--black-box-shadow);
+}
+
+.shade-gradient {
+    background: linear-gradient(to right, rgb(51, 51, 51), rgb(16, 16, 16), rgb(1, 10, 19));
+    box-shadow: var(--white-box-shadow);
+}
+
 .color-box__tag {
     font-size: 0.9em;
     text-align: left;
 }
 
 
-
-
-
-
-
-
 @media screen and (min-width: 45em) {
     .colors-cont{
         grid-template-columns: 1fr 1fr ;
     }
+
+    .color-gradient__cont{
+      
+    }
+
+
+
     .color-box {
         width: 20rem;
+        height: 5rem;
+    }
+
+    .color-box-gradient{
+        width: 30rem;
         height: 5rem;
     }
     
@@ -129,6 +218,132 @@
     .color-box {
 
     }
+
+    .color-gradient__cont{
+        grid-template-columns: 1fr 1fr ;
+    }
     
+
+}
+
+
+
+ /* --------------------------------< TYPOGRAPHY >---------------------------------------- */
+
+
+ .typography-cont {
+    margin-top: 3.125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+   
+  }
+  
+
+  
+  .typography-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.625rem;
+  }
+  
+  .typography-grid-item {
+    border: 0.125rem solid var(--primary-color-light-2) ;
+    box-shadow: var(--black-box-shadow);
+    border-radius: 0.2rem;
+    padding:  0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .typography-letter {
+    font-size: 1rem;
+  }
+
+  .typography-cont {
+    /* Your styles for the container */
+}
+
+.typography-flex {
+    /* Your styles for the flex container */
+}
+
+.typography-large-letter {
+    font-size: 10rem;
+    color: var(--secondary-light);
+    filter: drop-shadow(var(--black-box-shadow));
+    margin: 0;
+
+}
+
+.typography-title {
+    /* Your styles for the title */
+}
+
+.typography-text {
+    /* Your styles for the text */
+}
+
+.hierachy-cont {
+    margin-top: 5rem;
+}
+
+.hierarchy-title {
+    margin-bottom: 1rem;
+}
+
+.hierarchy-item {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-light);
+}
+
+.hierarchy-item.large-title {
+    font-size: var(--lg);
+}
+
+.hierarchy-item.sub-title {
+    font-size: var(--xlg);
+}
+
+.hierarchy-item.main-heading {
+    font-size: var(--md);
+}
+
+.hierarchy-item.sub-heading {
+    font-size: var(--sm);
+}
+
+.hierarchy-item.small-text {
+    font-size: var(--xsm);
+}
+
+.hierarchy-item.mobile-paragraph {
+    font-size: var(--mobile-para);
+}
+
+.measurement{
+    color: var(--off-white);
+}
+
+
+ @media screen and (min-width: 45em) {
+
+    .typography-grid {
+        grid-template-columns: repeat(13, 1fr);
+    }
+
+}
+
+
+
+@media screen and (min-width: 100em) {
+
+    .typography-grid {
+        
+    }
+
+
 
 }

@@ -15,35 +15,41 @@ function UserProfile({favorites, deleteFavorite}){
      console.log(favorites)
 
    return(
-    
-     <div className="container">
-         
-              <h3 className="userName">{user.username}</h3>
-              <h3 className="fullName">{user.fullName}</h3>
-              <h3 className="email">{user.email}</h3>
 
-            <div className="favorites-container container">
-                <h4 className="favorites-container__title" >Favorites</h4>
-                 {favorites.map((favorite) =>{
-                    return (
-                      <div className="fav-card" key={favorite.id} >
-                           <img className="fav-card__img"  src={favorite.background_image} alt="" />
-                          <div className="fav-card-info__cont">
-                            <h3 className="fav-card__title">{favorite.name}</h3>
-                            <p className="fav-card__info">{favorite.rating}</p>
-                            <p className="fav-card__info">{favorite.updated}</p>
-                            <button onClick={() => deleteFavorite(favorite)} className="fav-card-delete__btn"><i className="material-icons">delete</i></button>
-                         </div>
-                      </div>
-                      )
-                 })}
-            </div>
+    <>
+      <video autoPlay loop muted className="background-video">
+              <source src="src/Content/smoke1.mov" type="video/mp4" />
+            
+          </video>
+      
+      <div className="container">
+          
+                <h3 className="userName">{user.username}</h3>
+                <h3 className="fullName">{user.fullName}</h3>
+                <h3 className="email">{user.email}</h3>
 
-        
-         <Footer></Footer>
-    </div>
+              <div className="favorites-container container">
+                  <h4 className="favorites-container__title" >Favorites</h4>
+                  {favorites.map((favorite) =>{
+                      return (
+                        <div className="fav-card" key={favorite.id} >
+                            <img className="fav-card__img"  src={favorite.background_image} alt="" />
+                            <div className="fav-card-info__cont">
+                              <h3 className="fav-card__title">{favorite.name}</h3>
+                              <p className="fav-card__info">{favorite.rating}</p>
+                              <p className="fav-card__info">{favorite.updated}</p>
+                              <button onClick={() => deleteFavorite(favorite)} className="fav-card-delete__btn"><i className="material-icons">delete</i></button>
+                          </div>
+                        </div>
+                        )
+                  })}
+              </div>
+
+          
+          <Footer></Footer>
+      </div>
   
-
+    </>
 
    )
 }
