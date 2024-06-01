@@ -288,6 +288,10 @@
 
 .hierachy-cont {
     margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hierarchy-title {
@@ -301,6 +305,7 @@
 
 .hierarchy-item.large-title {
     font-size: var(--lg);
+   
 }
 
 .hierarchy-item.sub-title {
@@ -327,8 +332,7 @@
     color: var(--off-white);
 }
 
-
- @media screen and (min-width: 45em) {
+@media screen and (min-width: 45em) {
 
     .typography-grid {
         grid-template-columns: repeat(13, 1fr);
@@ -337,13 +341,150 @@
 }
 
 
-
 @media screen and (min-width: 100em) {
 
     .typography-grid {
         
     }
+}
 
 
+ /* --------------------------------< COMPONENTS >---------------------------------------- */
+
+
+
+.components-cont{
+   margin-top: 5rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.component{
+    margin-bottom: 5rem;
+}
+
+.components__display-cards{
+    display: grid;
+    grid-template-columns: 1fr ;
+}
+
+.component-title {
+    
+}
+
+
+.slide{
+    position: relative;
+    z-index: 1;
+   
+   
+    place-items: center;
+
+    padding-top: 2rem;
+    padding: 2rem;
+
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+
+
+.components__section{
+    
+}
+
+
+@media screen and (min-width: 45em) {
+
+    
+    .components__display-cards{
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
+
+
+@media screen and (min-width: 100em) {
+
+    .components__display-cards{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+
+ /* --------------------------------< API >---------------------------------------- */
+
+ .api-cont{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .api-link__list{
+  
+ }
+
+ .api-link-list__items{
+    list-style: none;
+    text-decoration: none; 
+  
+ }
+
+ .api-link-list__item{
+
+ }
+
+ .api-link-list__items a:hover,
+ .api-link-list__items a:focus {
+     color: var(--secondary-color); /* Change link color on hover/focus */
+ }
+
+ .api__screenshots{
+    display: grid;
+    grid-template-columns: 1fr;
+ }
+
+ .api-screenshot__img{
+    width: 18rem;
+    aspect-ratio: 16/9;
+    margin: 1rem;
+    box-shadow: var(--white-box-shadow);
+ }
+
+
+
+ @media screen and (min-width: 45em) {
+
+    .api__screenshots{
+        grid-template-columns: 1fr 1fr;
+    }
+   
+    .api-screenshot__img{
+        width: 30rem;
+    }
+
+}
+
+
+@media screen and (min-width: 100em) {
+
+    .api__screenshots{
+        grid-template-columns: 1fr 1fr 1fr;
+       
+    }
+   
+    .api-screenshot__img{
+       
+        /* width: 70rem; <------ ?????  */
+    }
+
+   
+}
+
+
+
+

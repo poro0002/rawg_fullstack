@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Container from '../../Container/container'
 import './design.css'
+import Footer from '../../Footer/footer'
 
 function DesignPage(props){
    return(
@@ -211,9 +212,13 @@ function DesignPage(props){
 
             </div>
 
-      </div>
+   </div> 
+{/*------------- end of colors container -------------  */}
+
+{/* ---------------------------------< TYPOGRAPHY >---------------------------------------- */}
       
-      <div className="colors-cont typography-cont">
+ <div className="colors-cont typography-cont">
+
           <h3 className="typography__title color__title">-Typography-</h3>
           <h4 className="color__sub">Font Grid</h4>
           <p className="color-sub_info">Well-designed typography ensures that text content is easy to read, even on various devices and screen sizes. Accessible typography enhances the user experience for people with visual impairments by providing clear, legible text.</p>
@@ -250,6 +255,7 @@ function DesignPage(props){
           <div className="hierachy-cont">
             <h3 className="typography__title color__title">-Typography-</h3>
             <h3 className="hierarchy-title color__sub">Hierarchy</h3>
+            <p className="color-sub_info">Establishing a clear visual hierarchy helps users quickly understand the structure of content. By using different font sizes, colors, and weights, developers can guide users' eyes to the most important elements first.</p>
                
                <div className="hierarchy-item large-title">
                   Large Title (<span className="measurement">1.5rem / 24px</span>)
@@ -275,7 +281,146 @@ function DesignPage(props){
                   Mobile Paragraph (<span className="measurement">0.5rem / 8px</span>)
                </div>
        </div>
+
+
+       <div className="components-cont">
+            <h3 className="components_title color__title">-Modules-</h3>
+            <h3 className="component-title color__sub">Components</h3>
+            <p className="color-sub_info">Components and modules allow designers and developers to create reusable pieces of code or design elements. This means that once a component is created, it can be used across multiple parts of a website or application, saving time and effort.</p>
+            
+
+            <h3 className="components-display-cards__title">Cards</h3>
+            <div className="component components__display-cards">
+ 
+                  <header className='slide'>    
+                           <a className="card" >   
+                              <div className="card-info__cont">
+                                       <h1 className='card__title'></h1>
+                                       <p className="card__rating">Rating: </p>
+                                       <p className="card__updated">Version: </p> 
+                                          
+                                       <button  className="card-btn__like">
+                                          <i className='material-icons'>favorite</i>
+                                       </button>
+                                    </div>
+                                 </a>
+                        </header>
+
+                        <header className='slide'>    
+                           <a className="card" >   
+                              <div className="card-info__cont">
+                                       <h1 className='card__title'></h1>
+                                       <p className="card__rating">Rating: </p>
+                                       <p className="card__updated">Version: </p> 
+                                          
+                                       <button  className="card-btn__like">
+                                          <i className='material-icons'>favorite</i>
+                                       </button>
+                                    </div>
+                                 </a>
+                        </header>
+
+                        <header className='slide'>    
+                           <a className="card" >   
+                              <div className="card-info__cont">
+                                       <h1 className='card__title'></h1>
+                                       <p className="card__rating">Rating: </p>
+                                       <p className="card__updated">Version: </p> 
+                                          
+                                       <button  className="card-btn__like">
+                                          <i className='material-icons'>favorite</i>
+                                       </button>
+                                    </div>
+                                 </a>
+                        </header>
+
+            </div>
+
+         
+
+            <div className="component components__section">
+
+               <h3 className="components_section__title">Section</h3>
+
+                  <div className="section__div" >
+                     <img
+                        className='section__img'
+                        src=""
+                        alt=""
+                     />
+                     
+               <div className={`section-info__cont odd`}>
+                  <div className="section-info-screenshot__cont">
+                        
+                     <div className={`section-div__title odd`}>
+                              <div className={`section-title-info__cont odd`}>
+                                 {/* <p className="section__rating">Rating: <span className="section-info__value"></span></p> */}
+                                 <p className="section__released">Released:  <span className="section-info__value"></span></p>
+                                 <p className="section__metacritic">Metacritic: <span className="section-info__value"></span> </p>
+                                 <button  className="section__btn" >VIEW</button>
+                                 <a className="section__href" >WEBSITE</a>
+                              </div>
+
+                              <div className="section-title-logo__cont">
+                                 <img className='section-title__logo' alt="" />
+                              </div>
+                     </div>
+
+                  
+                        <div className={`section-info-screenshot__description odd`} >
+                                 
+                                 <h4 className="section-info-screenshot-description__subText">subtext</h4>
+                                 <h3 className="section-info-screenshot-description__title">title</h3>
+                                 <p className="section-info-screenshot-description__desc">description</p>
+                           </div>
+
+                              <a className="section-info-screenshot__title" href="#">view all</a>
+                                 <div className="section-info-screenshot__imgs">   
+                                             <img className="section-info-screenshot__img" />
+                                             <img className="section-info-screenshot__img"  />
+                                             <img className="section-info-screenshot__img"  />
+                                             <img className="section-info-screenshot__img" />
+                                             <img className="section-info-screenshot__img"  />
+                                 </div>
+                     </div>
+
+                  </div>
+         
+               </div>
+
+            </div>
+
+       </div>
+
     </div>
+   {/*------------- end of typography container -------------  */}
+
+   {/* ---------------------------------< API INFO >---------------------------------------- */}
+
+      <div className="api-cont">
+         <h3 className="api_title color__title">-RAWG-</h3>
+            <h3 className="api-title color__sub">API</h3>
+            <p className="color-sub_info">RAWG API offers access to a vast database of video games across various platforms, including PC, consoles, and mobile. This extensive coverage ensures that you can find information on a wide range of games, from the latest releases to classic titles.</p>
+         <div className="api-link__list">
+            <ul className="api-link-list__items">
+               <li><a className="api-link-list__item"href="https://rawg.io/">WEBSITE</a></li>
+               <li><a className="api-link-list__item"href="https://rawg.io/apidocs">API</a></li>
+               <li><a className="api-link-list__item"href="https://x.com/rawgtheworld?lang=en">TWITTER</a></li>
+            </ul>
+         </div>
+
+      <div className="api__screenshots">
+          <img className="api-screenshot__img" src="src/Content/rawg_screenshot2.png" alt="" />
+          <img className="api-screenshot__img" src="src/Content/rawg_screenshot3.png" alt="" />
+          <img className="api-screenshot__img" src="src/Content/rawg_screenshot1.png" alt="" />
+         
+      </div>
+                  
+               
+      </div>
+
+
+ <Footer></Footer>
  </>
    
    )
