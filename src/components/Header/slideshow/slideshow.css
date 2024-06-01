@@ -17,9 +17,9 @@
 
     position: relative;
     z-index: 1;
+    grid-template-columns: 1fr ;
     display: grid;
     place-items:center;
-    grid-template-columns: 1fr ;
     gap: 2rem;
     padding-top: 5rem;
   
