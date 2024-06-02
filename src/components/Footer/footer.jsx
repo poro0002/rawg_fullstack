@@ -47,9 +47,9 @@ function Footer() {
                     </div>
 
                     <ul className="footer__list">
-                            <li><a class="footer__link" href="https://rawg.io/">RAWG</a></li>
-                            <li><a class="footer__link" href="https://rawg.io/apidocs">API</a></li>
-                            <li><a class="footer__link" href="https://poro0002.github.io/mad9013-project-portfolio/">My Portfolio</a></li>
+                            <li><a className="footer__link" href="https://rawg.io/">RAWG</a></li>
+                            <li><a className="footer__link" href="https://rawg.io/apidocs">API</a></li>
+                            <li><a className="footer__link" href="https://poro0002.github.io/mad9013-project-portfolio/">My Portfolio</a></li>
                     </ul>
 
                 </div>

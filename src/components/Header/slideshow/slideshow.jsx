@@ -1,4 +1,4 @@
-import '../slideshow/slideshow.css'
+import './slideshow.css'
 import { useState, useEffect } from 'react';
 import Footer from '../../Footer/footer'
 

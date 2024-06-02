@@ -263,11 +263,11 @@
   }
 
   .typography-cont {
-    /* Your styles for the container */
+
 }
 
 .typography-flex {
-    /* Your styles for the flex container */
+   
 }
 
 .typography-large-letter {
@@ -279,11 +279,11 @@
 }
 
 .typography-title {
-    /* Your styles for the title */
+   
 }
 
 .typography-text {
-    /* Your styles for the text */
+    
 }
 
 .hierachy-cont {
@@ -389,13 +389,27 @@
     align-items: center;
 }
 
+.section-component{
+    height: 50vh;
+    margin-bottom: 1rem;
+    width: 25rem;
+ }  
+
 
 .components__section{
     
 }
 
 
+
 @media screen and (min-width: 45em) {
+
+    .section-component{
+       height: 100vh;
+       width: 60rem;
+       margin-bottom: 0rem;
+    }  
+    
 
     
     .components__display-cards{
@@ -406,6 +420,10 @@
 
 
 @media screen and (min-width: 100em) {
+
+    .section-component{
+        width: 110rem;
+    }
 
     .components__display-cards{
         grid-template-columns: 1fr 1fr 1fr;
@@ -422,15 +440,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
  }
 
  .api-link__list{
-  
+    padding: 0; 
+    margin-bottom: 2rem;
  }
 
  .api-link-list__items{
     list-style: none;
     text-decoration: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
   
  }
 
@@ -477,14 +503,10 @@
        
     }
    
-    .api-screenshot__img{
-       
-        /* width: 70rem; <------ ?????  */
+    .api-screenshot__img {
+        width: 50rem;
+      }
+
+
     }
-
-   
-}
-
-
-
 
