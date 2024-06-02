@@ -289,7 +289,7 @@ function DesignPage(props){
             <p className="color-sub_info">Components and modules allow designers and developers to create reusable pieces of code or design elements. This means that once a component is created, it can be used across multiple parts of a website or application, saving time and effort.</p>
             
 
-            <h3 className="components-display-cards__title">Cards</h3>
+            <h3 className="components-display-cards__title">Cards Component</h3>
             <div className="component components__display-cards">
  
                   <header className='slide'>    
@@ -338,16 +338,13 @@ function DesignPage(props){
 
          
 
-            <div className="component components__section">
+   <div className="component components__section">
+      
+       <section>  
+               <h3 className="components_section__title">Section Component</h3>
 
-               <h3 className="components_section__title">Section</h3>
-
-                  <div className="section__div" >
-                     <img
-                        className='section__img'
-                        src=""
-                        alt=""
-                     />
+            <div className="section__div section-component" >
+                    
                      
                <div className={`section-info__cont odd`}>
                   <div className="section-info-screenshot__cont">
@@ -387,7 +384,8 @@ function DesignPage(props){
                   </div>
          
                </div>
-
+             </section >  
+            
             </div>
 
        </div>
@@ -398,23 +396,25 @@ function DesignPage(props){
    {/* ---------------------------------< API INFO >---------------------------------------- */}
 
       <div className="api-cont">
-         <h3 className="api_title color__title">-RAWG-</h3>
-            <h3 className="api-title color__sub">API</h3>
-            <p className="color-sub_info">RAWG API offers access to a vast database of video games across various platforms, including PC, consoles, and mobile. This extensive coverage ensures that you can find information on a wide range of games, from the latest releases to classic titles.</p>
-         <div className="api-link__list">
-            <ul className="api-link-list__items">
-               <li><a className="api-link-list__item"href="https://rawg.io/">WEBSITE</a></li>
-               <li><a className="api-link-list__item"href="https://rawg.io/apidocs">API</a></li>
-               <li><a className="api-link-list__item"href="https://x.com/rawgtheworld?lang=en">TWITTER</a></li>
-            </ul>
-         </div>
+           
+            <h3 className="api_title color__title">-RAWG-</h3>
+               <h3 className="api-title color__sub">API</h3>
+               <p className="color-sub_info">RAWG API offers access to a vast database of video games across various platforms, including PC, consoles, and mobile. This extensive coverage ensures that you can find information on a wide range of games, from the latest releases to classic titles.</p>
+           
+            <div className="api-link__list">
+               <ul className="api-link-list__items">
+                  <li><a className="api-link-list__item"href="https://rawg.io/">WEBSITE</a></li>
+                  <li><a className="api-link-list__item"href="https://rawg.io/apidocs">API</a></li>
+                  <li><a className="api-link-list__item"href="https://x.com/rawgtheworld?lang=en">TWITTER</a></li>
+               </ul>
+            </div>
 
-      <div className="api__screenshots">
-          <img className="api-screenshot__img" src="src/Content/rawg_screenshot2.png" alt="" />
-          <img className="api-screenshot__img" src="src/Content/rawg_screenshot3.png" alt="" />
-          <img className="api-screenshot__img" src="src/Content/rawg_screenshot1.png" alt="" />
-         
-      </div>
+         <div className="api__screenshots">
+            <img className="api-screenshot__img" src="src/Content/rawg_screenshot2.png" alt="" />
+            <img className="api-screenshot__img" src="src/Content/rawg_screenshot3.png" alt="" />
+            <img className="api-screenshot__img" src="src/Content/rawg_screenshot1.png" alt="" />
+            
+         </div>
                   
                
       </div>

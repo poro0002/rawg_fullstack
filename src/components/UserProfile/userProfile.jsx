@@ -28,7 +28,7 @@ function UserProfile({favorites, deleteFavorite}){
                 <h3 className="fullName">{user.fullName}</h3>
                 <h3 className="email">{user.email}</h3>
 
-              <div className="favorites-container container">
+              <div className="favorites-container ">
                   <h4 className="favorites-container__title" >Favorites</h4>
                   {favorites.map((favorite) =>{
                       return (
@@ -46,9 +46,9 @@ function UserProfile({favorites, deleteFavorite}){
               </div>
 
           
-          <Footer></Footer>
+         
       </div>
-  
+      <Footer></Footer>
     </>
 
    )
