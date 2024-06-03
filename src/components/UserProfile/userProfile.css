@@ -22,7 +22,6 @@
 
     display: flex;
     flex-direction: column;
-    
     justify-content: center; 
     align-items: center;
   }
@@ -33,11 +32,9 @@
 
 
   .favorites-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; 
-    justify-content: center; 
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    place-content: center;
 
     gap: 2rem;
     
@@ -46,6 +43,7 @@
   .favorites-container__title{
     font-size: var(--lg);
     margin: 2rem 0 0 0;
+    grid-column: 1/ -1;
   }
 
 
@@ -107,6 +105,37 @@
   border-radius: 1rem;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 1));
   height: 20rem; 
-  width: 30rem;
+  width: 20rem;
+    
   box-shadow:  0 0 .5rem #ffffff;
+}
+
+
+@media only screen and (min-width: 45em){
+  
+  .favorites-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .fav-card {
+   height: 20rem; 
+   width: 30rem;
+ 
+  }
+
+}
+
+@media only screen and (min-width: 100em){
+
+
+  .favorites-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+ 
+  .fav-card {
+   
+  }
+
+
 }

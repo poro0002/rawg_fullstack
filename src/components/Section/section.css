@@ -95,6 +95,10 @@ section .container {
   padding-bottom: 1rem;
 }
 
+.section-title-logo__cont{
+  margin-bottom: 3rem;
+}
+
 .section-div__title {
   display: flex;
   flex-direction: column;
@@ -158,11 +162,17 @@ section .container {
 
 .section__rating,
 .section__updated,
-.section__released,
-.section__metacritic {
+.section__released
+ {
   font-size: var(--sm);
   text-shadow: var(--black-text-shadow);
   margin: 0.5rem;
+}
+
+.section__metacritic{
+  font-size: var(--sm);
+  text-shadow: var(--black-text-shadow);
+  margin-bottom: 2.5rem;
 }
 
 .section-info__value {
@@ -213,6 +223,7 @@ section .container {
 .section-info-screenshot__cont {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  height: 100vh; /* -------- changed so it didn't overlap footer ---------- */
 }
 
 .section-info-screenshot__description {
@@ -231,10 +242,12 @@ section .container {
 
 .section-info-screenshot-description__subText {
   font-size: var(--xsm);
+  width: max(25em, 30%);
 }
 
 .section-info-screenshot-description__title {
   font-size: var(--sm);
+  width: max(25em, 30%);
 }
 
 .section-info-screenshot-description__desc {
@@ -346,6 +359,14 @@ section .container {
   
   .even .section-title-info__cont {
     order: 2;
+  }
+
+  .section-title-logo__cont{
+    display: flex;
+    align-self: flex-start;
+   
+      margin-bottom: 0rem;
+   
   }
 
   .section-title__logo {
