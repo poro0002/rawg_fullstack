@@ -8,6 +8,8 @@ function NavBar({ handleLogout, setResults, setSearchVal, setIfSearched, searchV
 
 // -------------< Active Nav Link States > -------------------------
 
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
     // update the activeNavLink state
     const [activeLink, setActiveLink] = useState(() => {
         return localStorage.getItem("activeNavLink") || '/home'; // base case Default to home if no value in local storage
@@ -17,6 +19,7 @@ function NavBar({ handleLogout, setResults, setSearchVal, setIfSearched, searchV
     const setActiveLinkAndUpdateStorage = (path) => {
         setActiveLink(path);
         localStorage.setItem("activeNavLink", path);
+        setIsNavOpen(false); 
     };
 
     // whenever the current path changes update the link
@@ -55,11 +58,24 @@ function NavBar({ handleLogout, setResults, setSearchVal, setIfSearched, searchV
         };
     }, []);
 
-    // do a conditional render for the searchBar or page that is in the navbar
+  
+// -------------< Mobile Nav Toggle State >---------------------------------
+
+    const handleToggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+      };
 
     return (
         <nav className="navbar">
-            <ul className="nav-list">
+           
+            <div className="nav-header">
+                <button className="nav-toggle" onClick={handleToggleNav}>
+                    <i className="material-icons">{isNavOpen ? 'close' : 'menu'}</i>
+                </button>
+                    <Link to='/home'><img className="nav-logo" src="src/Content/rawg.png" alt="" /></Link>
+            </div>
+
+            <ul className={`nav-list ${isNavOpen ? 'open' : ''}`}>   
                 <li className="nav-item">
                     <Link to='/home'><img className="nav-logo" src="src/Content/rawg.png" alt="" /></Link>
                 </li>

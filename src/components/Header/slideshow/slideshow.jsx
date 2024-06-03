@@ -13,16 +13,7 @@ import Footer from '../../Footer/footer'
         
         
         const [cards, setCards] = useState([]);
-        // const [favorites, setFavorites] = useState(() => {
-        //     const storedFavorites = localStorage.getItem('favorites');
-        //     return storedFavorites ? JSON.parse(storedFavorites) : [];
-        //   });
 
-        //   useEffect(() => {
-        //     localStorage.setItem('favorites', JSON.stringify(favorites));
-        //   }, [favorites]);
-
-    
         let baseURL = 'http://localhost:3500';
 
         const queryParams = new URLSearchParams();
