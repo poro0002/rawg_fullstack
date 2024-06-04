@@ -32,7 +32,7 @@ function App() {
    const [username, setUsername] = useState("");
    const [fullName, setFullName] = useState("");
    const [email, setEmail] = useState("");
-   const [buttonState, setButtonState] = useState(false); // <-------- browse card btn state ?
+  //  const [buttonState, setButtonState] = useState(false); // <-------- browse card btn state ?
 
 
 
@@ -131,7 +131,7 @@ const handleLogout = () => {
 // gameData is Card data
 const handleFav = async (gameData) => {
 
-  console.log(buttonState)
+  // console.log(buttonState)
 
    // Endpoint URL
    const reqURL = 'http://localhost:3500/updateFavorites';
@@ -213,7 +213,7 @@ const handleFav = async (gameData) => {
 
   const deleteFavorite = async (favorite) => {
 
-    console.log(buttonState)
+    // console.log(buttonState)
 
     const reqURL = 'http://localhost:3500/updateFavorites';
     
@@ -297,15 +297,60 @@ const seeGame = (section) => {
 
 const [searchVal, setSearchVal] = useState(''); 
 const [searchResults, setResults] = useState([]);
-const [ifSearched, setIfSearched] = useState(false);
+// const [ifSearched, setIfSearched] = useState(false);
+const [wikiData, setWikiData] = useState([])
 
 
+
+
+
+const handleSearch = async (searchValue) => {
+
+  // ----< WIKI API >-----
+
+  const reqURL = 'http://localhost:3500/wiki';
+
+      // Fetch request options
+      const fetchOptions = {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: {
+          searchVal: searchValue
+        },
+       
+    };
+
+    try{
+      const response = await fetch(reqURL, fetchOptions)
+         
+      if (!response.ok) {
+          throw new Error('Something went wrong with the fetch');
+      }
+  
+      const data = await response.json();
+      console.log(data)
+     
+      if (data.query) {
+           setWikiData(data.query.pages)
+            
+          } else {
+            setWikiData([])
+          }
+
+          
+        }catch(error){
+          console.error('Error deleting favorite:', error);
+        }
+}
 
   return (
     <>
-      <NavBar setIfSearched={setIfSearched}  searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
+      <NavBar handleSearch={handleSearch} searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
      
-      <AppRouter ifSearched={ifSearched} searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
+      <AppRouter deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
       {isBrowsePage && <SlideshowHeader handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} favorites={favorites} setFavorites={setFavorites} />}
       

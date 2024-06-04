@@ -38,28 +38,44 @@ import "./search.css"
 //        fetchTrailerTest();
 
 
-const storedResults = JSON.parse(localStorage.getItem('searchResults')) || null;
 
 
-function SearchPage({handleFav}){
+const storedResult = JSON.parse(localStorage.getItem('searchResults')) || null;
+
+
+function SearchPage({handleFav, favorites, wikiData, deleteFavorite}){
+
+    console.log(wikiData)
+
+    const isFavorite = (resultId) => {
+        return favorites.some(favorite => favorite.id === resultId);
+       };
 
 
    return(
        
          <div className="search-result-container">
-            {storedResults &&  (
+            {storedResult &&  (
                 <section className="search-result">
                     
-                    <div className="search-result-card" style={{ backgroundImage: `url(${storedResults.background_image})` }}>
+                    <div className="search-result-card" style={{ backgroundImage: `url(${storedResult.background_image})` }}>
                         <header className='search-result__header'>
-                            <h1 className='search-title'>{storedResults.name}</h1>
-                            <p className='search-result__info'>{storedResults.released}</p>
-                            <p className='search-result__rating'>Rating: {storedResults.rating}</p>
-                            <button onClick={() => handleFav(storedResults)} className="search-result__btn" ><i className='material-icons'>favorite</i></button>
+                            <h1 className='search-title'>{storedResult.name}</h1>
+                            <p className='search-result__info'>{storedResult.released}</p>
+                            <p className='search-result__rating'>Rating: {storedResult.rating}</p>
+                            {isFavorite(storedResult.id) ? (
+                                    <button onClick={(event) => { event.stopPropagation(); deleteFavorite(storedResult);  }} className="card-btn__close">
+                                      <i className='material-icons'>delete</i>
+                                    </button>
+                                    ) : (
+                                     <button onClick={(event) => { event.stopPropagation(); handleFav(storedResult); }} className="card-btn__like">
+                                        <i className='material-icons'>favorite</i>
+                                   </button>
+                                 )}
                         </header>
                     </div>
                     <div className="search-results__screenshots">
-                        {storedResults.short_screenshots.map((img, index) => (
+                        {storedResult.short_screenshots.map((img, index) => (
                             <img className="search-results-screenshots__img" key={index} src={img.image} alt={`screenshot-${index}`} />
                         ))}
                     </div>
