@@ -4,7 +4,7 @@ import Section from '../Section/section'
 
 
 
-function SearchBar({setResults, setSearchVal, searchVal, setIfSearched }){
+function SearchBar({setResults, setSearchVal, searchVal, handleSearch}){
 
     const isSearchPage = window.location.pathname === '/search';
 
@@ -50,10 +50,7 @@ function handleSubmit(e){
     e.preventDefault();
     // window.location.href = '/search';
 
-    setIfSearched(true)
-    
   
-       
         fetch(mainRequest)
          .then(res => {
              if (!res.ok) {
@@ -65,6 +62,7 @@ function handleSubmit(e){
              console.log(data.results)
              setResults(data.results)
              localStorage.setItem('searchResults', JSON.stringify(data.results[0]));
+             handleSearch(e.target.value)
              window.location.href = '/search'; 
          })
          .catch(err => {

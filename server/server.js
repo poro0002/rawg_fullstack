@@ -41,6 +41,8 @@ mongoose.connect(uri)
 
 // handel the search bar request 
 
+// ----------- RAWG --------------
+
 app.get('/api/games', async (req, res) => {
 
    const type = req.query.type;
@@ -116,6 +118,40 @@ app.get('/api/games', async (req, res) => {
          }
    }
  });
+
+
+// ----------- WIKI --------------
+
+
+app.get('/wiki',  async (res, req) => {
+   console.log(req.body);
+   // const searchValue = req.body.searchVal;
+
+   // const action = 'query';
+   // const prop = 'extracts';
+   // const format = 'json';
+   // const exintro = ''; 
+   // const wbptterms = 'description';
+  
+
+   // try{
+   //    const response = await fetch(`https://en.wikipedia.org/w/api.php?action=${action}&prop=${prop}&format=${format}&exintro=${exintro}&wbptterms=${wbptterms}&srsearch=${searchValue}`)
+
+   //    if (!response.ok) {
+   //       throw new Error('Failed to fetch data from API');
+   //     }
+
+   //     const data = await response.json();
+
+  
+   //     return res.json(data);
+
+   // }catch(error){
+   //    console.error('Error fetching data:', error);
+   //    return res.status(500).json({ error: 'An error occurred while fetching data from the API' })
+   // }
+
+})
 
 
 // ----------------------------< Port Connection >---------------------------------------
