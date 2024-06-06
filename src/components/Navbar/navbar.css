@@ -132,6 +132,16 @@
   margin-right: 0.5rem;
 }
 
+.nav-log__btn{
+  color: white;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), linear-gradient(to right, var(--darkest-color), var(--primary-color));
+  border: 0.1rem solid white ;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  
+}
+
+
+
 /* Media Queries */
 @media only screen and (min-width: 45em) {
   .navbar {
@@ -176,5 +186,15 @@
     width: 2rem;
     color: white;
     margin-right: 0.5rem;
+  }
+
+  .nav-log__btn{
+     
+  }
+
+  .nav-log__btn:focus,
+  .nav-log__btn:hover{
+     cursor: pointer;
+     background:linear-gradient(to right, var(--darkest-color), var(--primary-color));
   }
 }
