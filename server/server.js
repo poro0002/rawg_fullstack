@@ -12,6 +12,7 @@ import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
 
+
 dotenv.config();
 
 const app = express();
@@ -86,6 +87,7 @@ app.get('/api/games', async (req, res) => {
           }
 
           const data = await response.json();
+          
 
           return res.json(data);
 
@@ -122,34 +124,51 @@ app.get('/api/games', async (req, res) => {
 
 // ----------- WIKI --------------
 
-
-app.get('/wiki',  async (res, req) => {
+app.post('/wiki',  async (req, res) => {
    console.log(req.body);
-   // const searchValue = req.body.searchVal;
+   const searchValue = req.body.searchVal;
 
-   // const action = 'query';
-   // const prop = 'extracts';
-   // const format = 'json';
-   // const exintro = ''; 
-   // const wbptterms = 'description';
+   const action = 'query';
+   const list = 'search';
+   const format = 'json';
+   
+   const prop = 'extracts';
+   const exintro = ''; 
+   const wbptterms = 'description';
   
 
-   // try{
-   //    const response = await fetch(`https://en.wikipedia.org/w/api.php?action=${action}&prop=${prop}&format=${format}&exintro=${exintro}&wbptterms=${wbptterms}&srsearch=${searchValue}`)
+   try{
+      const response = await fetch(`https://en.wikipedia.org/w/api.php?action=${action}&list=${list}&format=${format}&srsearch=${encodeURIComponent(searchValue)}`)
 
-   //    if (!response.ok) {
-   //       throw new Error('Failed to fetch data from API');
-   //     }
+      if (!response.ok) {
+         throw new Error('Failed to fetch data from API');
+       }
 
-   //     const data = await response.json();
+       const data = await response.json();
+      
+     
+       // Extract pageids from search results which gives you a specific page
+       // The reason for using join('|') in this specific context is related to how the Wikipedia API expects page IDs to be formatted when making subsequent requests. the API requires multiple page IDs to be provided as a single string, separated by a specific symbol, such as '|'.
+      const pageIds = data.query.search.map(item => item.pageid).join('|');
 
-  
-   //     return res.json(data);
+      console.log(pageIds)
 
-   // }catch(error){
-   //    console.error('Error fetching data:', error);
-   //    return res.status(500).json({ error: 'An error occurred while fetching data from the API' })
-   // }
+      // refetch using the pageIds and extract the wiki data
+      const extractsResponse = await fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=true&exlimit=10&format=json&pageids=${pageIds}`);
+
+      if (!extractsResponse.ok) {
+         throw new Error('Failed to fetch extracts from API');
+      }
+
+      const extractsData = await extractsResponse.json();
+      console.log('extracted data', extractsData)
+      
+      return res.json(extractsData);
+
+   }catch(error){
+      console.error('Error fetching data:', error);
+      return res.status(500).json({ error: 'An error occurred while fetching data from the API' })
+   }
 
 })
 

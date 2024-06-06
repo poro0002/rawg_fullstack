@@ -4,7 +4,7 @@ import Section from '../Section/section'
 
 
 
-function SearchBar({setResults, setSearchVal, searchVal, handleSearch}){
+function SearchBar({setResults, setSearchVal, searchVal, handleSearch, wikiData}){
 
     const isSearchPage = window.location.pathname === '/search';
 
@@ -44,33 +44,33 @@ const queryString = queryParams.toString();
         }
       };
 
+   
 
 
-function handleSubmit(e){
-    e.preventDefault();
-    // window.location.href = '/search';
-
+    async function handleSubmit(e) {
+        e.preventDefault();
   
-        fetch(mainRequest)
-         .then(res => {
-             if (!res.ok) {
-                 throw new Error('Error with response');
-             }
-             return res.json();
-         })
-         .then(data => {
-             console.log(data.results)
-             setResults(data.results)
-             localStorage.setItem('searchResults', JSON.stringify(data.results[0]));
-             handleSearch(e.target.value)
-             window.location.href = '/search'; 
-         })
-         .catch(err => {
-             console.log({ message: err });
-         });
- 
-        
+        try {
+            const response = await fetch(mainRequest);
+            if (!response.ok) {
+                throw new Error('Error with response');
+            }
+            
+            const data = await response.json();
+            console.log(data.results);
+
+            setResults(data.results);
+            localStorage.setItem('searchResults', JSON.stringify(data.results[0]));
+
+            const wikiRes = await handleSearch(e.target.value);
+            localStorage.setItem('wikiData', JSON.stringify(Object.values(wikiRes)[0])); 
+
+            window.location.href = '/search';
+        } catch (err) {
+            console.log({ message: err });
+        }
     }
+    
 
 
    return(

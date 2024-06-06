@@ -199,6 +199,7 @@ section .container {
   text-shadow: var(--black-text-shadow);
   box-shadow: var(--black-box-shadow);
   transition: transform 0.07s ease-in-out;
+  margin-bottom: 1rem;
 }
 
 .section__btn {
@@ -213,11 +214,6 @@ section .container {
   
 }
 
-.section__btn,
-.section__href {
-  font-size: var(--xsm);
-  margin-bottom: 1rem;
-}
 
 
 .section-info-screenshot__cont {

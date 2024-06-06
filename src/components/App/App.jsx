@@ -300,12 +300,15 @@ const [searchResults, setResults] = useState([]);
 // const [ifSearched, setIfSearched] = useState(false);
 const [wikiData, setWikiData] = useState([])
 
+// console.log(wikiData)
 
 
 
 
 const handleSearch = async (searchValue) => {
 
+
+  
   // ----< WIKI API >-----
 
   const reqURL = 'http://localhost:3500/wiki';
@@ -317,38 +320,42 @@ const handleSearch = async (searchValue) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: {
-          searchVal: searchValue
-        },
+        body: JSON.stringify({
+          searchVal: searchValue,
+        }),
        
     };
 
     try{
       const response = await fetch(reqURL, fetchOptions)
+        
+      // // Log the response status code
+      //   console.log('Response status code:', response.status);
          
       if (!response.ok) {
           throw new Error('Something went wrong with the fetch');
       }
   
       const data = await response.json();
-      console.log(data)
-     
-      if (data.query) {
-           setWikiData(data.query.pages)
-            
-          } else {
-            setWikiData([])
-          }
-
-          
+      
+      
+      setWikiData(data.query.pages)
+      return data.query.pages;
+      
         }catch(error){
-          console.error('Error deleting favorite:', error);
+          console.error('fetching from server for wiki data', error);
         }
-}
+ }
+
+  // useEffect(() => {
+  //   if (isSearchPage) {
+  //     handleSearch(searchVal);
+  //   }
+  // }, [searchVal]);
 
   return (
     <>
-      <NavBar handleSearch={handleSearch} searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
+      <NavBar handleSearch={handleSearch} wikiData={wikiData} searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
      
       <AppRouter deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
