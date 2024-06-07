@@ -101,7 +101,7 @@
 
 .nav-logo {
   width: 5em;
-  filter: drop-shadow(var());
+  /* filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5)); */
   padding: 0;
   margin: 0;
 }

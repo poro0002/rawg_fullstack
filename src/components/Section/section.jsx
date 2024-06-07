@@ -53,7 +53,7 @@ function Section({seeGame}){
 
             const screenshots = await fetchScreenshots(gameId);
 
-            console.log(data)
+            // console.log(data)
             return {
                 id: gameId,
                 name: data.name,
@@ -100,7 +100,7 @@ function Section({seeGame}){
         }
     };
 
-console.log(sections)
+// console.log(sections)
 
 
 const seePhoto = (src) => {

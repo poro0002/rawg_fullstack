@@ -20,6 +20,7 @@ const jwt_key = process.env.JWT_KEY;
 const port = process.env.PORT;
 const api_key = process.env.API_KEY;
 const api_key2 = process.env.API_KEY2;
+const yt_api_key = process.env.YT_API_KEY;
 
 app.use(cors());
 app.use(express.json())
@@ -42,7 +43,7 @@ mongoose.connect(uri)
 
 // handel the search bar request 
 
-// ----------- RAWG --------------
+// ----------- RAWG PROXY FETCH --------------
 
 app.get('/api/games', async (req, res) => {
 
@@ -122,10 +123,10 @@ app.get('/api/games', async (req, res) => {
  });
 
 
-// ----------- WIKI --------------
+// ----------- WIKI PROXY FETCH --------------
 
 app.post('/wiki',  async (req, res) => {
-   console.log(req.body);
+   // console.log(req.body);
    const searchValue = req.body.searchVal;
 
    const action = 'query';
@@ -151,17 +152,17 @@ app.post('/wiki',  async (req, res) => {
        // The reason for using join('|') in this specific context is related to how the Wikipedia API expects page IDs to be formatted when making subsequent requests. the API requires multiple page IDs to be provided as a single string, separated by a specific symbol, such as '|'.
       const pageIds = data.query.search.map(item => item.pageid).join('|');
 
-      console.log(pageIds)
+      // console.log(pageIds)
 
       // refetch using the pageIds and extract the wiki data
       const extractsResponse = await fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=true&exlimit=10&format=json&pageids=${pageIds}`);
 
-      if (!extractsResponse.ok) {
-         throw new Error('Failed to fetch extracts from API');
-      }
+      // if (!extractsResponse.ok) {
+      //    throw new Error('Failed to fetch extracts from API');
+      // }
 
       const extractsData = await extractsResponse.json();
-      console.log('extracted data', extractsData)
+      // console.log('extracted data', extractsData)
       
       return res.json(extractsData);
 
@@ -171,6 +172,33 @@ app.post('/wiki',  async (req, res) => {
    }
 
 })
+
+// ----------- YOUTUBE PROXY FETCH --------------
+
+app.post('/api/youtube', async (req, res) => {
+    console.log(req.body);
+    let searchValue = req.body.searchVal;
+
+
+    try{
+       let response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchValue)}&key=${yt_api_key}&type=video`)
+      //  if(!response.ok){
+      //    throw new Error('there was a problem with the response')
+      //  }
+       let data = await response.json();
+       console.log('youtube data', data)
+       
+       // this creates a new array of data with every item that has a video id 
+       const videoIds = data.items.map(item => item.id.videoId);
+        
+        return res.json({ videoIds });
+
+    }catch{
+      console.log('error fetching from youtube api')
+      return res.status(500).json({ error: 'An error occurred while fetching data from the youtube API' })
+    }
+})
+
 
 
 // ----------------------------< Port Connection >---------------------------------------

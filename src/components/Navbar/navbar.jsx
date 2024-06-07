@@ -4,7 +4,7 @@ import Link from "../Link/link"
 
 import SearchBar from '../searchBar/searchBar'
 
-function NavBar({ handleLogout, setResults, setSearchVal, searchVal, handleSearch, wikiData}) {
+function NavBar({ handleLogout, setResults, setSearchVal, searchVal, handleSearch, setWikiData, setYtData}) {
 
 // -------------< Active Nav Link States > -------------------------
 
@@ -88,7 +88,7 @@ function NavBar({ handleLogout, setResults, setSearchVal, searchVal, handleSearc
                 <li className={`nav-item ${activeLink === '/browse' ? 'active' : '' }`}>
                     <Link to='/browse' onClick={() => handleClick('browse')} >BROWSE</Link>
                 </li>
-                <i className="material-icons search-icon">search</i><SearchBar className='searchBar' setSearchVal={setSearchVal} searchVal={searchVal}  setResults={setResults} handleSearch={handleSearch} wikiData={wikiData} />
+                <i className="material-icons search-icon">search</i><SearchBar className='searchBar' setSearchVal={setSearchVal} searchVal={searchVal}  setResults={setResults} handleSearch={handleSearch}  setWikiData={setWikiData} setYtData={setYtData} />
                 {isLoggedIn ? (
                     <>
                         <li><a href="/login">{user.username}</a></li>

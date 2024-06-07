@@ -299,8 +299,7 @@ const [searchVal, setSearchVal] = useState('');
 const [searchResults, setResults] = useState([]);
 // const [ifSearched, setIfSearched] = useState(false);
 const [wikiData, setWikiData] = useState([])
-
-// console.log(wikiData)
+const [ytData, setYtData] = useState([])
 
 
 
@@ -309,9 +308,10 @@ const handleSearch = async (searchValue) => {
 
 
   
-  // ----< WIKI API >-----
+  // ----< WIKI API, YOUTUBE API >-----
 
-  const reqURL = 'http://localhost:3500/wiki';
+  const wikiURL = 'http://localhost:3500/wiki';
+  const ytURL = 'http://localhost:3500/api/youtube';
 
       // Fetch request options
       const fetchOptions = {
@@ -326,38 +326,41 @@ const handleSearch = async (searchValue) => {
        
     };
 
-    try{
-      const response = await fetch(reqURL, fetchOptions)
-        
-      // // Log the response status code
-      //   console.log('Response status code:', response.status);
-         
-      if (!response.ok) {
-          throw new Error('Something went wrong with the fetch');
+    try {
+      const [wikiResponse, ytResponse] = await Promise.all([
+          fetch(wikiURL, fetchOptions),
+          fetch(ytURL, fetchOptions),
+      ]);
+
+      if (!wikiResponse.ok || !ytResponse.ok) {
+          throw new Error('Error fetching data');
       }
-  
-      const data = await response.json();
-      
-      
-      setWikiData(data.query.pages)
-      return data.query.pages;
+
+      const [wikiData, ytData] = await Promise.all([
+          wikiResponse.json(),
+          ytResponse.json(),
+      ]);
+
+      localStorage.setItem('wikiData', JSON.stringify(wikiData));
+      localStorage.setItem('youtubeTrailer', JSON.stringify(ytData));
+
+      return {
+          wikiData,
+          ytData,
+      };
       
         }catch(error){
           console.error('fetching from server for wiki data', error);
         }
  }
 
-  // useEffect(() => {
-  //   if (isSearchPage) {
-  //     handleSearch(searchVal);
-  //   }
-  // }, [searchVal]);
+
 
   return (
     <>
-      <NavBar handleSearch={handleSearch} wikiData={wikiData} searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
+      <NavBar setWikiData={setWikiData} setYtData={setYtData} handleSearch={handleSearch} searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
      
-      <AppRouter deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
+      <AppRouter ytData={ytData}  deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
       {isBrowsePage && <SlideshowHeader handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} favorites={favorites} setFavorites={setFavorites} />}
       
