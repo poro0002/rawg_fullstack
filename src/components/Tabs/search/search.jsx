@@ -42,15 +42,20 @@ import "./search.css"
 
 const storedResult = JSON.parse(localStorage.getItem('searchResults')) || null;
 const wikiDataLocal = JSON.parse(localStorage.getItem('wikiData')) || {};
+const youtubeTrailerInfo = JSON.parse(localStorage.getItem('youtubeTrailer')) || {};
+const pages = wikiDataLocal.query ? wikiDataLocal.query.pages : {};
+
+const firstPage = Object.values(pages)[0] || {}; 
+
 
 //this approach works because Wikipedia extracts often contain newline characters (\n) to separate paragraphs or sections of text. These newline characters act as natural delimiters, allowing us to split the text into distinct paragraphs.
-const paragraphs = wikiDataLocal.extract ? wikiDataLocal.extract.split('\n') : [];
+const paragraphs = firstPage.extract ? firstPage.extract.split('\n') : [];
 
 
 function SearchPage({handleFav, favorites, deleteFavorite}){
     const [showFullText, setShowFullText] = useState(false);
 
-    // console.log(wikiData)
+    console.log(wikiDataLocal)
 
     const isFavorite = (resultId) => {
         return favorites.some(favorite => favorite.id === resultId);
@@ -88,6 +93,17 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
                                    </button>
                                  )}
                         </header>
+                       
+                        <div className="search-result-trailer__cont">
+                            <iframe 
+                                className="search-result__trailer"
+                                src={`https://www.youtube.com/embed/${youtubeTrailerInfo.videoIds[1]}`}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                        
                     {paragraphs.length > 0 && (
                             <div className="search-result__desc container--text">
                                 <h3 className="search-result-desc__title">-{storedResult.name}-</h3>
@@ -109,6 +125,7 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
                                 )}
                             </div>
                         )}
+                     
                     <div className="search-results__screenshots">
                         {storedResult.short_screenshots.map((img, index) => (
                             <img className="search-results-screenshots__img" key={index} src={img.image} alt={`screenshot-${index}`} />

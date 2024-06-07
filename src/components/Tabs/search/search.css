@@ -8,8 +8,15 @@
     
 } */
 
-.search-result{
-  
+.search-result-container{
+  margin-top: 2rem;
+}
+
+.search-title{
+   font-size: var(--xxlg);
+   text-shadow:  2px 2px 4px rgba(0, 0, 0, 0.5);
+   letter-spacing: 0.3rem;
+   margin-bottom: 3rem;
 }
 
 .search-result__header{
@@ -153,6 +160,17 @@
   
 }
 
+
+.search-result__trailer{
+  width: 418.219px;
+  height: 236.984px;
+  border: 0.125rem solid var(--secondary-light);
+  box-shadow: var(--white-box-shadow);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+}
+
 @media screen and (min-width: 45em) {
     .search-result-des__btn{
         font-size: var(--xsm);
@@ -166,14 +184,19 @@
       color: white;
      
     }
+
+    .search-result__trailer{
+      width: 1024px; 
+      height: 576px;
+   }
 }
 
 
+@media screen and (min-width: 100em) {
 
-.search-results__screenshots{
-  
-}
+  .search-result__trailer{
+    
+ }
 
-.search-results__img{
-  
+
 }

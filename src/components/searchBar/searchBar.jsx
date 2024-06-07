@@ -4,7 +4,7 @@ import Section from '../Section/section'
 
 
 
-function SearchBar({setResults, setSearchVal, searchVal, handleSearch, wikiData}){
+function SearchBar({setResults, setSearchVal, searchVal, handleSearch,  setWikiData, setYtData}){
 
     const isSearchPage = window.location.pathname === '/search';
 
@@ -62,8 +62,13 @@ const queryString = queryParams.toString();
             setResults(data.results);
             localStorage.setItem('searchResults', JSON.stringify(data.results[0]));
 
-            const wikiRes = await handleSearch(e.target.value);
-            localStorage.setItem('wikiData', JSON.stringify(Object.values(wikiRes)[0])); 
+            // const res = await handleSearch(e.target.value);
+            // localStorage.setItem('wikiData', JSON.stringify(Object.values(res)[0])); 
+            // localStorage.setItem('youtubeTrailer', JSON.stringify(Object.values(res)[0])); 
+            
+            const { wikiData, ytData } = await handleSearch(e.target.value);
+            setWikiData(wikiData);
+            setYtData(ytData);
 
             window.location.href = '/search';
         } catch (err) {
