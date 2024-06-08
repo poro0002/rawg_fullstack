@@ -37,6 +37,15 @@ mongoose.connect(uri)
     });
 
 
+// ----------------------------< HEROKU >---------------------------------------
+
+    app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
+
 // ----------------------------< Proxy API Request >---------------------------------------
 
 // Define a route that acts as a proxy to the API server
