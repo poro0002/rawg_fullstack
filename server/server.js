@@ -54,10 +54,10 @@ app.use(express.static(path.join(__dirname, '../')));
 
 // Set MIME type for JavaScript files
 app.use((req, res, next) => {
-    if (req.originalUrl.endsWith('.js')) {
-        res.setHeader('Content-Type', 'application/javascript');
-    }
-    next();
+   if (req.originalUrl.endsWith('.js') || req.originalUrl.endsWith('.jsx')) {
+       res.setHeader('Content-Type', 'application/javascript');
+   }
+   next();
 });
 
 // Handle any other routes by serving the index.html file
