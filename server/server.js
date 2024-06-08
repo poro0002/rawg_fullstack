@@ -11,7 +11,15 @@ import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
-import path from 'path'; 
+import path from 'path';
+
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+// In Node.js, __filename is a global variable that represents the filename of the code being 
+const filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(filename);
 
 
 dotenv.config();
