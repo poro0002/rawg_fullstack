@@ -227,9 +227,9 @@ app.listen(port, (err) => {
 
 // quick test route to the root endpoint/ good to test with postman
 // postman is just an artificial client so you can see what a user will see
-app.get('/', (req, res)=> {
-   res.status(200).send({code: "0", message: "ok"})   
-});
+// app.get('/', (req, res)=> {
+//    res.status(200).send({code: "0", message: "ok"})   
+// });
 
 // test token
 // app.get('/test', (req,res)=> {
