@@ -49,11 +49,11 @@ mongoose.connect(uri)
 // ----------------------------< HEROKU >---------------------------------------
 
 // Serve static files from the React app
-    app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '../')));
 
  // Handle any other routes by serving the index.html file
       app.get('*', (req, res) => {
-         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+         res.sendFile(path.join(__dirname, '../', 'index.html'));
       });
 
 
