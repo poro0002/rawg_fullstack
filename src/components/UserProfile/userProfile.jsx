@@ -12,7 +12,7 @@ function UserProfile({favorites, deleteFavorite}){
      // const favoritesString = localStorage.getItem('favorites');
      // const favoritesArray = JSON.parse(favoritesString);
 
-     console.log(favorites)
+    //  console.log(favorites)
 
    return(
 
