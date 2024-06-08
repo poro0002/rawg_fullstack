@@ -11,6 +11,7 @@ import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
+import path from 'path'; 
 
 
 dotenv.config();
@@ -39,11 +40,13 @@ mongoose.connect(uri)
 
 // ----------------------------< HEROKU >---------------------------------------
 
+// Serve static files from the React app
     app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+ // Handle any other routes by serving the index.html file
+      app.get('*', (req, res) => {
+         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+      });
 
 
 // ----------------------------< Proxy API Request >---------------------------------------
