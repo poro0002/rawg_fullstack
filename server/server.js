@@ -51,8 +51,7 @@ mongoose.connect(uri)
 // ----------------------------< HEROKU >---------------------------------------
 
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../')));
+
 
 // Set MIME type for JavaScript files
 app.use(
