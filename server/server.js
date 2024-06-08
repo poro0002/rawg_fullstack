@@ -48,14 +48,22 @@ mongoose.connect(uri)
 
 // ----------------------------< HEROKU >---------------------------------------
 
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '../')));
 
- // Handle any other routes by serving the index.html file
-      app.get('*', (req, res) => {
-         res.sendFile(path.join(__dirname, '../', 'index.html'));
-      });
+// Set MIME type for JavaScript files
+app.use((req, res, next) => {
+    if (req.originalUrl.endsWith('.js')) {
+        res.setHeader('Content-Type', 'application/javascript');
+    }
+    next();
+});
 
+// Handle any other routes by serving the index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'index.html'));
+});
 
 // ----------------------------< Proxy API Request >---------------------------------------
 
