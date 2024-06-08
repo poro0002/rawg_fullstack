@@ -11,7 +11,9 @@ import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
+
 import path from 'path';
+import expressStaticGzip from 'express-static-gzip';
 
 
 import { fileURLToPath } from 'url';
@@ -53,12 +55,17 @@ mongoose.connect(uri)
 app.use(express.static(path.join(__dirname, '../')));
 
 // Set MIME type for JavaScript files
-app.use((req, res, next) => {
-   if (req.originalUrl.endsWith('.js') || req.originalUrl.endsWith('.jsx')) {
-       res.setHeader('Content-Type', 'application/javascript');
-   }
-   next();
-});
+app.use(
+   expressStaticGzip(path.join(__dirname, '../'), {
+     enableBrotli: true,
+     orderPreference: ['br', 'gz'],
+     setHeaders: function(res, path) {
+       if (path.endsWith('.js') || path.endsWith('.jsx')) {
+         res.setHeader('Content-Type', 'application/javascript');
+       }
+     },
+   })
+ );
 
 // Handle any other routes by serving the index.html file
 app.get('*', (req, res) => {
