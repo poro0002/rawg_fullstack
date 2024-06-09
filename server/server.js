@@ -12,16 +12,16 @@ import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
 
-import path from 'path';
-import expressStaticGzip from 'express-static-gzip';
+// import path from 'path';
+// import expressStaticGzip from 'express-static-gzip';
 
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
 
-// In Node.js, __filename is a global variable that represents the filename of the code being 
-const filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(filename);
+// // In Node.js, __filename is a global variable that represents the filename of the code being 
+// const filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(filename);
 
 
 dotenv.config();
@@ -53,17 +53,23 @@ mongoose.connect(uri)
 
 
 
- // Set MIME type for JavaScript file
- 
- if (process.env.NODE_ENV === 'production') {
-     app.use(express.static(path.join(__dirname, '../frontend/build')));
- 
-     app.get('*', (req, res) => {
-         res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-     });
- } else {
-    console.log("development server")
- }
+ // Set MIME type for JavaScript files
+app.use(
+   expressStaticGzip(path.join(__dirname, '../'), {
+     enableBrotli: true,
+     orderPreference: ['br', 'gz'],
+     setHeaders: function(res, path) {
+       if (path.endsWith('.js') || path.endsWith('.jsx')) {
+         res.setHeader('Content-Type', 'application/javascript');
+       }
+     },
+   })
+ );
+
+// Handle any other routes by serving the index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../', 'index.html'));
+});
 
 // ----------------------------< Proxy API Request >---------------------------------------
 
