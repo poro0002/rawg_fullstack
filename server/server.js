@@ -12,8 +12,8 @@ import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
 
-// import path from 'path';
-// import expressStaticGzip from 'express-static-gzip';
+import path from 'path';
+import expressStaticGzip from 'express-static-gzip';
 
 
 // import { fileURLToPath } from 'url';
@@ -51,24 +51,13 @@ mongoose.connect(uri)
 // ----------------------------< HEROKU >---------------------------------------
 
 
+// Serve static files (React frontend)
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(expressStaticGzip(buildPath));
 
-
- // Set MIME type for JavaScript files
-app.use(
-   expressStaticGzip(path.join(__dirname, '../'), {
-     enableBrotli: true,
-     orderPreference: ['br', 'gz'],
-     setHeaders: function(res, path) {
-       if (path.endsWith('.js') || path.endsWith('.jsx')) {
-         res.setHeader('Content-Type', 'application/javascript');
-       }
-     },
-   })
- );
-
-// Handle any other routes by serving the index.html file
+// Serve index.html for all other routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'index.html'));
+    res.sendFile(path.join(buildPath, 'index.html'));
 });
 
 // ----------------------------< Proxy API Request >---------------------------------------
