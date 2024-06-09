@@ -1,26 +1,10 @@
 {
-    "name": "LOL React",
-    "short_name": "React",
-    "icons": [
-      {
-        "src": "src/Content/League of Legends Logo - 1280x831.png",
-        "sizes": " 144x144",
-        "type": "image/svg+xml",
-        "purpose": "any maskable" 
-        
-      },
-      {
-        "src": "src/Content/League of Legends Logo - 1280x831.png",
-        "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "any maskable"
-        
-      }
-      
-    ],
-    "purpose": "any",
-    "start_url": "/index.html",
-    "display": "standalone",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff"
-  }
+  "name": "LOL React",
+  "short_name": "React",
+  "icons": [],
+  "purpose": "any",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
