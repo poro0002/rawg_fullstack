@@ -11,10 +11,10 @@ import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
-import path from 'path';
+// import path from 'path';
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
 
 
 // import expressStaticGzip from 'express-static-gzip';
@@ -26,7 +26,7 @@ const app = express();
 const jwt_key = process.env.JWT_KEY;
 const port = process.env.PORT;
 const api_key = process.env.API_KEY;
-const api_key2 = process.env.API_KEY2;
+const api_key2 = process.env.API_KEY2;x
 const yt_api_key = process.env.YT_API_KEY;
 
 app.use(cors());
@@ -49,23 +49,23 @@ mongoose.connect(uri)
 
 
  // In Node.js, __filename is a global variable that represents the filename of the code being 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
-// Set MIME type for JavaScript files
-app.use(
-   express.static(new URL('../', import.meta.url).pathname, {
-       setHeaders: function (res, path) {
-           if (path.endsWith('.js') || path.endsWith('.jsx')) {
-               res.setHeader('Content-Type', 'application/javascript');
-           }
-       },
-   })
-);
+// // Set MIME type for JavaScript files
+// app.use(
+//    express.static(new URL('../', import.meta.url).pathname, {
+//        setHeaders: function (res, path) {
+//            if (path.endsWith('.js') || path.endsWith('.jsx')) {
+//                res.setHeader('Content-Type', 'application/javascript');
+//            }
+//        },
+//    })
+// );
 
-app.get('*', (req, res) => {
-   res.sendFile(new URL('../index.html', import.meta.url).pathname);
-});
+// app.get('*', (req, res) => {
+//    res.sendFile(new URL('../index.html', import.meta.url).pathname);
+// });
 
 // ----------------------------< Proxy API Request >---------------------------------------
 
