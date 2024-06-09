@@ -11,11 +11,12 @@ import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 import xss from 'xss';
 import fetch from 'node-fetch'; 
+import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// import path from 'path';
+
 // import expressStaticGzip from 'express-static-gzip';
 
 
@@ -48,12 +49,12 @@ mongoose.connect(uri)
 
 
  // In Node.js, __filename is a global variable that represents the filename of the code being 
-const filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Set MIME type for JavaScript files
 app.use(
-   express.static(path.join(__dirname, '../'), {
+   express.static(new URL('../', import.meta.url).pathname, {
        setHeaders: function (res, path) {
            if (path.endsWith('.js') || path.endsWith('.jsx')) {
                res.setHeader('Content-Type', 'application/javascript');
@@ -62,9 +63,8 @@ app.use(
    })
 );
 
-// Handle any other routes by serving the index.html file
 app.get('*', (req, res) => {
-   res.sendFile(path.join(__dirname, '../', 'index.html'));
+   res.sendFile(new URL('../index.html', import.meta.url).pathname);
 });
 
 // ----------------------------< Proxy API Request >---------------------------------------
