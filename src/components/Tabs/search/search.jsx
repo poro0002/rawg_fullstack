@@ -55,7 +55,7 @@ const paragraphs = firstPage.extract ? firstPage.extract.split('\n') : [];
 function SearchPage({handleFav, favorites, deleteFavorite}){
     const [showFullText, setShowFullText] = useState(false);
 
-    console.log(wikiDataLocal)
+    // console.log(wikiDataLocal)
 
     const isFavorite = (resultId) => {
         return favorites.some(favorite => favorite.id === resultId);
