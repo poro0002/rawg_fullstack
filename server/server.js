@@ -13,15 +13,7 @@ import xss from 'xss';
 import fetch from 'node-fetch'; 
 
 import path from 'path';
-import expressStaticGzip from 'express-static-gzip';
-
-
-// import { fileURLToPath } from 'url';
-// import { dirname } from 'path';
-
-// // In Node.js, __filename is a global variable that represents the filename of the code being 
-// const filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(filename);
+// import expressStaticGzip from 'express-static-gzip';
 
 
 dotenv.config();
@@ -50,14 +42,27 @@ mongoose.connect(uri)
 
 // ----------------------------< HEROKU >---------------------------------------
 
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
 
-// Serve static files (React frontend)
-const buildPath = path.join(__dirname, '..', 'build');
-app.use(expressStaticGzip(buildPath));
+ // In Node.js, __filename is a global variable that represents the filename of the code being 
+// const filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(filename);
 
-// Serve index.html for all other routes
+// Set MIME type for JavaScript files
+app.use(
+   express.static(path.join(__dirname, '../'), {
+       setHeaders: function (res, path) {
+           if (path.endsWith('.js') || path.endsWith('.jsx')) {
+               res.setHeader('Content-Type', 'application/javascript');
+           }
+       },
+   })
+);
+
+// Handle any other routes by serving the index.html file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(buildPath, 'index.html'));
+   res.sendFile(path.join(__dirname, '../', 'index.html'));
 });
 
 // ----------------------------< Proxy API Request >---------------------------------------
