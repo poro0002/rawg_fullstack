@@ -53,23 +53,17 @@ mongoose.connect(uri)
 
 
 
-// Set MIME type for JavaScript files
-app.use(
-   expressStaticGzip(path.join(__dirname, '../'), {
-     enableBrotli: true,
-     orderPreference: ['br', 'gz'],
-     setHeaders: function(res, path) {
-       if (path.endsWith('.js') || path.endsWith('.jsx')) {
-         res.setHeader('Content-Type', 'application/javascript');
-       }
-     },
-   })
- );
-
-// Handle any other routes by serving the index.html file
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'index.html'));
-});
+ // Set MIME type for JavaScript file
+ 
+ if (process.env.NODE_ENV === 'production') {
+     app.use(express.static(path.join(__dirname, '../frontend/build')));
+ 
+     app.get('*', (req, res) => {
+         res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+     });
+ } else {
+    console.log("development server")
+ }
 
 // ----------------------------< Proxy API Request >---------------------------------------
 
