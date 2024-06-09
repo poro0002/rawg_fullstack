@@ -15,9 +15,11 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import https from 'https';
 
 
 // import expressStaticGzip from 'express-static-gzip';
+
 
 
 dotenv.config();
@@ -46,6 +48,8 @@ mongoose.connect(uri)
 
 // ----------------------------< HEROKU >---------------------------------------
 
+const HEROKU_APP_ID = 'rawg-full-stack';
+const HEROKU_API_KEY = '***REMOVED-HEROKU-API-KEY***';
 
 
  // In Node.js, __filename is a global variable that represents the filename of the code being 
@@ -66,6 +70,7 @@ app.use(
 app.get('*', (req, res) => {
    res.sendFile(new URL('../index.html', import.meta.url).pathname);
 });
+
 
 // ----------------------------< Proxy API Request >---------------------------------------
 
@@ -162,10 +167,6 @@ app.post('/wiki',  async (req, res) => {
    const action = 'query';
    const list = 'search';
    const format = 'json';
-   
-   const prop = 'extracts';
-   const exintro = ''; 
-   const wbptterms = 'description';
   
 
    try{
