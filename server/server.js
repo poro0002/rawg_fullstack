@@ -33,12 +33,11 @@ const api_key = process.env.API_KEY;
 const api_key2 = process.env.API_KEY2;
 const yt_api_key = process.env.YT_API_KEY;
 
+const allowedOrigins = ['http://localhost:5173', 'https://rawg-full-stack-1b6c62e47ae9.herokuapp.com'];
 
-const corsOptions = {
-   origin: 'http://localhost:5173'
- };
-
- app.use(cors(corsOptions));
+app.use(cors({
+   origin: allowedOrigins,
+ }));
  app.use(express.json())
 
 // ----------------------------< Database Connection >---------------------------------------
