@@ -60,11 +60,10 @@ const HEROKU_API_KEY = 'HRKU-d5a86ce6-96f8-4604-8625-b7543c1b7da8';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/content', express.static(path.join(__dirname, 'public', 'Content')));
 app.use(express.static(path.join(__dirname, '../dist')));
 
-
-// Fallback to index.html for React Router
+ // Fallback to index.html for React Router
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
