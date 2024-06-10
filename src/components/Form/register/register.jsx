@@ -150,7 +150,7 @@ function regSubmit(e){
 
         let regHeaders = new Headers();
         regHeaders.append("Content-Type", "application/json");
-        let baseUrl = 'http://localhost:3500';
+        const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
         
         let regUrl = baseUrl + '/register';
 
@@ -211,7 +211,7 @@ function logSubmit(e){
 
     let logHeaders = new Headers();
     logHeaders.append("Content-Type", "application/json");
-    let baseUrl = 'http://localhost:3500';
+    const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
     
     let logUrl = baseUrl + '/login';
 
