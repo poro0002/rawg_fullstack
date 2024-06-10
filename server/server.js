@@ -10,7 +10,9 @@ import jwt from 'jsonwebtoken'
 import crypto from 'crypto'
 import bcrypt from 'bcrypt';
 import xss from 'xss';
-import fetch from 'node-fetch'; 
+import fetch from 'node-fetch';
+
+import fs from 'fs';
 import path from 'path';
 
 import { fileURLToPath } from 'url';
@@ -58,12 +60,29 @@ const HEROKU_API_KEY = '***REMOVED-HEROKU-API-KEY***';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Fallback to index.html for React Router
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
+
+
+app.get('/content/:filename', (req, res) => {
+   const { filename } = req.params;
+   // Assuming content is stored in the src/content directory
+   const filePath = path.join(__dirname, 'src', 'content', filename);
+   
+   // Read the file and send it as a response
+   fs.readFile(filePath, 'utf8', (err, data) => {
+     if (err) {
+       console.error('Error reading file:', err);
+       return res.status(500).send('Error reading file');
+     }
+     res.send(data);
+   });
+ });
 
 
 // ----------------------------< Proxy API Request >---------------------------------------
