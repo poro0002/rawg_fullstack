@@ -44,6 +44,7 @@ function App() {
     return storedFavorites ? JSON.parse(storedFavorites) : [];
   });
 
+  const baseURL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
 
 // ----------------------------< Handle Login >-------------------------------------- 
 
@@ -61,7 +62,7 @@ const handleLogin = async (userData) => {
    
   try {
     // Define request URL and request body
-    const reqURL = 'http://localhost:3500/updateFavorites';
+    const reqURL = `${baseURL}/updateFavorites`;
     const requestBody = {
       type: 'login',
       userID: localStorage.getItem('userID'),
@@ -134,7 +135,7 @@ const handleFav = async (gameData) => {
   // console.log(buttonState)
 
    // Endpoint URL
-   const reqURL = 'http://localhost:3500/updateFavorites';
+   const reqURL = `${baseURL}/updateFavorites`;
 
 
     // Check if the game is already in favorites
@@ -215,7 +216,7 @@ const handleFav = async (gameData) => {
 
     // console.log(buttonState)
 
-    const reqURL = 'http://localhost:3500/updateFavorites';
+    const reqURL = `${baseURL}/updateFavorites`;
     
     //update the favorites state by creating a new array out of favorites
     // then update the favorites state variable with the new array
@@ -306,12 +307,12 @@ const [ytData, setYtData] = useState([])
 
 const handleSearch = async (searchValue) => {
 
-
+ 
   
   // ----< WIKI API, YOUTUBE API >-----
 
-  const wikiURL = 'http://localhost:3500/wiki';
-  const ytURL = 'http://localhost:3500/api/youtube';
+  const wikiURL = `${baseURL}/wiki`;
+  const ytURL = `${baseURL}/api/youtube`;
 
       // Fetch request options
       const fetchOptions = {
