@@ -10,8 +10,7 @@
     "preview": "vite preview",
     "dev-server": "nodemon server.js",
     "start": "node server/server.js",
-    "copy-content": "cp -R src/content dist/content",
-    "heroku-postbuild": "npm run copy-content && npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
