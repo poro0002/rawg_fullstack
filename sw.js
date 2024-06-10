@@ -34,7 +34,8 @@ self.addEventListener('fetch', (e) => {
 
     // this will intercept any fetch that is going on in your pwa\
     // if you have multiple fetches happening make sure to identify the specific URL you want to effect
-    const baseURL = 'http://localhost:3500';
+  const baseURL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
+
     
     if (e.request.url.includes(baseURL + '/api/games')) {
         e.respondWith(

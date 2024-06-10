@@ -14,7 +14,8 @@ import Footer from '../../Footer/footer'
         
         const [cards, setCards] = useState([]);
 
-        let baseURL = 'http://localhost:3500';
+         // Determine base URL based on environment
+         const baseURL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
 
         const queryParams = new URLSearchParams();
         queryParams.append('type', 'slideshowHeader');
