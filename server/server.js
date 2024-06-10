@@ -48,25 +48,6 @@ mongoose.connect(uri)
     });
 
 
-// ----------------------------< HEROKU >---------------------------------------
-
-const HEROKU_APP_ID = 'rawg-full-stack';
-const HEROKU_API_KEY = 'HRKU-d5a86ce6-96f8-4604-8625-b7543c1b7da8';
-
-
- // In Node.js, __filename is a global variable that represents the filename of the code being 
-
-// Set up static file serving
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-app.use('/content', express.static(path.join(__dirname, 'public', 'Content')));
-app.use(express.static(path.join(__dirname, '../dist')));
-
- // Fallback to index.html for React Router
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
-});
 
 
 
@@ -227,6 +208,33 @@ app.post('/api/youtube', async (req, res) => {
       return res.status(500).json({ error: 'An error occurred while fetching data from the youtube API' })
     }
 })
+
+
+
+// ----------------------------< HEROKU >---------------------------------------
+
+const HEROKU_APP_ID = 'rawg-full-stack';
+const HEROKU_API_KEY = 'HRKU-d5a86ce6-96f8-4604-8625-b7543c1b7da8';
+
+
+ // In Node.js, __filename is a global variable that represents the filename of the code being 
+
+// Set up static file serving
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// heroku can access the content folder
+app.use('/content', express.static(path.join(__dirname, 'public', 'Content')));
+
+
+app.use(express.static(path.join(__dirname, '../dist')));
+
+ // Fallback to index.html for React Router
+ // you have to make sure you access the dist index.html for the prod build
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
 
 
 
