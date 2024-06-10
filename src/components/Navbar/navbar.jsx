@@ -72,12 +72,12 @@ function NavBar({ handleLogout, setResults, setSearchVal, searchVal, handleSearc
                 <button className="nav-toggle" onClick={handleToggleNav}>
                     <i className="material-icons">{isNavOpen ? 'close' : 'menu'}</i>
                 </button>
-                    <Link to='/home'><img className="nav-logo" src="src/Content/rawg.png" alt="" /></Link>
+                    <Link to='/home'><img className="nav-logo" src="public/Content/rawg.png" alt="" /></Link>
             </div>
 
             <ul className={`nav-list ${isNavOpen ? 'open' : ''}`}>   
                 <li className="nav-item">
-                    <Link to='/home'><img className="nav-logo" src="src/Content/rawg.png" alt="" /></Link>
+                    <Link to='/home'><img className="nav-logo" src="public/Content/rawg.png" alt="" /></Link>
                 </li>
                 <li className={`nav-item ${activeLink === '/home' ? 'active' : '' }`}>
                     <Link to='/home' onClick={() => handleClick('home')} >HOME</Link>
