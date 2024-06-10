@@ -25,7 +25,7 @@ const queryString = queryParams.toString();
     let apiKey = "29c74353cb064147baadabe161a31ef5"
     
     const myHeaders = new Headers({'Content-Type': 'image/jpeg'});
-    const mainRequest = new Request(`${baseUrl}api/games?key=${apiKey2}&search=${encodeURIComponent(searchVal)}&page_size=1&${queryString}`, {
+    const mainRequest = new Request(`${baseUrl}/api/games?key=${apiKey2}&search=${encodeURIComponent(searchVal)}&page_size=1&${queryString}`, {
         method: 'GET',
         mode: 'cors',
         headers: myHeaders,
