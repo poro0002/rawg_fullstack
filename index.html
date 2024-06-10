@@ -20,31 +20,31 @@
         // if that runs truthy it then registers the SW file and attaches it to the browser window
         // the SW can then, start intercepting network requests, caching resources, and performing other tasks as defined in its code.
         // console.log(navigator)
-      //   if ('serviceWorker' in navigator) {
-      // // Register the service worker when the page loads
-      // navigator.serviceWorker.register('/sw.js')
+        if ('serviceWorker' in navigator) {
+      // Register the service worker when the page loads
+      navigator.serviceWorker.register('/sw.js')
 
-      //       .then(registration => {
-      //         console.log('Service worker registered:', registration);
-      //       })
-      //       .catch(error => {
-      //         console.error('Service worker registration failed:', error);
-      //       });
-      //   } else {
-      //     console.log('Service workers are not supported.');
-      //   }
+            .then(registration => {
+              console.log('Service worker registered:', registration);
+            })
+            .catch(error => {
+              console.error('Service worker registration failed:', error);
+            });
+        } else {
+          console.log('Service workers are not supported.');
+        }
 
-      //  //  see if the page has a sw currently
-      //   if(navigator.serviceWorker.controller){
-      //     console.log( 'we have a service worker installed')
-      //   }
+       //  see if the page has a sw currently
+        if(navigator.serviceWorker.controller){
+          console.log( 'we have a service worker installed')
+        }
 
 
-      //  //  Register a handler to detect when a new or
-      // // updated service worker is installed & activate.
-      //   navigator.serviceWorker.oncontrollerchange = (ev) => {
-      //     console.log('New service worker activated');
-      // };
+       //  Register a handler to detect when a new or
+      // updated service worker is installed & activate.
+        navigator.serviceWorker.oncontrollerchange = (ev) => {
+          console.log('New service worker activated');
+      };
       </script>
     <script type="module" src="/src/components/Main/main.jsx"></script>
   </body>
