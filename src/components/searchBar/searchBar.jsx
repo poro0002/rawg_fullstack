@@ -13,7 +13,7 @@ function SearchBar({setResults, setSearchVal, searchVal, handleSearch,  setWikiD
   
 let apiKey2 = 'e8cc02aadccc4a1ebbbf7e8aa5df1002'
 
-let baseUrl = 'http://localhost:3500/';
+const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
 let apiUrl = baseUrl + '/api/games';
 
 
