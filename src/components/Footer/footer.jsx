@@ -10,7 +10,7 @@ function Footer() {
         <footer>
              <nav className="footer__nav">
             <a className="footer__logo" href="/home">
-                <img src="src/Content/rawg.png" alt="signature logo" className="footer__icon" />
+                <img src="public/Content/rawg.png" alt="signature logo" className="footer__icon" />
             </a>
 
             </nav>
@@ -18,8 +18,8 @@ function Footer() {
             <div className="footer-small-links">
               
                 <div className="footer-ratings">
-                    <img src="src/Content/ESRB_Privacy_Certified.png" alt="" className="footer-ratings__img" />
-                    <img src="src/Content/k_A.png" alt="" className="footer-ratings__img footer-ratings__img2" />
+                    <img src="public/Content/ESRB_Privacy_Certified.png" alt="" className="footer-ratings__img" />
+                    <img src="public/Content/k_A.png" alt="" className="footer-ratings__img footer-ratings__img2" />
                     <div className="footer-ratings__details">
                         <ul>
                             <li>Suggestive Themes</li>
@@ -40,10 +40,10 @@ function Footer() {
                 <div className="footer__copyright2">
                 
                     <div className="footer__list">
-                        <small><a target="_blank" href="https://github.com/Kiirynn?tab=repositories"><img className="small-media-logo" src="src/Content/logos/github-white48.png" alt="github logo" /></a></small>
-                        <small><a target="_blank" href="https://github.com/poro0002?tab=repositories"><img className="small-media-logo" src="src/Content/logos/github-white48.png" alt="github logo" /></a></small>
-                        <small><a target="_blank" href="https://www.linkedin.com/in/kieran-poropat/"><img className="small-media-logo" src="src/Content/logos/In-White-48.png" alt="linkedin logo" /></a></small>
-                        <small><a target="_blank" href="https://dribbble.com/Kiirynn"><img className="small-media-logo" src="src/Content/logos/dribbble-white-logo.png" alt="dribble logo" /></a></small>
+                        <small><a target="_blank" href="https://github.com/Kiirynn?tab=repositories"><img className="small-media-logo" src="public/Content/logos/github-white48.png" alt="github logo" /></a></small>
+                        <small><a target="_blank" href="https://github.com/poro0002?tab=repositories"><img className="small-media-logo" src="public/Content/logos/github-white48.png" alt="github logo" /></a></small>
+                        <small><a target="_blank" href="https://www.linkedin.com/in/kieran-poropat/"><img className="small-media-logo" src="public/Content/logos/In-White-48.png" alt="linkedin logo" /></a></small>
+                        <small><a target="_blank" href="https://dribbble.com/Kiirynn"><img className="small-media-logo" src="public/Content/logos/dribbble-white-logo.png" alt="dribble logo" /></a></small>
                     </div>
 
                     <ul className="footer__list">
