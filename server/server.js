@@ -15,7 +15,7 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import https from 'https';
+// import https from 'https';
 
 
 // import expressStaticGzip from 'express-static-gzip';
@@ -53,22 +53,16 @@ const HEROKU_API_KEY = 'HRKU-d5a86ce6-96f8-4604-8625-b7543c1b7da8';
 
 
  // In Node.js, __filename is a global variable that represents the filename of the code being 
+
+// Set up static file serving
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Set MIME type for JavaScript files
-app.use(
-   express.static(new URL('../', import.meta.url).pathname, {
-       setHeaders: function (res, path) {
-           if (path.endsWith('.js') || path.endsWith('.jsx')) {
-               res.setHeader('Content-Type', 'application/javascript');
-           }
-       },
-   })
-);
+app.use(express.static(path.join(__dirname, '../dist')));
 
+// Fallback to index.html for React Router
 app.get('*', (req, res) => {
-   res.sendFile(new URL('../index.html', import.meta.url).pathname);
+    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 
