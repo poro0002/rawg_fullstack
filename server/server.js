@@ -33,9 +33,13 @@ const api_key = process.env.API_KEY;
 const api_key2 = process.env.API_KEY2;
 const yt_api_key = process.env.YT_API_KEY;
 
-app.use(cors());
-app.use(express.json())
 
+const corsOptions = {
+   origin: 'http://localhost:5173'
+ };
+
+ app.use(cors(corsOptions));
+ app.use(express.json())
 
 // ----------------------------< Database Connection >---------------------------------------
 
