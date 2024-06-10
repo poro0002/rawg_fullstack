@@ -335,7 +335,7 @@ const handleSearch = async (searchValue) => {
       if (!wikiResponse.ok || !ytResponse.ok) {
           throw new Error('Error fetching data');
       }
-
+       
       const [wikiData, ytData] = await Promise.all([
           wikiResponse.json(),
           ytResponse.json(),

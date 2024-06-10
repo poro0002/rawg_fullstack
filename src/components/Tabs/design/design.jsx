@@ -8,7 +8,7 @@ function DesignPage(props){
       <>
       
          <video autoPlay loop muted className="background-video">
-            <source src="src/Content/smoke1.mov" type="video/mp4" />
+            <source src="/Content/smoke1.mov" type="video/mp4" />
           
          </video>
         
