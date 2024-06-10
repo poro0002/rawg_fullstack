@@ -62,6 +62,7 @@ const __dirname = dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, '../dist')));
+app.use('/content', express.static(path.join(__dirname, '../dist/content')));
 
 // Fallback to index.html for React Router
 app.get('*', (req, res) => {
