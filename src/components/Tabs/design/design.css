@@ -482,6 +482,17 @@
  }
 
 
+ .api__logo{
+    width: 9rem;
+    margin-bottom: 3rem;
+ }
+
+ .api__logo2{
+    width: 12rem;
+    margin-bottom: 3rem;
+ }
+
+
 
  @media screen and (min-width: 45em) {
 

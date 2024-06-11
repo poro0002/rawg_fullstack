@@ -396,10 +396,14 @@ function DesignPage(props){
    {/* ---------------------------------< API INFO >---------------------------------------- */}
 
       <div className="api-cont">
+
+      <img src="public/Content/rawg.png" alt="" className="api__logo" />
            
             <h3 className="api_title color__title">-RAWG-</h3>
                <h3 className="api-title color__sub">API</h3>
                <p className="color-sub_info">RAWG API offers access to a vast database of video games across various platforms, including PC, consoles, and mobile. This extensive coverage ensures that you can find information on a wide range of games, from the latest releases to classic titles.</p>
+
+            
            
             <div className="api-link__list">
                <ul className="api-link-list__items">
@@ -410,14 +414,72 @@ function DesignPage(props){
             </div>
 
          <div className="api__screenshots">
-            <img className="api-screenshot__img" src="src/Content/rawg_screenshot2.png" alt="" />
-            <img className="api-screenshot__img" src="src/Content/rawg_screenshot3.png" alt="" />
-            <img className="api-screenshot__img" src="src/Content/rawg_screenshot1.png" alt="" />
+            <img className="api-screenshot__img" src="/Content/rawg_screenshot2.png" alt="" />
+            <img className="api-screenshot__img" src="/Content/rawg_screenshot3.png" alt="" />
+            <img className="api-screenshot__img" src="/Content/rawg_screenshot1.png" alt="" />
             
          </div>
                   
                
       </div>
+
+
+      <div className="api-cont">
+
+      <img src="/Content/wikipidia_logo.png" alt="" className="api__logo2" />
+           
+           <h3 className="api_title color__title">-Wiki-</h3>
+              <h3 className="api-title color__sub">API</h3>
+              <p className="color-sub_info">The MediaWiki Action API is a web service that allows access to some wiki features like authentication, page operations, and search. It can provide meta information about the wiki and the logged-in user.</p>
+
+      
+           <div className="api-link__list">
+              <ul className="api-link-list__items">
+                 <li><a className="api-link-list__item"href="https://en.wikipedia.org/wiki/Main_Page">WEBSITE</a></li>
+                 <li><a className="api-link-list__item"href="https://www.mediawiki.org/wiki/API:Main_page">API</a></li>
+                 <li><a className="api-link-list__item"href="https://x.com/Wikipedia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">TWITTER</a></li>
+              </ul>
+           </div>
+
+        <div className="api__screenshots">
+           <img className="api-screenshot__img" src="/Content/wiki-screenshot-api1.png" alt="" />
+           <img className="api-screenshot__img" src="/Content/wiki-screenshot-api2.png" alt="" />
+          
+         
+        </div>
+                 
+              
+     </div>
+
+
+
+
+     <div className="api-cont">
+
+<img src="/Content/yt_logo_rgb_dark.png" alt="" className="api__logo" />
+     
+     <h3 className="api_title color__title">-Youtube/Google Cloud-</h3>
+        <h3 className="api-title color__sub">API</h3>
+        <p className="color-sub_info">The YouTube Data API v3 is an API that provides access to YouTube data, such as videos, playlists, and channels.</p>
+
+
+     <div className="api-link__list">
+        <ul className="api-link-list__items">
+           <li><a className="api-link-list__item"href="https://www.youtube.com/">WEBSITE</a></li>
+           <li><a className="api-link-list__item"href="https://developers.google.com/youtube/v3">API</a></li>
+           <li><a className="api-link-list__item"href="https://twitter.com/YouTube">TWITTER</a></li>
+        </ul>
+     </div>
+
+  <div className="api__screenshots">
+     <img className="api-screenshot__img" src="/Content/youtube-api-screenshot1.png" alt="" />
+     <img className="api-screenshot__img" src="/Content/youtube-api-screenshot2.png" alt="" />
+     <img className="api-screenshot__img" src="/Content/youtube-api-screenshot3.png" alt="" />
+   
+  </div>
+           
+        
+</div>
 
 
  <Footer></Footer>
