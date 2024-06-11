@@ -50,6 +50,7 @@ function Section({seeGame}){
                 throw new Error('Error with response');
             }
             const data = await response.json();
+            console.log(data)
 
             const screenshots = await fetchScreenshots(gameId);
 
@@ -156,7 +157,7 @@ const sectionDescriptions = [
          </video>
 <section >
     {sections.map((section, index) => (
-               
+       
          <div className="section__div" key={section.id}>
            
                         {section.trailerUrl ? (
@@ -213,6 +214,24 @@ const sectionDescriptions = [
                                         ))}
                                 </div>
                     </div>
+
+                            <div className="cards-info-platform-cont">
+                                        {section.parent_platforms?.map((plat, index)  => {
+                                            const pc = plat.platform.name === "PC";
+                                            const ps = plat.platform.name === "PlayStation";
+                                            const xbox = plat.platform.name === "Xbox";
+                                            const nin = plat.platform.name === "Nintendo";
+
+                                            return (
+                                                <div className="cards-info-platform-cont__logos" key={index}>
+                                                 {pc && <img src="/Content/logos/steam.png" alt="PC" />}
+                                                    {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
+                                                 {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
+                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />}
+                                               </div>
+                                            );
+                                         })}
+                                     </div>
      
                 </div>
                
@@ -224,6 +243,7 @@ const sectionDescriptions = [
     </>
     
    )
+ 
 }
 
 

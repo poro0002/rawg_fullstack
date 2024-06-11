@@ -190,3 +190,11 @@ footer{
 
 
   }
+
+  @media only screen and (min-width: 100em){
+    
+    /* .footer .container {
+     min-width: 100rem;
+
+   } */
+  }
