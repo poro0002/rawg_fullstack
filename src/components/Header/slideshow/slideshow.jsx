@@ -8,7 +8,7 @@ import Footer from '../../Footer/footer'
    let count = 3;
 
 
-    function SlideshowHeader({handleFav, deleteFavorite, seeGame, favorites, setFavorites}){
+    function SlideshowHeader({handleFav, deleteFavorite, seeGame, favorites, handleSearch}){
         // console.log('handleFav prop:', handleFav);
         
         
@@ -34,6 +34,7 @@ import Footer from '../../Footer/footer'
                             return response.json();
                         })
                         .then(preData => {
+                            console.log(preData)
                             // Process the JSON data and update state
                             const cardsWithData = Promise.all(preData.results.map(async (card) => {
                                 try {
@@ -126,7 +127,10 @@ import Footer from '../../Footer/footer'
         
                     <header className='slide-header'>
                         {cards.map(card => (
-                            <a className="card" onClick={() => seeGame(card)} key={card.id}>
+                           <a className="card" onClick={async () => {
+                            await handleSearch(card.name); // Wait for handleSearch to finish before redirecting
+                            seeGame(card);
+                               }} key={card.id}>
                                 {card.trailerUrl ? (
                                     <video
                                     className='card__video'
@@ -157,6 +161,24 @@ import Footer from '../../Footer/footer'
                                              <i className='material-icons'>favorite</i>
                                          </button>
                                          )}
+
+                                <div className="cards-info-platform-cont">
+                                        {card.parent_platforms.map((plat, index) => {
+                                            const pc = plat.platform.name === "PC";
+                                            const ps = plat.platform.name === "PlayStation";
+                                            const xbox = plat.platform.name === "Xbox";
+                                            const nin = plat.platform.name === "Nintendo";
+
+                                            return (
+                                                <div className="cards-info-platform-cont__logos" key={index}>
+                                                 {pc && <img src="/Content/logos/steam.png" alt="PC" />}
+                                                    {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
+                                                 {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
+                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />}
+                                               </div>
+                                            );
+                                         })}
+                                     </div>
 
                                 </div>
                             </a>

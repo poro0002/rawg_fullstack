@@ -363,7 +363,7 @@ const handleSearch = async (searchValue) => {
      
       <AppRouter ytData={ytData}  deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
-      {isBrowsePage && <SlideshowHeader handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} favorites={favorites} setFavorites={setFavorites} />}
+      {isBrowsePage && <SlideshowHeader handleSearch={handleSearch} handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} favorites={favorites} setFavorites={setFavorites} />}
       
       {isLoggedIn && isAccountPage ? (
           <UserProfile handleLogin={handleLogin} deleteFavorite={deleteFavorite} favorites={favorites.filter(favorite => favorite.id)} username={username} fullName={fullName} email={email}/>
