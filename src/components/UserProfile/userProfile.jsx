@@ -4,7 +4,7 @@ import Footer from '../Footer/footer'
 // create some javascript functionality to loop through the users favorites and display them on this page with their data
 
 
-function UserProfile({favorites, deleteFavorite}){
+function UserProfile({favorites, deleteFavorite, handleSearch, seeGame}){
 
 
      const user = JSON.parse(localStorage.getItem('user'));
@@ -32,7 +32,7 @@ function UserProfile({favorites, deleteFavorite}){
                   <h4 className="favorites-container__title" >Favorites</h4>
                   {favorites.map((favorite) =>{
                       return (
-                        <div className="fav-card" key={favorite.id} >
+                        <a className="fav-card" onClick={async ()=>{ await handleSearch(favorite.name); seeGame(favorite)}} key={favorite.id} >
                             <img className="fav-card__img"  src={favorite.background_image} alt="" />
                             <div className="fav-card-info__cont">
                               <h3 className="fav-card__title">{favorite.name}</h3>
@@ -40,7 +40,7 @@ function UserProfile({favorites, deleteFavorite}){
                               <p className="fav-card__info">{favorite.updated}</p>
                               <button onClick={() => deleteFavorite(favorite)} className="fav-card-delete__btn"><i className="material-icons">delete</i></button>
                           </div>
-                        </div>
+                        </a>
                         )
                   })}
               </div>

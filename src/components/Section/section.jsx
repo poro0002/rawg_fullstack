@@ -7,7 +7,7 @@ import './section.css'
 // see game brings you to the search page for that specific game so you can fav it
 // see photo opens a new browser window with the img.url src
 
-function Section({seeGame}){
+function Section({seeGame, handleSearch}){
 
     const [sections, setSections] = useState([]);
 
@@ -62,7 +62,9 @@ function Section({seeGame}){
                 rating: data.rating,
                 released: data.released,
                 metacritic: data.metacritic,
-                short_screenshots: screenshots
+                short_screenshots: screenshots,
+                parent_platforms: data.parent_platforms
+
             };
         } catch (error) {
             console.error(`Error fetching game details for game ID ${gameId}:`, error);
@@ -117,7 +119,8 @@ const sectionDescriptions = [
         description: 'Dota 2 has a large esports scene, with teams from around the world playing in various professional leagues and tournaments. Valve organizes the Dota Pro Circuit, which are a series of tournaments that award qualification points for earning direct invitations to The International, the games premier tournament held annually. Internationals feature a crowdfunded prize money system that has seen amounts in upwards of US$40 million, making Dota 2 the most lucrative esport. Media coverage of most tournaments is done by a selection of on-site staff who provide commentary and analysis for the ongoing matches similar to traditional sporting events. In addition to playing live to audiences in arenas and stadiums, broadcasts of them are also streamed over the internet and sometimes simulcast on television, with several million in viewership numbers.',
         subtext: '-Valve-',
         href: 'https://www.dota2.com/home',
-        logo: '/Content/logos/hd-dota-2-logo_full.png'
+        logo: '/Content/logos/hd-dota-2-logo_full.png',
+        name: "dota 2"
       },
    
     
@@ -126,7 +129,8 @@ const sectionDescriptions = [
         description: 'The concept for Warframe originated in 2000, when Digital Extremes began work on a new game titled Dark Sector. At the time, the company had been successful in supporting other developers and publishers and wanted to develop its game in-house. Dark Sector suffered several delays and was eventually released in 2008, having used some of the initial framework but far different from the original plan. By 2012, in the wake of the success of free-to-play games, the developers took their earlier Dark Sector ideas and art assets and incorporated them into a new project, their self-published Warframe.',
         subtext: '-Digital Extremes-',
         href: 'https://www.warframe.com/landing',
-        logo: '/Content/logos/warframe_full.png'
+        logo: '/Content/logos/warframe_full.png',
+        name: "warframe"
         }
    ,
 
@@ -135,7 +139,8 @@ const sectionDescriptions = [
         description: 'Announced in March 2017, the game was released worldwide for PlayStation 4, Windows, and Xbox One on October 10, 2017. Shadow of War had a generally favorable reception from critics, albeit more mixed than its predecessor. Reviewers praised the gameplay and improved nemesis system, while criticizing the games microtransactions (which was removed in a post-game update in July 2018) and story, including changes to characters seen in Tolkiens books. Many critics noted that the games increased scope caused it to feel bloated. The game was the best-selling video game in the United States in its month of release. Monolith supported the game post-launch with free updates and two story expansions.',
         subtext: '-Monolith Productions-',
         href: 'https://www.shadowofwar.com/about/',
-        logo: '/Content/logos/shadow_of_war_white_full.png'
+        logo: '/Content/logos/shadow_of_war_white_full.png',
+        name: "shadow of war"
       
      },
 
@@ -144,7 +149,9 @@ const sectionDescriptions = [
         description: 'The games development began following the release of Assassins Creed IV: Black Flag in 2013. Ubisoft Montreal led its four-year development with help from a team of nearly 700 people from other Ubisoft studios around the world. The team consulted Egyptologists and historians extensively to ensure the setting was authentically represented in the game. In response to the common criticism that the gameplay of the series was getting stale and overly familiar, Ubisoft decided to reinvent the Assassins Creed formula with Origins. Whereas previous entries were mainly stealth-action games, Origins introduces many elements found in role-playing games and an overhauled hitbox-based combat system. While Assassins Creed had been an annual franchise since Assassins Creed II (2009), an extra year of development time allowed the team to polish the game further. This was largely a response to the tepid sales of Assassins Creed Syndicate, and the troubled launch of Assassins Creed Unity, which was plagued with technical issues when it was released in 2014.',
         subtext: '-Ubisoft Montreal-',
         href: 'https://www.ubisoft.com/en-ca/game/assassins-creed/shadows?ucid=SCH-ID_189303&maltcode=brand_C2W_SCH_googlesearch___RED____&addinfo=&gad_source=1&gclid=Cj0KCQjw3tCyBhDBARIsAEY0XNnR6iUfrWP6kxijQ8jQV965aisB-Ugsai8lu0mdWhiuxNfUrnml58oaAifyEALw_wcB',
-        logo: '/Content/logos/asc_full.png'
+        logo: '/Content/logos/asc_full.png',
+        name: "assasins creed origins",
+        
         },  
       
 ];
@@ -182,14 +189,12 @@ const sectionDescriptions = [
                 <div className="section-info-screenshot__cont">
                       
                     <div className={`section-div__title ${index % 2 === 0 ? 'even' : 'odd'}`}>
-                            
-                           
 
                             <div className={`section-title-info__cont ${index % 2 === 0 ? 'even' : 'odd'}`}>
                                 <p className="section__rating">Rating: <span className="section-info__value">{section.rating}</span></p>
                                 <p className="section__released">Released:  <span className="section-info__value">{section.released}</span></p>
                                 <p className="section__metacritic">Metacritic: <span className="section-info__value">{section.metacritic}</span> </p>
-                                <button onClick={() => seeGame(section)} className="section__btn" >VIEW</button>
+                                <button onClick={ async() => { await handleSearch(section.name); seeGame(section);} } className="section__btn" >VIEW</button>
                                 <a className="section__href" href={sectionDescriptions[index].href}>WEBSITE</a>
                             </div>
 
@@ -208,14 +213,16 @@ const sectionDescriptions = [
                          </div>
 
                             <a className="section-info-screenshot__title" href="#">view all</a>
+                            
+                            <div className="section-info-cont">
                                 <div className="section-info-screenshot__imgs">
                                         {section.short_screenshots?.map((img, index) => (
                                             <img onClick={() => seePhoto(img.image)} className="section-info-screenshot__img" key={index} src={img.image} alt={img.id} />
                                         ))}
                                 </div>
-                    </div>
 
-                            <div className="cards-info-platform-cont">
+                                
+                            <div className="section-result-platform-cont">
                                         {section.parent_platforms?.map((plat, index)  => {
                                             const pc = plat.platform.name === "PC";
                                             const ps = plat.platform.name === "PlayStation";
@@ -223,15 +230,41 @@ const sectionDescriptions = [
                                             const nin = plat.platform.name === "Nintendo";
 
                                             return (
-                                                <div className="cards-info-platform-cont__logos" key={index}>
-                                                 {pc && <img src="/Content/logos/steam.png" alt="PC" />}
+                                                <div className="section-result-platform-cont__logos" key={index}>
+                                                 {/* {pc && <img src="/Content/logos/steam.png" alt="PC" />}
                                                     {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
                                                  {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
-                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />}
+                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />} */}
+
+                                                    <div className="buy-now-btns-cont">
+                                                        {pc && (
+                                                           <a href={`https://store.steampowered.com/app/${section.name}`} className="store__btn">
+                                                              Buy Now <img src="/Content/logos/steam.png" alt="PC" />
+                                                          </a>
+                                                        )}
+                                                        {xbox && (
+                                                            <a href={`https://www.xbox.com/en-ca/games/${section.name}`} className="store__btn">
+                                                            Buy Now <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />
+                                                            </a>
+                                                        )}
+                                                        {ps && (
+                                                            <a href={`https://store.playstation.com/en-us/product/${section.name}`} className="store__btn">
+                                                            Buy Now <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
+                                                            </a>
+                                                        )}
+                                                     </div>
+
                                                </div>
+
                                             );
                                          })}
-                                     </div>
+
+
+                                    </div>
+                              </div> 
+                    </div>
+
+         
      
                 </div>
                

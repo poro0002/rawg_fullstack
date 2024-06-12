@@ -130,7 +130,7 @@
 
 .search-result__desc{
     margin-top: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 
@@ -169,6 +169,57 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 
+}
+
+.search-result-platform-cont{
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+}
+
+.search-result-platform-cont__logos{
+   width: 1.5rem;
+   margin-left: 5rem;
+   margin-right: 5rem;
+  
+}
+
+.buy-now-btns-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.store__btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7);
+  border: 0.125rem solid orange;
+  width: 8rem; 
+  padding: 0.5rem 1rem; 
+  margin: 1rem; 
+  text-decoration: none;
+  transition: transform 0.07s ease-in-out;
+}
+
+.store__btn:hover,
+.store__btn:focus {
+  transform: scale(1.07);
+  cursor: pointer;
+  box-shadow: var(--white-box-shadow);
+  color: white;
+}
+
+.store__btn img {
+  margin-left: 0.5rem; 
+  width: 1rem;
 }
 
 @media screen and (min-width: 45em) {

@@ -10,13 +10,13 @@ import Footer from '../../Footer/footer'
 
 
 
-function HomePage({seeGame}){
+function HomePage({seeGame, handleSearch}){
 
 
    return(
      <>
       <div className="container">
-         <Section seeGame={seeGame} ></Section>
+         <Section seeGame={seeGame} handleSearch={handleSearch} ></Section>
 
       </div>
 
