@@ -361,12 +361,12 @@ const handleSearch = async (searchValue) => {
     <>
       <NavBar setWikiData={setWikiData} setYtData={setYtData} handleSearch={handleSearch} searchVal={searchVal} setSearchVal={setSearchVal} setResults={setResults}  isLoggedIn={isLoggedIn} handleLogout={handleLogout} username={username} />
      
-      <AppRouter ytData={ytData}  deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
+      <AppRouter handleSearch={handleSearch} ytData={ytData}  deleteFavorite={deleteFavorite} wikiData={wikiData} favorites={favorites}  searchResults={searchResults} handleFav={handleFav}  seeGame={seeGame}/>
 
       {isBrowsePage && <SlideshowHeader handleSearch={handleSearch} handleFav={handleFav} seeGame={seeGame} deleteFavorite={deleteFavorite} favorites={favorites} setFavorites={setFavorites} />}
       
       {isLoggedIn && isAccountPage ? (
-          <UserProfile handleLogin={handleLogin} deleteFavorite={deleteFavorite} favorites={favorites.filter(favorite => favorite.id)} username={username} fullName={fullName} email={email}/>
+          <UserProfile handleSearch={handleSearch} seeGame={seeGame} handleLogin={handleLogin} deleteFavorite={deleteFavorite} favorites={favorites.filter(favorite => favorite.id)} username={username} fullName={fullName} email={email}/>
         ) : (
           !isLoggedIn && isAccountPage && <RegisterLogForm handleLogin={handleLogin} />
         )}

@@ -126,6 +126,59 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
                                 )}
                             </div>
                         )}
+
+                        {/* {storedResult.stores[0].store.domain && 
+                            <a href={`https://${storedResult.stores[0].store.domain}/en-us/product/${storedResult.id}`} className="store__btn">
+                                Website
+                            </a>
+                        } */}
+
+                            <div className="search-result-platform-cont">
+                                        {storedResult.parent_platforms?.map((plat, index)  => {
+                                            const pc = plat.platform.name === "PC";
+                                            const ps = plat.platform.name === "PlayStation";
+                                            const xbox = plat.platform.name === "Xbox";
+                                            const nin = plat.platform.name === "Nintendo";
+
+                                            return (
+                                                <div className="search-result-platform-cont__logos" key={index}>
+                                                 {/* {pc && <img src="/Content/logos/steam.png" alt="PC" />}
+                                                    {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
+                                                 {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
+                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />} */}
+
+                                                    <div className="buy-now-btns-cont">
+                                                        {pc && (
+                                                           <a href={`https://store.steampowered.com/app/${storedResult.name}`} className="store__btn">
+                                                              Buy Now <img src="/Content/logos/steam.png" alt="PC" />
+                                                          </a>
+                                                        )}
+                                                        {xbox && (
+                                                            <a href={`https://www.xbox.com/en-ca/games/${storedResult.name}`} className="store__btn">
+                                                            Buy Now <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />
+                                                            </a>
+                                                        )}
+                                                        {ps && (
+                                                            <a href={`https://store.playstation.com/en-us/product/${storedResult.name}`} className="store__btn">
+                                                            Buy Now <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
+                                                            </a>
+                                                        )}
+                                                     </div>
+
+                                               </div>
+
+                                            );
+                                         })}
+
+
+                                    </div>
+
+                                   
+                          
+                         
+                     
+                        
+                          
                      
                     <div className="search-results__screenshots">
                         {storedResult.short_screenshots.map((img, index) => (

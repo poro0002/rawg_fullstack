@@ -15,12 +15,12 @@ import SearchPage from '../Tabs/search/search'
 
 {/* <Route path='/search'Component={SearchPage}/> */}
 
-function AppRouter({ seeGame, handleFav, favorites, wikiData, deleteFavorite, youtubeData }) {
+function AppRouter({ seeGame, handleFav, favorites, wikiData, deleteFavorite, youtubeData, handleSearch }) {
     return (
 
 <Router>
     <Routes>
-        <Route path='/home' element={ <HomePage seeGame={seeGame} /> }  exact/>
+        <Route path='/home' element={ <HomePage seeGame={seeGame} handleSearch={handleSearch} /> }  exact/>
         <Route path='/design'Component={DesignPage}/>
         <Route path='/browse'Component={BrowsePage}/>
         <Route path="/search" element={ <SearchPage youtubeData={youtubeData} wikiData={wikiData} favorites={favorites} handleFav={handleFav} deleteFavorite={deleteFavorite} /> } />
