@@ -134,20 +134,16 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
                         } */}
 
                             <div className="search-result-platform-cont">
-                                        {storedResult.parent_platforms?.map((plat, index)  => {
+                                        {storedResult.parent_platforms?.map((plat)  => {
                                             const pc = plat.platform.name === "PC";
                                             const ps = plat.platform.name === "PlayStation";
                                             const xbox = plat.platform.name === "Xbox";
                                             const nin = plat.platform.name === "Nintendo";
+                                            const ios = plat.platform.name === "iOS";
 
                                             return (
-                                                <div className="search-result-platform-cont__logos" key={index}>
-                                                 {/* {pc && <img src="/Content/logos/steam.png" alt="PC" />}
-                                                    {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
-                                                 {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
-                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />} */}
-
-                                                    <div className="buy-now-btns-cont">
+        
+                                                   <>
                                                         {pc && (
                                                            <a href={`https://store.steampowered.com/app/${storedResult.name}`} className="store__btn">
                                                               Buy Now <img src="/Content/logos/steam.png" alt="PC" />
@@ -163,10 +159,18 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
                                                             Buy Now <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
                                                             </a>
                                                         )}
-                                                     </div>
-
-                                               </div>
-
+                                                         {nin && (
+                                                            <a href={`https://www.nintendo.com/en-ca/store/${storedResult.name}`} className="store__btn">
+                                                            Buy Now <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="nintendo" />
+                                                            </a>
+                                                        )}
+                                                          {ios && (
+                                                            <a href={`https://www.apple.com/ca/app-store/${storedResult.name}`} className="store__btn">
+                                                            Buy Now <img src="/Content/logos/ios_white.png" alt="ios" />
+                                                            </a>
+                                                        )}
+                                            
+                                                </>
                                             );
                                          })}
 

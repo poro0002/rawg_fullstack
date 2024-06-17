@@ -146,7 +146,7 @@ const sectionDescriptions = [
 
    {
         title: 'Action Role-Playing Video Game',
-        description: 'The games development began following the release of Assassins Creed IV: Black Flag in 2013. Ubisoft Montreal led its four-year development with help from a team of nearly 700 people from other Ubisoft studios around the world. The team consulted Egyptologists and historians extensively to ensure the setting was authentically represented in the game. In response to the common criticism that the gameplay of the series was getting stale and overly familiar, Ubisoft decided to reinvent the Assassins Creed formula with Origins. Whereas previous entries were mainly stealth-action games, Origins introduces many elements found in role-playing games and an overhauled hitbox-based combat system. While Assassins Creed had been an annual franchise since Assassins Creed II (2009), an extra year of development time allowed the team to polish the game further. This was largely a response to the tepid sales of Assassins Creed Syndicate, and the troubled launch of Assassins Creed Unity, which was plagued with technical issues when it was released in 2014.',
+        description: 'The games development began following the release of Assassins Creed IV: Black Flag in 2013. Ubisoft Montreal led its four-year development with help from a team of nearly 700 people from other Ubisoft studios around the world. The team consulted Egyptologists and historians extensively to ensure the setting was authentically represented in the game. In response to the common criticism that the gameplay of the series was getting stale and overly familiar, Ubisoft decided to reinvent the Assassins Creed formula with Origins. Whereas previous entries were mainly stealth-action games, Origins introduces many elements found in role-playing games and an overhauled hitbox-based combat system. ',
         subtext: '-Ubisoft Montreal-',
         href: 'https://www.ubisoft.com/en-ca/game/assassins-creed/shadows?ucid=SCH-ID_189303&maltcode=brand_C2W_SCH_googlesearch___RED____&addinfo=&gad_source=1&gclid=Cj0KCQjw3tCyBhDBARIsAEY0XNnR6iUfrWP6kxijQ8jQV965aisB-Ugsai8lu0mdWhiuxNfUrnml58oaAifyEALw_wcB',
         logo: '/Content/logos/asc_full.png',
@@ -222,40 +222,43 @@ const sectionDescriptions = [
                                 </div>
 
                                 
-                            <div className="section-result-platform-cont">
-                                        {section.parent_platforms?.map((plat, index)  => {
+                                <div className="section-result-platform-cont">
+                                        {section.parent_platforms?.map((plat)  => {
                                             const pc = plat.platform.name === "PC";
                                             const ps = plat.platform.name === "PlayStation";
                                             const xbox = plat.platform.name === "Xbox";
                                             const nin = plat.platform.name === "Nintendo";
+                                            const ios = plat.platform.name === "iOS";
 
                                             return (
-                                                <div className="section-result-platform-cont__logos" key={index}>
-                                                 {/* {pc && <img src="/Content/logos/steam.png" alt="PC" />}
-                                                    {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
-                                                 {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
-                                                    {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />} */}
-
-                                                    <div className="buy-now-btns-cont">
+                                                   <>
                                                         {pc && (
-                                                           <a href={`https://store.steampowered.com/app/${section.name}`} className="store__btn">
-                                                              Buy Now <img src="/Content/logos/steam.png" alt="PC" />
+                                                           <a href={`https://store.steampowered.com/app/${section.name}`} className="section-store__btn">
+                                                               <span className="text">Buy Now</span><img src="/Content/logos/steam.png" alt="PC" />
                                                           </a>
                                                         )}
                                                         {xbox && (
-                                                            <a href={`https://www.xbox.com/en-ca/games/${section.name}`} className="store__btn">
-                                                            Buy Now <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />
+                                                            <a href={`https://www.xbox.com/en-ca/games/${section.name}`} className="section-store__btn">
+                                                             <span className="text">Buy Now</span> <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />
                                                             </a>
                                                         )}
                                                         {ps && (
-                                                            <a href={`https://store.playstation.com/en-us/product/${section.name}`} className="store__btn">
-                                                            Buy Now <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
+                                                            <a href={`https://store.playstation.com/en-us/product/${section.name}`} className="section-store__btn">
+                                                             <span className="text">Buy Now</span><img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
                                                             </a>
                                                         )}
-                                                     </div>
-
-                                               </div>
-
+                                                         {nin && (
+                                                            <a href={`https://www.nintendo.com/en-ca/store/${section.name}`} className="section-store__btn">
+                                                             <span className="text">Buy Now</span><img src="/Content/logos/nintendo_logo_icon_145030.png" alt="nintendo" />
+                                                            </a>
+                                                        )}
+                                                          {ios && (
+                                                            <a href={`https://www.apple.com/ca/app-store/${section.name}`} className="section-store__btn">
+                                                            <span className="text">Buy Now</span><img src="/Content/logos/ios_white.png" alt="ios" />
+                                                            </a>
+                                                        )}
+                                            
+                                                </>
                                             );
                                          })}
 
