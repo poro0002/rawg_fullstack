@@ -195,3 +195,23 @@ div{
   width: min(45em, 100%);
 }
 
+body{
+  overflow-x: hidden;
+}
+
+
+@media screen and (min-width: 45em) {
+  body{
+    overflow-x: visible;
+  }
+}
+
+
+@media screen and (min-width: 45em) {
+  body{
+    overflow-x: visible;
+  }
+}
+
+
+

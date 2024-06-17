@@ -502,6 +502,7 @@
    
     .api-screenshot__img{
         width: 30rem;
+       
     }
 
 }
@@ -516,6 +517,7 @@
    
     .api-screenshot__img {
         width: 50rem;
+        margin: 2rem;
       }
 
 
