@@ -63,6 +63,7 @@ function NavBar({ handleLogout, setResults, setSearchVal, searchVal, handleSearc
 
     const handleToggleNav = () => {
         setIsNavOpen(!isNavOpen);
+       
       };
 
     return (
