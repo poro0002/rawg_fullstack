@@ -5,7 +5,7 @@ import Footer from '../../Footer/footer'
 
 function DesignPage(props){
    return(
-      <>
+      <div className="design-page-cont">
       
          <video autoPlay loop muted className="background-video">
             <source src="/Content/smoke1.mov" type="video/mp4" />
@@ -483,7 +483,7 @@ function DesignPage(props){
 
 
  <Footer></Footer>
- </>
+ </div>
    
    )
 }

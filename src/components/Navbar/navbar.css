@@ -106,6 +106,10 @@
   margin: 0;
 }
 
+.nav-list .nav-logo {
+  display: none; /* Hide the logo in the nav-list for mobile */
+}
+
 /* Search bar styles */
 .searchBar {
   display: flex;
@@ -151,6 +155,10 @@
     align-items: center;
     padding: 0 3rem;
     height: 4.5rem;
+  }
+
+  .nav-list .nav-logo {
+    display: block; 
   }
 
 
