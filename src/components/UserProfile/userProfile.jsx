@@ -39,7 +39,52 @@ function UserProfile({favorites, deleteFavorite, handleSearch, seeGame}){
                               <p className="fav-card__info">{favorite.rating}</p>
                               <p className="fav-card__info">{favorite.updated}</p>
                               <button onClick={() => deleteFavorite(favorite)} className="fav-card-delete__btn"><i className="material-icons">delete</i></button>
+                              
                           </div>
+
+                          <div className="section-result-platform-cont">
+                                        {favorite.parent_platforms?.map((plat, index,)  => {
+                                            const pc = plat.platform.name === "PC";
+                                            const ps = plat.platform.name === "PlayStation";
+                                            const xbox = plat.platform.name === "Xbox";
+                                            const nin = plat.platform.name === "Nintendo";
+                                            const ios = plat.platform.name === "iOS";
+
+                                            const formattedName = encodeURIComponent(favorite.name)
+                                           
+                                            return (
+        
+                                                   <>
+                                                        {pc && (
+                                                           <a href={`https://store.steampowered.com/search/?term=${formattedName}`} key={index} className="favs-plat__btn" target="_blank" rel="noopener noreferrer">
+                                                              <img src="/Content/logos/steam.png" alt="PC" />
+                                                          </a>
+                                                        )}
+                                                        {xbox && (
+                                                            <a href={`https://www.xbox.com/en-ca/Search/Results?q=${formattedName}`} key={index} className="favs-plat__btn" target="_blank" rel="noopener noreferrer">
+                                                            <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />
+                                                            </a>
+                                                        )}
+                                                        {ps && (
+                                                            <a href={`https://store.playstation.com/en-ca/search/${formattedName}`} key={index} className="favs-plat__btn" target="_blank" rel="noopener noreferrer">
+                                                            <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
+                                                            </a>
+                                                        )}
+                                                         {nin && (
+                                                            <a href={`https://www.nintendo.com/us/store/products/${favorite.name.toLowerCase()}-switch/`} key={index} className="favs-plat__btn" target="_blank" rel="noopener noreferrer">
+                                                            <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="nintendo" />
+                                                            </a>
+                                                        )}
+                                                          {ios && (
+                                                            <a href={`https://www.apple.com/ca/search/${formattedName}?src=globalnav`} key={index} className="favs-plat__btn" target="_blank" rel="noopener noreferrer">
+                                                            <img src="/Content/logos/ios_white.png" alt="ios" />
+                                                            </a>
+                                                        )}
+                                            
+                                                </>
+                                            );
+                                         })}
+                                   </div>
                         </a>
                         )
                   })}

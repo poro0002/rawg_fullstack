@@ -162,8 +162,8 @@
 
 
 .search-result__trailer{
-  width: 418.219px;
-  height: 236.984px;
+  width: 400px; 
+  height: 225px;
   border: 0.125rem solid var(--secondary-light);
   box-shadow: var(--white-box-shadow);
   margin-top: 2rem;
@@ -173,7 +173,7 @@
 
 .search-result-platform-cont{
   display: flex;
- 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -244,6 +244,10 @@
       width: 1024px; 
       height: 576px;
    }
+
+   .search-result-platform-cont{
+    flex-direction: row;
+   }
 }
 
 
@@ -251,6 +255,10 @@
 
   .search-result__trailer{
     
+ }
+
+ .search-result-platform-cont{
+  flex-direction: row;
  }
 
 
