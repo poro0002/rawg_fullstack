@@ -134,7 +134,7 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
                         } */}
 
                             <div className="search-result-platform-cont">
-                                        {storedResult.parent_platforms?.map((plat)  => {
+                                        {storedResult.parent_platforms?.map((plat, index)  => {
                                             const pc = plat.platform.name === "PC";
                                             const ps = plat.platform.name === "PlayStation";
                                             const xbox = plat.platform.name === "Xbox";
@@ -147,27 +147,27 @@ function SearchPage({handleFav, favorites, deleteFavorite}){
         
                                                    <>
                                                         {pc && (
-                                                           <a href={`https://store.steampowered.com/search/?term=${formattedName}`} className="store__btn" target="_blank" rel="noopener noreferrer">
+                                                           <a href={`https://store.steampowered.com/search/?term=${formattedName}`} key={index} className="store__btn" target="_blank" rel="noopener noreferrer">
                                                               Buy Now <img src="/Content/logos/steam.png" alt="PC" />
                                                           </a>
                                                         )}
                                                         {xbox && (
-                                                            <a href={`https://www.xbox.com/en-ca/Search/Results?q=${formattedName}`} className="store__btn" target="_blank" rel="noopener noreferrer">
+                                                            <a href={`https://www.xbox.com/en-ca/Search/Results?q=${formattedName}`} key={index} className="store__btn" target="_blank" rel="noopener noreferrer">
                                                             Buy Now <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />
                                                             </a>
                                                         )}
                                                         {ps && (
-                                                            <a href={`https://store.playstation.com/en-ca/search/${formattedName}`} className="store__btn" target="_blank" rel="noopener noreferrer">
+                                                            <a href={`https://store.playstation.com/en-ca/search/${formattedName}`} key={index} className="store__btn" target="_blank" rel="noopener noreferrer">
                                                             Buy Now <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />
                                                             </a>
                                                         )}
                                                          {nin && (
-                                                            <a href={`https://www.nintendo.com/us/store/products/${storedResult.name.toLowerCase()}-switch/`} className="store__btn" target="_blank" rel="noopener noreferrer">
+                                                            <a href={`https://www.nintendo.com/us/store/products/${storedResult.name.toLowerCase()}-switch/`} key={index} className="store__btn" target="_blank" rel="noopener noreferrer">
                                                             Buy Now <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="nintendo" />
                                                             </a>
                                                         )}
                                                           {ios && (
-                                                            <a href={`https://www.apple.com/ca/search/${formattedName}?src=globalnav`} className="store__btn" target="_blank" rel="noopener noreferrer">
+                                                            <a href={`https://www.apple.com/ca/search/${formattedName}?src=globalnav`} key={index} className="store__btn" target="_blank" rel="noopener noreferrer">
                                                             Buy Now <img src="/Content/logos/ios_white.png" alt="ios" />
                                                             </a>
                                                         )}

@@ -36,7 +36,7 @@ section {
 .section__div {
   position: relative;
   margin-bottom: 3rem;
-  width: 22rem;
+  width: 20rem;
   box-shadow: var(--black-box-shadow);
   
 }

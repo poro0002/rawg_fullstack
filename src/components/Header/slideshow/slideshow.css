@@ -181,6 +181,25 @@
     width: 1rem;
 }
 
+.page-button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-button:hover,
+.page-button:focus{
+    cursor: pointer;
+  
+}
+
+.page-button.active{
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
+
 @media only screen and (min-width: 45em){
     .slide-header {
        

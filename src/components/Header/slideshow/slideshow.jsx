@@ -13,6 +13,8 @@ import Footer from '../../Footer/footer'
         
         
         const [cards, setCards] = useState([]);
+        const [currentPage, setCurrentPage] = useState(1);
+        const [itemsPerPage] = useState(100);
 
          // Determine base URL based on environment
          const baseURL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
@@ -116,6 +118,16 @@ import Footer from '../../Footer/footer'
          const isFavorite = (cardId) => {
              return favorites.some(favorite => favorite.id === cardId);
             };
+
+   // Pagination calcs
+            const indexOfLastItem = currentPage * itemsPerPage; // multiplying the current page number by the number of items per page.
+            const indexOfFirstItem = indexOfLastItem - itemsPerPage; // opposite to indexofLastItem
+            const currentItems = cards.slice(indexOfFirstItem, indexOfLastItem); // just gives you the items on the current page
+
+    // Change page
+       const paginate = (pageNumber) => setCurrentPage(pageNumber); // sets what page you're on
+
+       const totalPages = Math.ceil(cards.length / itemsPerPage); // dividing the total number of items (cards.length) by the number of items per page
             
         return (
            //  we then, map through the objects that are in that cards variable after the promises are done and build a template with the data for each one then export 
@@ -126,7 +138,7 @@ import Footer from '../../Footer/footer'
             </video>
         
                     <header className='slide-header'>
-                        {cards.map(card => (
+                        {currentItems.map(card => (
                            <a className="card" onClick={async () => {
                             await handleSearch(card.name); // Wait for handleSearch to finish before redirecting
                             seeGame(card);
@@ -186,6 +198,21 @@ import Footer from '../../Footer/footer'
                            
                         ))}
                     </header>
+
+                      {/* Pagination stuff */}
+                          <div className="pagination">
+                               {/* creates an array from the total pages variable and maps through it, also, (_) parameter means the parameter is not used*/}
+                                {[...Array(totalPages)].map((_, index) => (
+                                 <button
+                                     key={index + 1}
+                                     onClick={() => paginate(index + 1)} // Change to the page number when the button is clicked
+                                     className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+                                >
+                                        {index + 1}    {/* display the page number starting at 1 */}
+                                    </button>
+                                ))}
+                         </div>
+
                     <a className="section-totop__btn" href="#"><i className="material-icons">keyboard_arrow_up</i>To Top</a>
                 <Footer></Footer>
             </>

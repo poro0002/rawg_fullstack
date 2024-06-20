@@ -69,7 +69,7 @@ app.get('/api/games', async (req, res) => {
    if(type === 'slideshowHeader'){
    try {
      // Make a request to the API server
-     const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=100`);
+     const response = await fetch(`https://api.rawg.io/api/games?key=${api_key2}&page_size=40`);
    
      if (!response.ok) {
        throw new Error('Failed to fetch data from API');
