@@ -17,12 +17,6 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-// import https from 'https';
-
-
-// import expressStaticGzip from 'express-static-gzip';
-
-
 
 dotenv.config();
 

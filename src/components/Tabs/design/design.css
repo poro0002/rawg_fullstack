@@ -483,6 +483,7 @@
  .api__screenshots{
     display: grid;
     grid-template-columns: 1fr;
+   
  }
 
  .api-screenshot__img{
@@ -509,11 +510,12 @@
 
     .api__screenshots{
         grid-template-columns: 1fr 1fr;
+        
     }
    
     .api-screenshot__img{
         width: 30rem;
-       
+        
     }
 
 }
@@ -521,16 +523,7 @@
 
 @media screen and (min-width: 100em) {
 
-    .api__screenshots{
-        grid-template-columns: 1fr 1fr 1fr;
-       
-    }
    
-    .api-screenshot__img {
-        width: 50rem;
-        margin: 2rem;
-      }
-
 
     }
 

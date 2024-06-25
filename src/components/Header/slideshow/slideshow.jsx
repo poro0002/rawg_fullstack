@@ -10,6 +10,9 @@ import Footer from '../../Footer/footer'
 
     function SlideshowHeader({handleFav, deleteFavorite, seeGame, favorites, handleSearch}){
         // console.log('handleFav prop:', handleFav);
+
+        const [selectedPlatform, setSelectedPlatform] = useState('');
+        const [selectedRating, setSelectedRating] = useState('');
         
         
         const [cards, setCards] = useState([]);
@@ -128,6 +131,21 @@ import Footer from '../../Footer/footer'
        const paginate = (pageNumber) => setCurrentPage(pageNumber); // sets what page you're on
 
        const totalPages = Math.ceil(cards.length / itemsPerPage); // dividing the total number of items (cards.length) by the number of items per page
+
+
+       const handlePlatformChange = (e) => {
+        setSelectedPlatform(e.target.value);
+    };
+
+    const handleRatingChange = (e) => {
+        setSelectedRating(e.target.value);
+    };
+
+    const filteredCards = cards.filter(card => {
+        const matchesPlatform = selectedPlatform ? card.parent_platforms.some(plat => plat.platform.name.toLowerCase() === selectedPlatform.toLowerCase()) : true;
+        const matchesRating = selectedRating ? card.rating >= selectedRating : true;
+        return matchesPlatform && matchesRating;
+    });
             
         return (
            //  we then, map through the objects that are in that cards variable after the promises are done and build a template with the data for each one then export 
@@ -136,9 +154,31 @@ import Footer from '../../Footer/footer'
                <source src="/Content/smoke1.mov" type="video/mp4" />
           
             </video>
+                      
+            <div className="game-filter">
+                <div className="filter-item">
+                    <select name="platform" id="platform" value={selectedPlatform} onChange={handlePlatformChange}>
+                        <option value="">All Platforms</option>
+                        <option value="pc">PC</option>
+                        <option value="playstation">PlayStation</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="nintendo">Nintendo</option>
+                        <option value="iOS">iOS</option>
+                    </select>
+                </div>
+                <div className="filter-item">
+                    <select name="rating" id="rating" value={selectedRating} onChange={handleRatingChange}>
+                        <option value="">All Ratings</option>
+                        <option value="4">4+</option>
+                        <option value="3">3+</option>
+                        <option value="2">2+</option>
+                        <option value="1">1+</option>
+                    </select>
+                </div>
+            </div>
         
                     <header className='slide-header'>
-                        {currentItems.map(card => (
+                        {filteredCards.map(card => (
                            <a className="card" onClick={async () => {
                             await handleSearch(card.name); // Wait for handleSearch to finish before redirecting
                             seeGame(card);
@@ -180,6 +220,7 @@ import Footer from '../../Footer/footer'
                                             const ps = plat.platform.name === "PlayStation";
                                             const xbox = plat.platform.name === "Xbox";
                                             const nin = plat.platform.name === "Nintendo";
+                                            const ios = plat.platform.name === "iOS";
 
                                             return (
                                                 <div className="cards-info-platform-cont__logos" key={index}>
@@ -187,6 +228,7 @@ import Footer from '../../Footer/footer'
                                                     {ps && <img src="/Content/logos/playstation-logo_icon-icons.com_57094.png" alt="PlayStation" />}
                                                  {xbox && <img src="/Content/logos/xbox_logo_icon_206631.png" alt="Xbox" />}
                                                     {nin && <img src="/Content/logos/nintendo_logo_icon_145030.png" alt="Nintendo" />}
+                                                 {ios && <img src="/Content/logos/ios_white.png" alt="ios" />}
                                                </div>
                                             );
                                          })}

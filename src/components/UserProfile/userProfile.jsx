@@ -23,7 +23,10 @@ function UserProfile({favorites, deleteFavorite, handleSearch, seeGame}){
           </video>
       
       <div className="container">
-          
+                <div className="profile-picture">
+                  <i className="material-icons user-profile-person">person</i>
+                </div>
+                
                 <h3 className="userName">{user.username}</h3>
                 <h3 className="fullName">{user.fullName}</h3>
                 <h3 className="email">{user.email}</h3>
