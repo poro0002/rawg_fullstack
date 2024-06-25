@@ -17,17 +17,39 @@
 
     position: relative;
     z-index: 1;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     display: grid;
     place-items:center;
     gap: 2rem;
-    padding-top: 5rem;
+    padding-top: 2rem;
   
     justify-content: center; /* Center horizontally */
     align-items: center;
     
    
 }
+
+.game-filter{
+    padding-top: 3rem;
+    display: flex;
+}
+
+.filter-item{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+
+ 
+  
+}
+
+#rating, #platform{
+    background-color: transparent;
+    color: white;
+    border: 0.125rem solid var(--secondary-color);
+    padding: 0.2rem 0.5rem;
+}
+
 
 
 .slideshow-img{
