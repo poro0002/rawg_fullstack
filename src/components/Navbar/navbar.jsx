@@ -86,6 +86,9 @@ function NavBar({ handleLogout, setResults, setSearchVal, searchVal, handleSearc
                 <li className={`nav-item ${activeLink === '/design' ? 'active' : '' }`}>
                     <Link to='/design' onClick={() => handleClick('design')} >DESIGN</Link>
                 </li>
+                <li className={`nav-item ${activeLink === '/about' ? 'active' : '' }`}>
+                    <Link to='/about' onClick={() => handleClick('about')} >ABOUT</Link>
+                </li>
                 <li className={`nav-item ${activeLink === '/browse' ? 'active' : '' }`}>
                     <Link to='/browse' onClick={() => handleClick('browse')} >BROWSE</Link>
                 </li>
