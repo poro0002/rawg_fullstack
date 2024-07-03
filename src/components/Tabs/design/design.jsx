@@ -395,6 +395,29 @@ function DesignPage(props){
 
    {/* ---------------------------------< API INFO >---------------------------------------- */}
 
+   <div className="api-cont">
+
+            <h3 className="api_title color__title">-WireFrames-</h3>
+               <h3 className="api-title color__sub">Design</h3>
+             <p className="color-sub_info">Wireframes provide a clear and simplified visual representation of a design, focusing on layout and functionality without the distraction of colors, fonts, or images. This helps in understanding the basic structure and flow of a design. Below is my early brainstorming sketches. </p>
+
+
+         <div className="wireframe__screenshots">
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/home.jpg" alt="" />
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/design-1.jpg" alt="" />
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/design-2.jpg" alt="" />
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/design-3.jpg" alt="" />
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/browse.jpg" alt="" />
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/searched.jpg" alt="" />
+            <img className="wireframe-screenshot__img" src="/Content/wireframes-rawg/user-profile.jpg" alt="" />
+      
+         </div>
+            
+         
+      </div>
+
+  
+
       <div className="api-cont">
 
       <img src="public/Content/rawg.png" alt="" className="api__logo" />
