@@ -16,9 +16,10 @@
   
 
 h1{
-    font-size: var(--xlg);
+    font-size: var(--xxlg);
     margin-bottom: 3rem;
     margin-top: 3rem;
+    font-style: italic;
 }
 
 h2{
@@ -30,6 +31,10 @@ h3{
     margin-top: 3rem;
     font-style: italic;
     color: var(--off-white);
+}
+
+.h3-alt{
+   margin-top: 0;
 }
 
 

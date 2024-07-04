@@ -107,7 +107,7 @@ function AboutPage(props){
 
         <section class="challenges">
             <h2>Challenges</h2>
-            <h3>- Cross-Origin API Issue -</h3>
+            <h3 className="h3-alt">- Cross-Origin API Issue -</h3>
             <p>Encountering cross-origin issues with multiple APIs posed a significant obstacle in the development process. These APIs restricted the interception of frontend requests by the service worker due to cross-origin errors. To address this challenge, I implemented a solution by establishing a server-side endpoint using Express.js.</p>
             <p>The solution involved a client making a request to the server endpoint, which then executed a fetch operation via Node-fetch. Acting as a proxy route, the server endpoint retrieved the required API data and transmitted it back to the client. Crucially, this response was intercepted by the service worker, enabling the data to be cached before being forwarded to the client for display.</p>
             <p>Implementing this solution not only resolved the immediate issue but also provided valuable insights into managing service workers within a large-scale project. By selectively intercepting specific URLs and optimizing functionality, I ensured a streamlined and efficient codebase. This experience underscored the importance of adaptability and innovative problem-solving in overcoming complex technical challenges.</p>
@@ -131,7 +131,7 @@ function AboutPage(props){
 
         <section class="personal-value">
             <h2>Personal Value</h2>
-            <h3>- Problem Solving Abilities -</h3>
+            <h3 className="h3-alt">- Problem Solving Abilities -</h3>
             <p>Navigating complex code bases and solving intricate problems requires a systematic and methodical approach, qualities that I prioritize in my development process. I adhere to a disciplined methodology, characterized by clear, concise thinking and meticulous planning. Utilizing my notebook as an extension of my cognitive toolkit, I break down challenges into manageable segments, facilitating a comprehensive understanding of the task at hand.</p>
             <p>In my view, programming transcends mere coding; it is predominantly a process of thoughtful planning and strategic analysis. Recognizing this, I allocate substantial time off-screen, dedicating myself to meticulous planning and problem deconstruction. This preparatory phase is indispensable, particularly in the context of large-scale projects where code contributions vary in style and complexity.</p>
             <p>By investing in thorough problem-solving methodologies, I ensure that each challenge is approached with precision and pragmatism. This proactive approach not only enhances my efficiency but also fosters collaborative synergy within development teams. As I continue to refine my problem-solving techniques, I remain committed to delivering innovative and effective solutions in all my endeavors.</p>

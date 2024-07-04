@@ -420,7 +420,7 @@ function DesignPage(props){
 
       <div className="api-cont">
 
-      <img src="public/Content/rawg.png" alt="" className="api__logo" />
+      <img src="/Content/rawg.png" alt="" className="api__logo" />
            
             <h3 className="api_title color__title">-RAWG-</h3>
                <h3 className="api-title color__sub">API</h3>

@@ -268,6 +268,11 @@ function logSubmit(e){
     return (
         <>
 
+<video autoPlay loop muted className="background-video">
+              <source src="/Content/smoke1.mov" type="video/mp4" />
+            
+          </video>
+
      {regFormOpen && (
         <form className="reg-form " action="submit" onSubmit = {regSubmit}>
             <div className="form-grid">
