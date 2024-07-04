@@ -78,7 +78,7 @@ html {
   line-height: 1.5;
   font-family: var(--font-stack);
   font-size: 1.2rem;
-  
+  scroll-behavior: smooth;
 }
 
 html:focus-within {

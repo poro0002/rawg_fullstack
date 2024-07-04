@@ -26,6 +26,25 @@
     align-items: center;
   }
 
+  h3{
+    margin: 1rem;
+  }
+
+  .userName{
+    font-style: normal;
+    font-size: var(--lg);
+  }
+
+
+  .fullName{
+    font-size: var(--md);
+  }
+
+  .email{
+    font-size: var(--md);
+  }
+
+
 
   
   .container--text {
