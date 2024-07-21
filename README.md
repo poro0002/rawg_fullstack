@@ -1,5 +1,8 @@
 # Efficient User Experience: A Full-Stack React Project
 
+![Alt Text](public/Content/rawg.png)
+
+
 ## Introduction
 
 Welcome to the **Efficient User Experience** project! I’m Kieran Poropat, a self-taught Full-Stack Developer with a passion for programming, engineering, and artistic design. This project showcases my expertise in creating a web platform designed to offer a seamless and personalized user experience. By integrating both front-end and back-end technologies, I have developed a fully functional Progressive Web Application (PWA) that emphasizes efficiency and user engagement.
