@@ -15,10 +15,10 @@
 
 
   .design-page-cont{
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center
+    align-items: center */
     
   }
 
@@ -86,10 +86,11 @@
    width: 15rem;
    height: 3rem;
    margin-bottom: 1rem;
+
 }
 
 .color-box-gradient{
-    width: 22em;
+    width: 18em;
     height: 3rem;
     margin-bottom: 1rem;
     
@@ -122,8 +123,8 @@
 .color-box__cont{
    display: flex;
    flex-direction: column;
-   justify-content: flex-start; 
-   align-items: flex-start;
+   justify-content: center; 
+   align-items: center;
    margin-bottom: 3rem; 
 }
 
@@ -197,7 +198,13 @@
     }
 
     .color-gradient__cont{
-     
+    
+  
+    }
+
+    .color-box__cont{
+        justify-content: flex-start; 
+        align-items: flex-start;
     }
 
 
@@ -221,6 +228,18 @@
     .colors-cont{
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+    .color-gradient__cont{
+    
+      
+       
+}
+
+.color-box__cont{
+    justify-content: flex-start; 
+    align-items: flex-start;
+}
+
 
     .color-box {
 

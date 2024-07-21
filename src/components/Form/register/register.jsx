@@ -96,7 +96,7 @@ function regSubmit(e){
                 { condition: value => /[a-z]/.test(value), message: () => setErrorMsg("Password must contain at least one lowercase letter.") },
                 { condition: value => /[A-Z]/.test(value), message: () => setErrorMsg("Password must contain at least one uppercase letter.") },
                 { condition: value => /\d/.test(value), message: () => setErrorMsg("Password must contain at least one digit.") },
-                { condition: value => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value), message: () => setErrorMsg("Password must contain at least one of the symbols.") },
+                { condition: value => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value), message: () => setErrorMsg("Password must contain at least one symbol.") },
             ]
         },
         {
@@ -253,7 +253,7 @@ function logSubmit(e){
          
             
             
-         }else if(data.error === 'there was an issues trying to login'){
+         }else if(data.error === 'there was an issue trying to login'){
             setErrorMsg(data.error)
          }
      
@@ -332,7 +332,7 @@ function logSubmit(e){
                                 <Input 
                                 name='pass'
                                 label='Password'
-                                type="text"
+                                type="password"
                                 required
                                 autofocus
                                 value={formData.pass}
@@ -347,7 +347,7 @@ function logSubmit(e){
                                 <Input 
                                     label='Confirm Password'
                                     name='confirm'
-                                    type="text"
+                                    type="password"
                                     required
                                     autofocus
                                     value={formData.confirm}
@@ -429,7 +429,7 @@ function logSubmit(e){
                             <Input 
                             name='pass'
                             label='Password'
-                            type="text"
+                            type="password"
                             required
                             autofocus
                             value={logData.pass}

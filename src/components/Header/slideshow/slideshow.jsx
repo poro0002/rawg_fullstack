@@ -191,7 +191,7 @@ import Footer from '../../Footer/footer'
                                     muted
                                     loop
                                     playsInline
-                                    controls={false} // Hiding the controls
+                                    controls={false} 
                                 />
                                 ) : (
                                     <img

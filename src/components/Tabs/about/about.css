@@ -7,6 +7,13 @@
     margin-top: 5rem ;
 }
 
+.about-page-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
 
 @media only screen and (min-width: 100em) {
     .about-page {
