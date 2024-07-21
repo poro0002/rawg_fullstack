@@ -6,7 +6,7 @@ import Footer from '../../Footer/footer'
 function AboutPage(props){
    return(
 <>
-    <div className="design-page-cont">
+    <div className="about-page-cont">
       
            <video autoPlay loop muted className="background-video">
               <source src="/Content/smoke1.mov" type="video/mp4" />

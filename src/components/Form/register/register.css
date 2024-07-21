@@ -40,4 +40,8 @@ form{
   }
 
 
-
+.alt-text a:hover,
+.alt-text a:focus{
+    cursor: pointer;
+    color: var(--primary-color)
+}
