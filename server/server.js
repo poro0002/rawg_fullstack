@@ -26,6 +26,8 @@ const port = process.env.PORT;
 const api_key = process.env.API_KEY;
 const api_key2 = process.env.API_KEY2;
 const yt_api_key = process.env.YT_API_KEY;
+const HEROKU_API_KEY = process.env.HEROKU_API_KEY;      // <--- added here
+const HEROKU_APP_ID = process.env.HEROKU_APP_ID;  
 
 const allowedOrigins = ['http://localhost:5173', 'https://rawg-full-stack-1b6c62e47ae9.herokuapp.com'];
 
@@ -56,7 +58,7 @@ mongoose.connect(uri)
 
 // ----------- RAWG PROXY FETCH --------------
 
-k
+
 
 
 // ----------- WIKI PROXY FETCH --------------
@@ -135,8 +137,7 @@ app.post('/api/youtube', async (req, res) => {
 
 // ----------------------------< HEROKU >---------------------------------------
 
-const HEROKU_APP_ID = 'rawg-full-stack';
-const HEROKU_API_KEY = '***REMOVED-HEROKU-API-KEY***';
+
 
 
  // In Node.js, __filename is a global variable that represents the filename of the code being 
