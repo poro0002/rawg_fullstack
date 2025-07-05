@@ -46,9 +46,10 @@ self.addEventListener('fetch', (e) => {
                 .then(response => {
                     const clonedResponse = response.clone();
                     return caches.open('dynamic').then(cache => {
-                        cache.put(e.request, clonedResponse);
+                        cache.put(e.request, clonedResponse); // so it stores the e.request in cache then sends the cloned response forward to the front end
                         console.log('Updated dynamic cache');
-                        return response; // return it back to the browser so the data can be seen for the client
+                        return response; // response becomes the cloned response, return it back to the browser so the data can be seen for the client
+                        // so the cloned response gets pushed forward after the put method and becomes the "data" variable parameter in the parent then statement
                     });
                 })
                 .catch(error => {

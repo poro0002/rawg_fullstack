@@ -17,7 +17,7 @@ const [regFormOpen, setRegFormOpen ] = useState(false);
 
 // e.target is an object that holds the properties of the corresponding event
 // this will store objects of input value information from the form
-// e.target can be so it/deconstructed into two variables. name will be the name properly of the corresponding input
+// e.target can be so it/deconstructed into two variables. name will be the name property of the corresponding input
 // value will be the value of the the input
 function onChange(e){
    const {name, value} = e.target;
@@ -71,7 +71,7 @@ function toggleForm() {
 // -------------------------------------------------------------------< REG SUBMIT >
 
 // here we will check to see if the account credentials are valid in each input. RULES
-// if it all checks out we will create a JWT token for the user and store their account  info in the database
+// if it all checks out we will create a JWT token for the user and store their account info in the database
 function regSubmit(e){
    e.preventDefault();
    let newUrl = regFormOpen ? 'register' : 'login';
@@ -235,6 +235,7 @@ function logSubmit(e){
 
         return res.json()
     })
+    
     .then(data => {
         
         console.log(data)
